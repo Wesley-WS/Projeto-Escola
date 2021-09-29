@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Profile</title>
+<title>Alunos</title>
 </head>
 <body>
 

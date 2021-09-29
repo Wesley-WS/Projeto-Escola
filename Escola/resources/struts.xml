@@ -7,13 +7,12 @@
 	<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
 	
 	<package name="default" extends="struts-default" namespace="/">
-		<action name="login" class="br.com.ebix.escola.action.LoginAction">
-			<result name="success">profile.jsp</result>
-			<result name="error">login.jsp</result>
-		</action>
-		
 		<action name="home" class="br.com.ebix.escola.action.HomeAction">
 			<result name="success">index.jsp</result>
+		</action>
+		
+		<action name="alunos" class="br.com.ebix.escola.action.AlunosAction">
+			<result name="success">alunos.jsp</result>
 		</action>
 	</package>
 </struts>
