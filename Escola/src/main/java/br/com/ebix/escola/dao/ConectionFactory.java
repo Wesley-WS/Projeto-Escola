@@ -12,7 +12,7 @@ public class ConectionFactory {
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}// Faltando alterar as portas do banco
 			return DriverManager.getConnection("jdbc:mysql://localhost/escola?useSSL=false", "root", "uut3E26MPmxRQNd4");
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
