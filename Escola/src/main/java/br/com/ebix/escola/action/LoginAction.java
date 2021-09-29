@@ -1,8 +1,8 @@
 package br.com.ebix.escola.action;
 
 public class LoginAction {
-	private String username;
-	private String password;
+	private String username = "";
+	private String password = "";
 
 	public String execute() {
 		if (this.username.equals("admin") && this.password.equals("admin123")) {
