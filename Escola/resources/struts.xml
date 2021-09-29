@@ -11,6 +11,7 @@
 			<result name="success">profile.jsp</result>
 			<result name="error">login.jsp</result>
 		</action>
+		
 		<action name="home" class="br.com.ebix.escola.action.HomeAction">
 			<result name="success">index.jsp</result>
 		</action>
