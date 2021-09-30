@@ -1,8 +1,10 @@
 package br.com.ebix.escola.dao;
 
-import br.com.ebix.escola.model.Aluno;
-import br.com.ebix.escola.model.Crud;
+import java.sql.ResultSet;
 
-public interface AlunoDao extends Crud<Aluno> {
-	
+import br.com.ebix.escola.model.Aluno;
+import br.com.ebix.escola.model.InterfaceBasica;
+
+public interface AlunoDao extends InterfaceBasica<Aluno> {
+	ResultSet getAll();
 }

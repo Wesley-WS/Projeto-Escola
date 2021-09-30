@@ -19,25 +19,29 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 	}
 
 	@Override
-	public List<Aluno> getAll() {
-		List<Aluno> alunos = new ArrayList<Aluno>();
+	public ResultSet getAll() {
+		// List<Aluno> alunos = new ArrayList<Aluno>();
+		ResultSet resultado = null;
 		try {
 			String sql = "SELECT * FROM escola.alunos ";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ResultSet resultado = ps.executeQuery();
-			while(resultado.next()) {
+			resultado = ps.executeQuery();
+			/*while(resultado.next()) {
 				Aluno aluno = new Aluno();
+				aluno.setCod_aluno(resultado.getInt("cod_aluno"));
 				aluno.setNome(resultado.getString("nome"));
-				aluno.setCod_aluno(resultado.getInt("cod_aluno"));;
+				aluno.setCpf(resultado.getString("cpf"));
+				aluno.setDataNascimento(resultado.getDate("dataNascimento"));
+				aluno.setEmail(resultado.getString("email"));
 				alunos.add(aluno);
-			}
+			}*/
 			ps.close();
-			resultado.close();
-			return alunos;
+			
+			return resultado;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return alunos;
+			return resultado;
 		}
 	}
 
