@@ -1,38 +1,38 @@
-package br.com.ebix.escola.facade;
+package br.com.ebix.escola.dao;
 
 import java.util.List;
 import java.util.Optional;
 
-import br.com.ebix.escola.model.Aluno;
+import br.com.ebix.escola.model.Materia;
 
-public class AlunoFacadeImpl implements AlunoFacade {
+public class MateriaDaoImpl extends ConnectionFactory implements MateriaDao {
 
 	@Override
-	public Optional<Aluno> get(int id) {
+	public Optional<Materia> get(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Aluno> getAll() {
+	public List<Materia> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void add(Aluno t) {
+	public void add(Materia t) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void update(Aluno t) {
+	public void update(Materia t) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void delete(Aluno t) {
+	public void delete(Materia t) {
 		// TODO Auto-generated method stub
 		
 	}
