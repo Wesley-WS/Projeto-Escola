@@ -1,5 +1,6 @@
 package br.com.ebix.escola.dao;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,7 +22,7 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 	public List<Aluno> getAll() {
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		try {
-			String sql = "Select * from escola.alunos ";
+			String sql = "SELECT * FROM escola.alunos ";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ResultSet resultado = ps.executeQuery();
 			while(resultado.next()) {
@@ -42,11 +43,19 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 
 	@Override
 	public void add(Aluno t) {
-		/*try {
+		try {
+			String sql = "INSERT INTO escola.alunos (nome, cpf, dataNascimento, email) VALUES(?, ?, ?, ?)";
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, t.getNome());
+			ps.setString(2, t.getCpf());
+			ps.setDate(3, new Date(t.getDataNascimento().getTimeInMillis())); //Ta certo isso?
+			ps.setString(4, t.getEmail());
+			ps.execute();
+			ps.close();
 			
-		} catch(SQLException e) {
+		}catch(SQLException e) {
 			e.printStackTrace();
-		}*/
+		}
 	}
 
 	@Override
@@ -57,6 +66,15 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 
 	@Override
 	public void delete(Aluno t) {
-		
+		try {
+			String sql = "DELETE FROM escola.alunos WHERE cod_aluno=?";
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setLong(1, t.getCod_aluno());
+			ps.execute();
+			ps.close();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
