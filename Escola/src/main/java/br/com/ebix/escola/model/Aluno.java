@@ -10,7 +10,6 @@ public class Aluno {
 	private Calendar dataNascimento;
 
 	public Aluno() {
-
 	}
 
 	public Aluno(String nome) {
