@@ -3,6 +3,7 @@ package br.com.ebix.escola.action;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -20,9 +21,7 @@ public class AlunosAction extends ActionSupport implements ModelDriven<Object> {
 	
 	private Aluno aluno = new Aluno();
 	private List<Aluno> alunos = new ArrayList<Aluno>();
-	
-	
-	
+
 	public String listar() {
 		Connection connection = new ConectionFactory().getConnection();
 		AlunoDao alunoDao = new AlunoDao(connection);

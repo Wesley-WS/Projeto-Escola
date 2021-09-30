@@ -8,12 +8,12 @@ public class ConectionFactory {
 	public Connection getConnection(){
 		try {
 			try {
-				Class.forName("com.mysql.jdbc.Driver");
+				Class.forName("com.mysql.cj.jdbc.Driver");
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}// Faltando alterar as portas do banco
-			return DriverManager.getConnection("jdbc:mysql://localhost/escola?useSSL=false", "root", "uut3E26MPmxRQNd4");
+			return DriverManager.getConnection("jdbc:mysql://localhost:3307/escola?useSSL=false", "root", "uut3E26MPmxRQNd4");
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
