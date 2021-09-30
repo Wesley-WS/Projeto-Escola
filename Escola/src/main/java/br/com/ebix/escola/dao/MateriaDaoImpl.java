@@ -1,5 +1,6 @@
 package br.com.ebix.escola.dao;
 
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +15,7 @@ public class MateriaDaoImpl extends ConnectionFactory implements MateriaDao {
 	}
 
 	@Override
-	public List<Materia> getAll() {
+	public ResultSet getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
