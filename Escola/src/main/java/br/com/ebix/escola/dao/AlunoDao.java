@@ -1,54 +1,45 @@
 package br.com.ebix.escola.dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+
+import br.com.ebix.escola.model.Aluno;
 
 public class AlunoDao {
-	public void adiciona() {
-		try{
-			String sql = "INSERT INTO contato (nome, endereco, email, dataNascimento) VALUES (?, ?, ?, ?)";
-			PreparedStatement ps = connection.prepareStatement(sql);
-			ps.setString(1, contato.getNome());
-			ps.setString(2, contato.getEndereco());
-			ps.setString(3, contato.getEmail());
-			Date data = new Date(0);
-			data.setTime(contato.getDataNascimento().getTimeInMillis());
-			ps.setDate(4,data ,contato.getDataNascimento());
-			ps.execute();
-			ps.close();
-		} catch (SQLException e) {
-			System.out.println("Erro ao acessar o banco");
-			e.printStackTrace();
-		}
+	private	Connection	connection;
+	
+	public	AlunoDao(Connection	connection) {
+			this.connection	=	connection;
 	}
 	
-	public List<Contato> obterAlunos() {
-		List<Contato> contatos = new ArrayList<Contato>();
+	public void adiciona() {
+	}
+	
+	public List<Aluno> obterAlunos() {
+		List<Aluno> alunos = new ArrayList<Aluno>();
 		try {
-			String	sql	=	"Select * from teste.contato ";
+			String	sql	=	"Select * from escola.alunos ";
 			PreparedStatement	ps	=  connection.prepareStatement(sql);
 			ResultSet resultado = ps.executeQuery();
 			while(resultado.next()) {
-				Contato contato = new Contato();
-				contato.setNome(resultado.getString("nome"));
-				contato.setEndereco(resultado.getString("endereco"));;
-				contato.setEmail(resultado.getString("email"));
-				Date date = resultado.getDate("dataNascimento");
-				Calendar dataNascimento = Calendar.getInstance();
-				dataNascimento.setTime(date);
-				contato.setDataNascimento(dataNascimento);
-				contatos.add(contato);
+				Aluno aluno = new Aluno();
+				aluno.setNome(resultado.getString("nome"));
+				aluno.setCod_aluno(resultado.getInt("cod_aluno"));;
+				aluno.setCod_materia(resultado.getInt("cod_materia"));
+				alunos.add(aluno);
 			}
 			ps.close();
 			resultado.close();
-			return contatos;
+			return alunos;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return contatos;
+			return alunos;
 		}
 		
 	}
