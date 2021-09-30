@@ -24,7 +24,7 @@ public class AlunosAction extends ActionSupport implements ModelDriven<Object> {
 	public String listar() {
 		Connection connection = new ConectionFactory().getConnection();
 		AlunoDao alunoDao = new AlunoDao(connection);
-		alunos = alunoDao.obterAlunos();
+		alunos = alunoDao.getAll();
 		return "success";
 	}
 	

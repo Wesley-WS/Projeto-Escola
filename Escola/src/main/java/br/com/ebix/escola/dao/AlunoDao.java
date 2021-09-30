@@ -7,20 +7,33 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
 
 import br.com.ebix.escola.model.Aluno;
 
-public class AlunoDao {
+public class AlunoDao implements Dao<Aluno>{
 	private	Connection	connection;
 	
 	public	AlunoDao(Connection	connection) {
 			this.connection	=	connection;
 	}
 	
-	public void adiciona() {
+	/*public void adiciona() {
 	}
 	
 	public List<Aluno> obterAlunos() {
+		
+		
+	}*/
+
+	@Override
+	public Optional<Aluno> get(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Aluno> getAll() {
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		try {
 			String	sql	=	"Select * from escola.alunos ";
@@ -41,6 +54,23 @@ public class AlunoDao {
 			e.printStackTrace();
 			return alunos;
 		}
+	}
+
+	@Override
+	public void add(Aluno t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Aluno t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Aluno t) {
+		// TODO Auto-generated method stub
 		
 	}
 }
