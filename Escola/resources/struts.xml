@@ -11,7 +11,7 @@
 			<result name="success">index.jsp</result>
 		</action>
 		
-		<action name="alunos" class="br.com.ebix.escola.action.AlunosAction">
+		<action name="alunos" class="br.com.ebix.escola.action.AlunosAction" method="listar">
 			<result name="success">alunos.jsp</result>
 		</action>
 		
