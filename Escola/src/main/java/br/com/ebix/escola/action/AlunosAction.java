@@ -8,7 +8,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import br.com.ebix.escola.dao.AlunoDaoImpl;
 import br.com.ebix.escola.model.Aluno;
 
-public class AlunosAction extends ActionSupport implements ModelDriven<Object> {
+public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>*/ {
 	
 	/**
 	 * 
@@ -38,8 +38,8 @@ public class AlunosAction extends ActionSupport implements ModelDriven<Object> {
 		return "success";
 	}
 	
-	@Override
+	/*@Override
 	public Object getModel() {
 		return (alunos == null) ? aluno : alunos;
-	}
+	}*/
 }
