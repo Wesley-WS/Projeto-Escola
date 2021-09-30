@@ -28,7 +28,10 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 			while(resultado.next()) {
 				Aluno aluno = new Aluno();
 				aluno.setNome(resultado.getString("nome"));
-				aluno.setCod_aluno(resultado.getInt("cod_aluno"));;
+				aluno.setCod_aluno(resultado.getInt("cod_aluno"));
+				aluno.setCpf(resultado.getString("cpf"));
+				aluno.setDataNascimento(resultado.getDate("dataNascimento"));
+				aluno.setEmail(resultado.getString("email"));
 				alunos.add(aluno);
 			}
 			ps.close();
