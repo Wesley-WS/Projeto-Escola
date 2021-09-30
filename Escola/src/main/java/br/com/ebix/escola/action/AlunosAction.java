@@ -19,6 +19,7 @@ public class AlunosAction extends ActionSupport implements ModelDriven<Object> {
 	private List<Aluno> alunos = new ArrayList<Aluno>();
 	
 	public String listar() {
+		
 		// alunos = alunoDao.obterAlunos();
 		return "success";
 	}
