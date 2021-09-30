@@ -1,17 +1,20 @@
 package br.com.ebix.escola.model;
 
+import java.util.Calendar;
+
 public class Aluno {
 	private long cod_aluno;
 	private String nome;
-	private long cod_materia;
-	
+	private String cpf;
+	private String email;
+	private Calendar dataNascimento;
+
 	public Aluno() {
-		
+
 	}
-	
-	public Aluno(String nome, long cod_materia) {
+
+	public Aluno(String nome) {
 		this.nome = nome;
-		this.cod_materia = cod_materia;
 	}
 
 	public long getCod_aluno() {
@@ -30,12 +33,28 @@ public class Aluno {
 		this.nome = nome;
 	}
 
-	public long getCod_materia() {
-		return cod_materia;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setCod_materia(long cod_materia) {
-		this.cod_materia = cod_materia;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
-	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Calendar getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(Calendar dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
 }

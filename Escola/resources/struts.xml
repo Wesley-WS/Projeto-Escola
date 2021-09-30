@@ -10,12 +10,23 @@
 		<action name="home" class="br.com.ebix.escola.action.HomeAction">
 			<result name="success">index.jsp</result>
 		</action>
-		
-		<action name="alunos" class="br.com.ebix.escola.action.AlunosAction" method="listar">
+		<action name="alunos">
+			<result type="redirect">/alunos/listar</result>
+		</action>
+		<action name="materias">
+			<result type="redirect">/materias/listar</result>
+		</action>
+	</package>
+	<package name="alunos" extends="default" namespace="/alunos">
+		<action name="listar" class="br.com.ebix.escola.action.AlunosAction" method="listar">
 			<result name="success">alunos.jsp</result>
 		</action>
-		
-		<action name="materias" class="br.com.ebix.escola.action.MateriasAction">
+		<action name="deletar" class="br.com.ebix.escola.action.AlunosAction" method="remover">
+			<result name="success" type="redirect">alunos</result>
+		</action>
+	</package>
+	<package name="materias" extends="default" namespace="/materias">
+		<action name="listar" class="br.com.ebix.escola.action.MateriasAction">
 			<result name="success">materias.jsp</result>
 		</action>
 	</package>
