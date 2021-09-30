@@ -1,0 +1,15 @@
+<div class="sidebar">
+  <div class="sidebar-button-wrapper">
+    <div class="sidebar-item">
+      <div class="ico"><i class="fas fa-home"></i></div>
+      <a href="#">Home</a>
+    </div>
+    <div class="sidebar-item">
+      <div class="ico"><i class="fas fa-list"></i></div>
+      <a href="#">Listagem</a>
+    </div>
+  </div>
+  <div class="sidebar-footer">
+    <label>Sla</label>
+  </div>
+</div>
