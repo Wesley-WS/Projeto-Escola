@@ -29,14 +29,17 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 
 	public String listar() {
 		alunos = alunoFacadeImpl.getAll();
-		//alunos = alunoDao.getAll();
-		
 		return "success";
 	}
 	
 	public String adicionar() {
-		// alunoDao.adicionar(aluno);
 		return "success";
+		/*if(alunoFacadeImpl.add(aluno)) {
+			
+		} else {
+			return "error";
+		}*/
+		
 	}
 	
 	public String remover() {

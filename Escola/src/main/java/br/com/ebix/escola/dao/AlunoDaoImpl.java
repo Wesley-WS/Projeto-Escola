@@ -41,9 +41,9 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 			ps.setString(4, t.getEmail());
 			ps.setString(5, t.getTelefoneCelular());
 			ps.setString(6, t.getTelefoneResidencial());
+			
 			ps.execute();
 			ps.close();
-			
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -51,8 +51,22 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 
 	@Override
 	public void update(Aluno t) {
-		// TODO Auto-generated method stub
-		
+		try {
+			String sql = "UPDATE escola.alunos SET nome=?, cpf=?, dataNascimento=?, email=?, telefone_celular=?, telefone_residencial=? WHERE cod_aluno=?";
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, t.getNome());
+			ps.setString(2, t.getCpf());
+			ps.setDate(3, new Date(t.getDataNascimento().getTimeInMillis()));
+			ps.setString(4, t.getEmail());
+			ps.setString(5, t.getTelefoneCelular());
+			ps.setString(6, t.getTelefoneResidencial());
+			ps.setLong(7, t.getCod_aluno());
+			
+			ps.execute();
+			ps.close();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
