@@ -64,6 +64,10 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 		return "success";
 	}
 	
+	public String inserir() {
+		return "success";
+	}
+	
 	public String adicionar() {
 		Aluno aluno = new Aluno();
 		aluno.setNome(nome);
@@ -72,7 +76,7 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 		aluno.setTelefoneCelular(telefoneCelular);
 		aluno.setTelefoneResidencial(telefoneResidencial);
 		aluno.setDataNascimento(dataNascimento);
-		System.out.println(aluno.getNome());
+		
 		if(alunoFacadeImpl.add(aluno)) {
 			return "success";
 		} else {

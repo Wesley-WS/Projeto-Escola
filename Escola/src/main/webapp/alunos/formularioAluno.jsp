@@ -13,7 +13,7 @@
 <body>
 	<h1>Insira um aluno</h1>
 	<div class="d-flex content">
-		<s:form action="AlunosAction" method="post">
+		<s:form action="adicionar" method="post">
 			<s:textfield name="nome" label="Nome" />
 			<s:textfield name="cpf" label="Cpf" />
 			<s:textfield name="dataNascimento" label="Data de nascimento" />

@@ -28,9 +28,15 @@
 		<action name="deletar" class="br.com.ebix.escola.action.AlunosAction" method="remover">
 			<result name="success" type="redirect">alunos</result>
 		</action>
+		<action name="form" class="br.com.ebix.escola.action.AlunosAction" method="inserir">
+			<result name="success">formularioAluno.jsp</result>
+		</action>
+		<action name="adicionar" class="br.com.ebix.escola.action.AlunosAction" method="adicionar">
+			<result name="success">alunos.jsp</result>
+		</action>
 	</package>
 	<package name="professores" extends="default" namespace="/professores">
-		<action name="listar" class="br.com.ebix.escola.action.ProfessoresAction">
+		<action name="listar" class="br.com.ebix.escola.action.ProfessorAction">
 			<result name="success">professores.jsp</result>
 		</action>
 	</package>

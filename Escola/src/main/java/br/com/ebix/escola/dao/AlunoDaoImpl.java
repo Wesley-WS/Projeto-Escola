@@ -33,7 +33,7 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 	@Override
 	public void add(Aluno t) {
 		try {
-			String sql = "INSERT INTO escola.alunos (nome, cpf, dataNascimento, email, telefone_celular, telefone_residencial) VALUES(?, ?, ?, ?)";
+			String sql = "INSERT INTO escola.alunos (nome, cpf, dataNascimento, email, telefone_celular, telefone_residencial) VALUES(?, ?, ?, ?, ?, ?)";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, t.getNome());
 			ps.setString(2, t.getCpf());
