@@ -16,8 +16,25 @@
 	<title>Alunos</title>
 </head>
 <body>
-	<div class="d-flex content">
-		
+	<div class="d-flex content">		
 	</div>
+	
+	<table border="1">
+		<tr>
+			<th>Nome</th>
+			<th>CPF</th>
+			<th>Email</th>
+		</tr>
+		
+		<s:iterator value="alunos">
+			<tr>
+				<td><s:property value="nome" /></td>
+				<td><s:property value="cpf" /></td>
+				<td><s:property value="email" /></td>
+			</tr>
+		</s:iterator>
+		
+	</table>
+	
 </body>
 </html>

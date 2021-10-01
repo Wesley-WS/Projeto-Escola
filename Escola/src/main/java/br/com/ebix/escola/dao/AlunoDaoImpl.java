@@ -23,7 +23,7 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 			String sql = "SELECT * FROM escola.alunos ";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			resultado = ps.executeQuery();
-			ps.close();
+			//ps.close();
 			return resultado;
 		} catch (SQLException e) {
 			e.printStackTrace();

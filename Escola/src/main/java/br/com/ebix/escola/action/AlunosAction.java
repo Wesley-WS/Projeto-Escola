@@ -22,9 +22,13 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 	
 	private List<Aluno> alunos;
 
+	//usando esse metodo a pagina jsp consegue pegar a lista da action
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+
 	public String listar() {
 		alunos = alunoFacadeImpl.getAll();
-		
 		//alunos = alunoDao.getAll();
 		
 		return "success";

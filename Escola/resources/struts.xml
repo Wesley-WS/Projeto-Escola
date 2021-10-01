@@ -17,6 +17,7 @@
 			<result type="redirect">/materias/listar</result>
 		</action>
 	</package>
+	
 	<package name="alunos" extends="default" namespace="/alunos">
 		<action name="listar" class="br.com.ebix.escola.action.AlunosAction" method="listar">
 			<result name="success">alunos.jsp</result>

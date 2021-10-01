@@ -35,11 +35,12 @@ public class AlunoFacadeImpl implements AlunoFacade {
 				Date date = rs.getDate("dataNascimento");
 				Calendar calendario = Calendar.getInstance();
 				calendario.setTime(date);
-				
 				aluno.setDataNascimento(calendario);
+				
 				aluno.setEmail(rs.getString("email"));
 				alunos.add(aluno);
 			}
+			rs.close();
 			return alunos;
 		} catch (SQLException e) {
 			e.printStackTrace();
