@@ -6,7 +6,7 @@ import java.util.Optional;
 
 public interface InterfaceBasica<T> {
 	Optional<T> get(int id);
-	void add(T t);
-	void update(T t);
-	void delete(T t);
+	boolean add(T t);
+	boolean update(T t);
+	boolean delete(T t);
 }

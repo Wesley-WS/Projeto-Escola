@@ -13,7 +13,7 @@ import br.com.ebix.escola.model.Aluno;
 
 public class AlunoFacadeImpl implements AlunoFacade {
 	private AlunoDaoImpl alunoDaoImpl = new AlunoDaoImpl();
-	
+
 	@Override
 	public Optional<Aluno> get(int id) {
 		// TODO Auto-generated method stub
@@ -25,19 +25,21 @@ public class AlunoFacadeImpl implements AlunoFacade {
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		try {
 			ResultSet rs = alunoDaoImpl.getAll();
-			
-			while(rs.next()) {
+
+			while (rs.next()) {
 				Aluno aluno = new Aluno();
-				aluno.setCod_aluno(rs.getInt("cod_aluno"));
+				aluno.setCod_aluno(rs.getLong("cod_aluno"));
 				aluno.setNome(rs.getString("nome"));
 				aluno.setCpf(rs.getString("cpf"));
-				
+
 				Date date = rs.getDate("dataNascimento");
 				Calendar calendario = Calendar.getInstance();
 				calendario.setTime(date);
 				aluno.setDataNascimento(calendario);
-				
+
 				aluno.setEmail(rs.getString("email"));
+				aluno.setTelefoneCelular(rs.getString("telefone_celular"));
+				aluno.setTelefoneResidencial(rs.getString("telefone_residencial"));
 				alunos.add(aluno);
 			}
 			rs.close();
@@ -49,21 +51,38 @@ public class AlunoFacadeImpl implements AlunoFacade {
 	}
 
 	@Override
-	public void add(Aluno t) {
+	public boolean add(Aluno t) {
 		// TODO Auto-generated method stub
-		
+		if (t.getNome().isBlank() || t.getNome().trim().isEmpty() || t.getCpf().isBlank() || t.getCpf().trim().isEmpty() || t.getDataNascimento() == null) {
+			return false;
+		} else {
+			alunoDaoImpl.add(t);
+			return true;
+		}
+
 	}
 
 	@Override
-	public void update(Aluno t) {
+	public boolean update(Aluno t) {
 		// TODO Auto-generated method stub
-		
+		if (t.getNome().isBlank() || t.getNome().trim().isEmpty() || t.getCpf().isBlank() || t.getCpf().trim().isEmpty()
+				|| t.getEmail().isBlank() || t.getEmail().trim().isEmpty() || t.getDataNascimento() == null) {
+			return false;
+		} else {
+			alunoDaoImpl.update(t);
+			return true;
+		}
 	}
 
 	@Override
-	public void delete(Aluno t) {
-		// TODO Auto-generated method stub
-		
+	public boolean delete(Aluno t) {
+		if (t.getCod_aluno() == null) {
+			return false;
+		} else {
+			alunoDaoImpl.delete(t);
+			return true;
+		}
+
 	}
 
 }
