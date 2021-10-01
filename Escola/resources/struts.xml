@@ -13,6 +13,9 @@
 		<action name="alunos">
 			<result type="redirect">/alunos/listar</result>
 		</action>
+		<action name="professores">
+			<result type="redirect">/professores/listar</result>
+		</action>
 		<action name="materias">
 			<result type="redirect">/materias/listar</result>
 		</action>
@@ -24,6 +27,11 @@
 		</action>
 		<action name="deletar" class="br.com.ebix.escola.action.AlunosAction" method="remover">
 			<result name="success" type="redirect">alunos</result>
+		</action>
+	</package>
+	<package name="professores" extends="default" namespace="/professores">
+		<action name="listar" class="br.com.ebix.escola.action.ProfessoresAction">
+			<result name="success">professores.jsp</result>
 		</action>
 	</package>
 	<package name="materias" extends="default" namespace="/materias">
