@@ -23,7 +23,6 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 			String sql = "SELECT * FROM escola.alunos ";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			resultado = ps.executeQuery();
-			//ps.close();
 			return resultado;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -34,12 +33,14 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 	@Override
 	public void add(Aluno t) {
 		try {
-			String sql = "INSERT INTO escola.alunos (nome, cpf, dataNascimento, email) VALUES(?, ?, ?, ?)";
+			String sql = "INSERT INTO escola.alunos (nome, cpf, dataNascimento, email, telefone_celular, telefone_residencial) VALUES(?, ?, ?, ?)";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, t.getNome());
 			ps.setString(2, t.getCpf());
-			ps.setDate(3, new Date(t.getDataNascimento().getTimeInMillis())); //Ta certo isso?
+			ps.setDate(3, new Date(t.getDataNascimento().getTimeInMillis()));
 			ps.setString(4, t.getEmail());
+			ps.setString(5, t.getTelefoneCelular());
+			ps.setString(6, t.getTelefoneResidencial());
 			ps.execute();
 			ps.close();
 			
