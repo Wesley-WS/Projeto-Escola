@@ -3,9 +3,7 @@ package br.com.ebix.escola.action;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
 
-import br.com.ebix.escola.dao.AlunoDaoImpl;
 import br.com.ebix.escola.facade.AlunoFacadeImpl;
 import br.com.ebix.escola.model.Aluno;
 

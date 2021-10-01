@@ -1,7 +1,5 @@
 package br.com.ebix.escola.model;
 
-import java.util.Calendar;
-
 public class Aluno extends Pessoa {
 	private Long cod_aluno;
 
