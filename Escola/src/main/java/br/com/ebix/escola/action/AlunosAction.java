@@ -33,20 +33,16 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 	}
 	
 	public String adicionar() {
-		return "success";
-		/*if(alunoFacadeImpl.add(aluno)) {
-			
+		Aluno aluno = new Aluno();
+
+		if(alunoFacadeImpl.add(aluno)) {
+			return "success";
 		} else {
 			return "error";
-		}*/
-		
+		}
 	}
 	
-	public String remover() {
-		/*AlunoDaoImpl alunoDao = new AlunoDaoImpl();
-		alunoDao.delete(aluno);
-		System.out.println(aluno.getCod_aluno());*/
-		
+	public String remover() {		
 		return "success";
 	}
 	
