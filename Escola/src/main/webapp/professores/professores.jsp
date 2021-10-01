@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
-<%@	taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
-
-<c:set var="context" value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
 <html>
@@ -14,10 +9,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="${context}/assets/css/styles.css">
 	<script src="https://kit.fontawesome.com/6697f5eca6.js" crossorigin="anonymous"></script>
-	<title>Alunos</title>
+	<title>Professores</title>
 </head>
 <body>
-	<h1>Alunos</h1>
+	<h1>Professores</h1>
+	
 	<div class="d-flex content">	
 		<table class="table" border="1">
 			<tr>
@@ -27,7 +23,7 @@
 				<th></th>
 			</tr>
 			
-			<s:iterator value="alunos">
+			<s:iterator value="professores">
 				<tr>
 					<td><s:property value="nome" /></td>
 					<td><s:property value="cpf" /></td>
