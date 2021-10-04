@@ -10,6 +10,7 @@ import java.util.Optional;
 
 import br.com.ebix.escola.dao.ProfessorDaoImpl;
 import br.com.ebix.escola.model.Professor;
+import br.com.ebix.escola.utils.ValidaStringUtil;
 
 
 public class ProfessorFacadeImpl implements ProfessorFacade {
@@ -54,7 +55,9 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 	@Override
 	public boolean add(Professor p) {
 		// TODO Auto-generated method stub
-		if (p.getNome().isBlank() || p.getNome().trim().isEmpty() || p.getCpf().isBlank() || p.getCpf().trim().isEmpty() || p.getDataNascimento() == null) {
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getNome()) ||
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getCpf()) ||
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getDataNascimento())) {
 			return false;
 		} else {
 			professorDaoImpl.add(p);
@@ -66,8 +69,11 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 	@Override
 	public boolean update(Professor p) {
 		// TODO Auto-generated method stub
-		if (p.getNome().isBlank() || p.getNome().trim().isEmpty() || p.getCpf().isBlank() || p.getCpf().trim().isEmpty()
-				|| p.getEmail().isBlank() || p.getEmail().trim().isEmpty() || p.getDataNascimento() == null) {
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getCod_professor()) || 
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getNome()) || 
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getCpf()) || 
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getEmail()) || 
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getDataNascimento())) {
 			return false;
 		} else {
 			professorDaoImpl.update(p);
@@ -77,7 +83,7 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 
 	@Override
 	public boolean delete(Professor p) {
-		if (p.getCod_professor() == null) {
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getCod_professor())) {
 			return false;
 		} else {
 			professorDaoImpl.delete(p);

@@ -10,6 +10,12 @@ import br.com.ebix.escola.model.Aluno;
 
 public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>*/ {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private Long cod_aluno;
 	private String nome;
 	private String cpf;
 	private String email;
@@ -17,7 +23,14 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 	private String telefoneResidencial;
 	private Calendar dataNascimento;	
 	
-	
+	public Long getCod_aluno() {
+		return cod_aluno;
+	}
+
+	public void setCod_aluno(Long cod_aluno) {
+		this.cod_aluno = cod_aluno;
+	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -42,19 +55,8 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 		this.dataNascimento = dataNascimento;
 	}
 
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	private AlunoFacadeImpl alunoFacadeImpl = new AlunoFacadeImpl();
-	
-	// private Aluno aluno = new Aluno();
-	
 	private List<Aluno> alunos;
-
-	//usando esse metodo a pagina jsp consegue pegar a lista da action
+	
 	public List<Aluno> getAlunos() {
 		return alunos;
 	}
@@ -64,6 +66,8 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 		return "success";
 	}
 	
+	private AlunoFacadeImpl alunoFacadeImpl = new AlunoFacadeImpl();
+
 	public String adicionar() {
 		Aluno aluno = new Aluno();
 		aluno.setNome(nome);
@@ -75,7 +79,6 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 		
 		if(alunoFacadeImpl.add(aluno)) {
 			alunos = alunoFacadeImpl.getAll();
-			
 			return "success";
 		} else {
 			return "error";
@@ -83,12 +86,32 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 	}
 	
 	public String atualizar() {
-		return "success";
+		Aluno aluno = new Aluno();
+		aluno.setCod_aluno(cod_aluno);
+		aluno.setNome(nome);
+		aluno.setCpf(cpf);
+		aluno.setEmail(email);
+		aluno.setTelefoneCelular(telefoneCelular);
+		aluno.setTelefoneResidencial(telefoneResidencial);
+		aluno.setDataNascimento(dataNascimento);
+		
+		if(alunoFacadeImpl.update(aluno)) {
+			alunos = alunoFacadeImpl.getAll();
+			return "success";
+		} else {
+			return "error";
+		}
 	}
 	
 	public String remover() {
+		Aluno aluno = new Aluno();
+		aluno.setCod_aluno(cod_aluno);
 		
-		return "success";
+		if(alunoFacadeImpl.delete(aluno)) {
+			return "success";
+		} else {
+			return "error";
+		}
 	}
 	
 	/*@Override

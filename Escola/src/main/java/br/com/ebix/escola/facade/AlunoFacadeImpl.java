@@ -10,6 +10,7 @@ import java.util.Optional;
 
 import br.com.ebix.escola.dao.AlunoDaoImpl;
 import br.com.ebix.escola.model.Aluno;
+import br.com.ebix.escola.utils.ValidaStringUtil;
 
 public class AlunoFacadeImpl implements AlunoFacade {
 	private AlunoDaoImpl alunoDaoImpl = new AlunoDaoImpl();
@@ -53,7 +54,9 @@ public class AlunoFacadeImpl implements AlunoFacade {
 	@Override
 	public boolean add(Aluno t) {
 		// TODO Auto-generated method stub
-		if (t.getNome().isBlank() || t.getNome().trim().isEmpty() || t.getCpf().isBlank() || t.getCpf().trim().isEmpty() || t.getDataNascimento() == null) {
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(t.getNome()) ||
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(t.getCpf()) ||
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(t.getDataNascimento())) {
 			return false;
 		} else {
 			alunoDaoImpl.add(t);
@@ -65,8 +68,11 @@ public class AlunoFacadeImpl implements AlunoFacade {
 	@Override
 	public boolean update(Aluno t) {
 		// TODO Auto-generated method stub
-		if (t.getNome().isBlank() || t.getNome().trim().isEmpty() || t.getCpf().isBlank() || t.getCpf().trim().isEmpty()
-				|| t.getEmail().isBlank() || t.getEmail().trim().isEmpty() || t.getDataNascimento() == null) {
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(t.getCod_aluno()) || 
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(t.getNome()) || 
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(t.getCpf()) || 
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(t.getEmail()) || 
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(t.getDataNascimento())) {
 			return false;
 		} else {
 			alunoDaoImpl.update(t);
@@ -76,7 +82,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public boolean delete(Aluno t) {
-		if (t.getCod_aluno() == null) {
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(t.getCod_aluno())) {
 			return false;
 		} else {
 			alunoDaoImpl.delete(t);
