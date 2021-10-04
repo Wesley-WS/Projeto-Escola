@@ -3,6 +3,8 @@ package br.com.ebix.escola.action;
 import java.util.Calendar;
 import java.util.List;
 
+import org.apache.struts2.interceptor.validation.SkipValidation;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import br.com.ebix.escola.facade.AlunoFacadeImpl;
@@ -22,6 +24,8 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 	private String telefoneCelular;
 	private String telefoneResidencial;
 	private Calendar dataNascimento;	
+	
+	private List<Aluno> alunos;
 	
 	public Long getCod_aluno() {
 		return cod_aluno;
@@ -54,13 +58,16 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 	public void setDataNascimento(Calendar dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-
-	private List<Aluno> alunos;
 	
 	public List<Aluno> getAlunos() {
 		return alunos;
 	}
 
+	@SkipValidation
+	public String execute() {
+		return "success";
+	}
+	
 	public String listar() {
 		alunos = alunoFacadeImpl.getAll();
 		return "success";
@@ -81,7 +88,7 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 			alunos = alunoFacadeImpl.getAll();
 			return "success";
 		} else {
-			return "error";
+			return "input";
 		}
 	}
 	
@@ -94,12 +101,13 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 		aluno.setTelefoneCelular(telefoneCelular);
 		aluno.setTelefoneResidencial(telefoneResidencial);
 		aluno.setDataNascimento(dataNascimento);
+		System.out.println(aluno.getCod_aluno());
 		
 		if(alunoFacadeImpl.update(aluno)) {
 			alunos = alunoFacadeImpl.getAll();
 			return "success";
 		} else {
-			return "error";
+			return "input";
 		}
 	}
 	

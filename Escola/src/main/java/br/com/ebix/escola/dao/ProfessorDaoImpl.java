@@ -8,7 +8,7 @@ import java.util.Optional;
 
 import br.com.ebix.escola.model.Professor;
 
-public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao{
+public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao {
 	
 	public Optional<Professor> get(int id) {
 		
