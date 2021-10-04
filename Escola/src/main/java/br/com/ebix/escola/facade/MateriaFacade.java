@@ -8,7 +8,7 @@ import br.com.ebix.escola.model.Materia;
 public interface MateriaFacade {
 	List<Materia> getAll();
 	Optional<Materia> get(int id);
-	void add(Materia materia);
-	void update(Materia materia);
-	void delete(Materia materia);
+	boolean add(Materia materia);
+	boolean update(Materia materia);
+	boolean delete(Materia materia);
 }
