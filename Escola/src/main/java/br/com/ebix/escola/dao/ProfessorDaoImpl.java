@@ -19,7 +19,7 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao{
 	public ResultSet getAll() {
 		ResultSet resultado = null;
 		try {
-			String sql = "SELECT * FROM escola.professor ";
+			String sql = "SELECT * FROM escola.professores ";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			resultado = ps.executeQuery();
 			return resultado;
@@ -33,7 +33,7 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao{
 	@Override
 	public void add(Professor p) {
 		try {
-			String sql = "INSERT INTO escola.professor (nome, cpf, email, dataNascimento, telefone_cel, telefone_res) VALUES(?, ?, ?, ?)";
+			String sql = "INSERT INTO escola.professores (nome, cpf, email, dataNascimento, telefone_cel, telefone_res) VALUES(?, ?, ?, ?)";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, p.getNome());
 			ps.setString(2, p.getCpf());
@@ -53,7 +53,7 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao{
 	@Override
 	public void update(Professor p) {
 		try {
-			String sql = "UPDATE escola.professor SET nome = ?, cpf= ?, email= ?, dataNascimento= ?, telefone_cel= ?, telefone_res= ? WHERE cod_professor = ?";
+			String sql = "UPDATE escola.professores SET nome = ?, cpf= ?, email= ?, dataNascimento= ?, telefone_cel= ?, telefone_res= ? WHERE cod_professor = ?";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, p.getNome());
 			ps.setString(2, p.getCpf());
@@ -75,7 +75,7 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao{
 	@Override
 	public void delete(Professor p) {
 		try {
-			String sql = "DELETE FROM escola.professor WHERE cod_professor=?";
+			String sql = "DELETE FROM escola.professores WHERE cod_professor=?";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setLong(1, p.getCod_professor());
 			ps.execute();

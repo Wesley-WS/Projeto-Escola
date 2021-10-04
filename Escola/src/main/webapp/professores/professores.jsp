@@ -14,6 +14,19 @@
 <body>
 	<h1>Professores</h1>
 	
+	<div class="d-flex content">
+		<s:form action="adicionar" method="post">
+			<s:textfield name="nome" label="Nome" />
+			<s:textfield name="cpf" label="Cpf" />
+			<s:textfield name="dataNascimento" label="Data de nascimento" />
+			<s:textfield name="email" label="Email" />
+			<s:textfield name="telefoneCelular" label="Telefone celular" />
+			<s:textfield name="telefoneResidencial" label="Telefone residencial" />
+			<s:submit />
+		</s:form>
+	</div>
+	
+	
 	<div class="d-flex content">	
 		<table class="table" border="1">
 			<tr>

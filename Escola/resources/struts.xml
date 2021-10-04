@@ -33,7 +33,13 @@
 		</action>
 	</package>
 	<package name="professores" extends="default" namespace="/professores">
-		<action name="listar" class="br.com.ebix.escola.action.ProfessoresAction">
+		<action name="listar" class="br.com.ebix.escola.action.ProfessoresAction" method="listar">
+			<result name="success">professores.jsp</result>
+		</action>
+		<action name="deletar" class="br.com.ebix.escola.action.ProfessoresAction" method="remover">
+			<result name="success" type="redirect">professores</result>
+		</action>
+		<action name="adicionar" class="br.com.ebix.escola.action.ProfessoresAction" method="adicionar">
 			<result name="success">professores.jsp</result>
 		</action>
 	</package>
