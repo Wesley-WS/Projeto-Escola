@@ -5,7 +5,10 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class ProfessorAction extends ActionSupport /*implements ModelDriven<Object>*/ {
+import br.com.ebix.escola.facade.ProfessorFacadeImpl;
+import br.com.ebix.escola.model.Professor;
+
+public class ProfessoresAction extends ActionSupport /*implements ModelDriven<Object>*/ {
 	
 	/**
 	 * 
@@ -20,7 +23,7 @@ public class ProfessorAction extends ActionSupport /*implements ModelDriven<Obje
 
 	//usando esse metodo a pagina jsp consegue pegar a lista da action
 	public List<Professor> getProfessores() {
-		return Professores;
+		return professores;
 	}
 
 	public String listar() {
