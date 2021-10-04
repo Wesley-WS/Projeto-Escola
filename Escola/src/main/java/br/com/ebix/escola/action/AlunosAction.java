@@ -64,10 +64,6 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 		return "success";
 	}
 	
-	public String inserir() {
-		return "success";
-	}
-	
 	public String adicionar() {
 		Aluno aluno = new Aluno();
 		aluno.setNome(nome);
@@ -78,13 +74,20 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 		aluno.setDataNascimento(dataNascimento);
 		
 		if(alunoFacadeImpl.add(aluno)) {
+			alunos = alunoFacadeImpl.getAll();
+			
 			return "success";
 		} else {
 			return "error";
 		}
 	}
 	
-	public String remover() {		
+	public String atualizar() {
+		return "success";
+	}
+	
+	public String remover() {
+		
 		return "success";
 	}
 	
