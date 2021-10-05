@@ -33,6 +33,8 @@
 		</div>
 		<div style="padding: 16px;">
 			<s:form action="atualizar" method="post">
+				<s:hidden name="cod_aluno" value="%{cod_aluno}" />
+				
 				<s:textfield name="nome" label="Nome" />
 				<s:textfield name="cpf" label="Cpf" />
 				<s:textfield name="dataNascimento" label="Data de nascimento" />

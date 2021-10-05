@@ -65,6 +65,16 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 
 	@SkipValidation
 	public String execute() {
+		if(cod_aluno != null) {
+			System.out.println(cod_aluno);
+			
+			/*Aluno aluno = new Aluno();
+			setCod_aluno(aluno.getCod_aluno());
+			setNome(aluno.getNome());*/
+		}
+		
+		// Aluno aluno = alunoFacadeImpl.getByCodAluno(cod_aluno);
+		
 		return "success";
 	}
 	
