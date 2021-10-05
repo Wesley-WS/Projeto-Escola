@@ -32,10 +32,11 @@ public class MateriaDaoImpl extends ConnectionFactory implements MateriaDao {
 	@Override
 	public void add(Materia t) {
 		try {
-			String sql = "INSERT INTO TABLE escola.materias (nome, sigla) VALUES(?, ?)";
+			String sql = "INSERT INTO escola.materias (nome, sigla) VALUES(?, ?)";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, t.getNome());
 			ps.setString(2, t.getSigla());
+			
 			ps.execute();
 			ps.close();
 		}catch(SQLException e) {
@@ -61,7 +62,7 @@ public class MateriaDaoImpl extends ConnectionFactory implements MateriaDao {
 	@Override
 	public void delete(Materia t) {
 		try {
-			String sql = "DELETE FROM TABLE escola.materias WHERE cod_materia=?";
+			String sql = "DELETE FROM escola.materias WHERE cod_materia=?";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setLong(1, t.getCod_materia());
 			ps.execute();
