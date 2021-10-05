@@ -16,7 +16,7 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+	private AlunoFacadeImpl alunoFacadeImpl = new AlunoFacadeImpl();
 	private Long cod_aluno;
 	private String nome;
 	private String cpf;
@@ -82,8 +82,6 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 		alunos = alunoFacadeImpl.getAll();
 		return "success";
 	}
-	
-	private AlunoFacadeImpl alunoFacadeImpl = new AlunoFacadeImpl();
 
 	public String adicionar() {
 		Aluno aluno = new Aluno();

@@ -57,7 +57,7 @@
 	</package>
 	<package name="materias" extends="default" namespace="/materias">
 		<action name="listar" class="br.com.ebix.escola.action.MateriasAction">
-			<result name="success">materias.jsp</result>
+			<result name="success">listar.jsp</result>
 		</action>
 	</package>
 </struts>
