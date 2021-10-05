@@ -46,13 +46,25 @@
 	</package>
 	<package name="professores" extends="default" namespace="/professores">
 		<action name="listar" class="br.com.ebix.escola.action.ProfessoresAction" method="listar">
-			<result name="success">professores.jsp</result>
+			<result name="success">listar.jsp</result>
+		</action>
+		<action name="adicionarFormulario" class="br.com.ebix.escola.action.ProfessoresAction">
+			<result name="success">adicionarFormulario.jsp</result>
+		</action>
+		<action name="atualizarFormulario" class="br.com.ebix.escola.action.ProfessoresAction">
+			<result name="success">atualizarFormulario.jsp</result>
+		</action>
+		
+		<action name="adicionar" class="br.com.ebix.escola.action.ProfessoresAction" method="adicionar">
+			<result name="success" type="redirect">listar</result>
+			<result name="input">adicionarFormulario.jsp</result>
+		</action>
+		<action name="atualizar" class="br.com.ebix.escola.action.ProfessoresAction" method="atualizar">
+			<result name="success" type="redirect">listar</result>
+			<result name="input">atualizarFormulario.jsp</result>
 		</action>
 		<action name="deletar" class="br.com.ebix.escola.action.ProfessoresAction" method="remover">
-			<result name="success" type="redirect">professores</result>
-		</action>
-		<action name="adicionar" class="br.com.ebix.escola.action.ProfessoresAction" method="adicionar">
-			<result name="success">professores.jsp</result>
+			<result name="success" type="redirect">listar</result>
 		</action>
 	</package>
 	<package name="materias" extends="default" namespace="/materias">

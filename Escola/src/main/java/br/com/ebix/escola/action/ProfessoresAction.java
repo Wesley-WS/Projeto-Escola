@@ -3,6 +3,8 @@ package br.com.ebix.escola.action;
 import java.util.Calendar;
 import java.util.List;
 
+import org.apache.struts2.interceptor.validation.SkipValidation;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -15,6 +17,7 @@ public class ProfessoresAction extends ActionSupport /*implements ModelDriven<Ob
 	private ProfessorFacadeImpl professorFacadeImpl = new ProfessorFacadeImpl();
 	private List<Professor> professores;
 	
+	private Long cod_professor;
 	private String nome;
 	private String cpf;
 	private String email;
@@ -34,7 +37,9 @@ public class ProfessoresAction extends ActionSupport /*implements ModelDriven<Ob
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	public void setCod_professor(Long cod_professor) {
+		this.cod_professor = cod_professor;
+	}
 	public void setTelefoneCelular(String telefoneCelular) {
 		this.telefoneCelular = telefoneCelular;
 	}
@@ -47,11 +52,11 @@ public class ProfessoresAction extends ActionSupport /*implements ModelDriven<Ob
 		this.dataNascimento = dataNascimento;
 	}
 
-	//usando esse metodo a pagina jsp consegue pegar a lista da action
+
 	public List<Professor> getProfessores() {
 		return professores;
 	}
-
+	@SkipValidation
 	public String listar() {
 		professores = professorFacadeImpl.getAll();
 		return "success";
@@ -73,9 +78,33 @@ public class ProfessoresAction extends ActionSupport /*implements ModelDriven<Ob
 			return "error";
 		}
 	}
+	public String atualizar() {
+		Professor professor = new Professor();
+		professor.setCod_professor(cod_professor);
+		professor.setNome(nome);
+		professor.setCpf(cpf);
+		professor.setEmail(email);
+		professor.setTelefoneCelular(telefoneCelular);
+		professor.setTelefoneResidencial(telefoneResidencial);
+		professor.setDataNascimento(dataNascimento);
+		
+		if(professorFacadeImpl.update(professor)) {
+			professores = professorFacadeImpl.getAll();
+			return "success";
+		} else {
+			return "error";
+		}
+	}
 	
-	public String remover() {		
-		return "success";
+	public String remover() {
+		Professor professor = new Professor();
+		professor.setCod_professor(cod_professor);
+		
+		if(professorFacadeImpl.delete(professor)) {
+			return "success";
+		} else {
+			return "error";
+		}
 	}
 	
 	/*@Override
