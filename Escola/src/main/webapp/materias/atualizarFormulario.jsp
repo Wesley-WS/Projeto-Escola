@@ -33,6 +33,8 @@
 		</div>
 		<div style="padding: 16px;">
 			<s:form action="atualizar" method="post">
+				<s:hidden name="cod_materia" value="%{cod_materia}" />
+			
 				<s:textfield name="nome" label="Nome" />
 				<s:textfield name="sigla" label="Sigla" />
 
