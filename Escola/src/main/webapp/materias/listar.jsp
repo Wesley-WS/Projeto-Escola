@@ -20,13 +20,15 @@
 				<th>Nome</th>
 				<th>Sigla</th>
 				<th></th>
+				<th><a href="adicionarFormulario" class="btn btn-danger">Adicionar materia</a></th>
 			</tr>
 			
-			<s:iterator value="materia">
+			<s:iterator value="materias">
 				<tr>
 					<td><s:property value="nome" /></td>
 					<td><s:property value="sigla" /></td>
-					<td><a href="#" class="btn btn-primary"><i class="fas fa-trash"></i>Deletar</a></td>
+					<td><a href="atualizarFormulario?cod_materia=${cod_materia}" class="btn btn-primary"> Atualizar</a></td>
+					<td><a href="deletar?cod_materia=${cod_materia}" class="btn btn-primary"><i class="fas fa-trash"></i> Deletar</a></td>
 				</tr>
 			</s:iterator>
 		</table>

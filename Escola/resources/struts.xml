@@ -71,5 +71,24 @@
 		<action name="listar" class="br.com.ebix.escola.action.MateriasAction">
 			<result name="success">listar.jsp</result>
 		</action>
+			<action name="adicionarFormulario" class="br.com.ebix.escola.action.MateriasAction">
+			<result name="success">adicionarFormulario.jsp</result>
+		</action>
+		</action>
+			<action name="atualizarFormulario" class="br.com.ebix.escola.action.MateriasAction">
+			<result name="success">atualizarFormulario.jsp</result>
+		</action>
+		
+		<action name="adicionar" class="br.com.ebix.escola.action.MateriasAction" method="adicionar">
+			<result name="success" type="redirect">listar</result>
+			<result name="input">adicionarFormulario.jsp</result>
+		</action>
+		<action name="atualizar" class="br.com.ebix.escola.action.MateriasAction" method="atualizar">
+			<result name="success" type="redirect">listar</result>
+			<result name="input">atualizarFormulario.jsp</result>
+		</action>
+		<action name="deletar" class="br.com.ebix.escola.action.MateriasAction" method="remover">
+			<result name="success" type="redirect">listar</result>
+		</action>
 	</package>
 </struts>

@@ -3,6 +3,8 @@ package br.com.ebix.escola.action;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.struts2.interceptor.validation.SkipValidation;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import br.com.ebix.escola.facade.MateriaFacadeImpl;
@@ -30,6 +32,11 @@ public class MateriasAction extends ActionSupport /*implements ModelDriven<Objec
 
 	public List<Materia> getMaterias() {
 		return materias;
+	}
+	
+	@SkipValidation
+	public String execute() {
+		return "success";
 	}
 	
 	public String listar() {

@@ -28,7 +28,7 @@
 				<th>CPF</th>
 				<th>Email</th>
 				<th></th>
-				<th><a href="adicionarFormulario" class="btn btn-danger">Inserir aluno</a></th>
+				<th><a href="adicionarFormulario" class="btn btn-danger">Adicionar aluno</a></th>
 			</tr>
 
 			<s:iterator value="alunos">
