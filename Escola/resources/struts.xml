@@ -71,11 +71,11 @@
 		<action name="listar" class="br.com.ebix.escola.action.MateriasAction">
 			<result name="success">listar.jsp</result>
 		</action>
-			<action name="adicionarFormulario" class="br.com.ebix.escola.action.MateriasAction">
+		<action name="adicionarFormulario" class="br.com.ebix.escola.action.MateriasAction">
 			<result name="success">adicionarFormulario.jsp</result>
 		</action>
-		</action>
-			<action name="atualizarFormulario" class="br.com.ebix.escola.action.MateriasAction">
+		
+		<action name="atualizarFormulario" class="br.com.ebix.escola.action.MateriasAction">
 			<result name="success">atualizarFormulario.jsp</result>
 		</action>
 		

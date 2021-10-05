@@ -33,12 +33,12 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 	@Override
 	public void add(Professor p) {
 		try {
-			String sql = "INSERT INTO escola.professores (nome, cpf, email, dataNascimento, telefone_cel, telefone_res) VALUES(?, ?, ?, ?)";
+			String sql = "INSERT INTO escola.professores (nome, cpf, email, dataNascimento, telefone_celular, telefone_residencial) VALUES(?, ?, ?, ?, ?, ?)";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, p.getNome());
 			ps.setString(2, p.getCpf());
-			ps.setString(4, p.getEmail());
-			ps.setDate(3, new Date(p.getDataNascimento().getTimeInMillis()));
+			ps.setString(3, p.getEmail());
+			ps.setDate(4, new Date(p.getDataNascimento().getTimeInMillis()));
 			ps.setString(5, p.getTelefoneCelular());
 			ps.setString(6, p.getTelefoneResidencial());
 			ps.execute();
@@ -53,12 +53,12 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 	@Override
 	public void update(Professor p) {
 		try {
-			String sql = "UPDATE escola.professores SET nome = ?, cpf= ?, email= ?, dataNascimento= ?, telefone_cel= ?, telefone_res= ? WHERE cod_professor = ?";
+			String sql = "UPDATE escola.professores SET nome = ?, cpf= ?, email= ?, dataNascimento= ?, telefone_celular= ?, telefone_residencial= ? WHERE cod_professor = ?";
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, p.getNome());
 			ps.setString(2, p.getCpf());
-			ps.setString(4, p.getEmail());
-			ps.setDate(3, new Date(p.getDataNascimento().getTimeInMillis()));
+			ps.setString(3, p.getEmail());
+			ps.setDate(4, new Date(p.getDataNascimento().getTimeInMillis()));
 			ps.setString(5, p.getTelefoneCelular());
 			ps.setString(6, p.getTelefoneResidencial());
 			ps.setLong(7, p.getCod_professor());
