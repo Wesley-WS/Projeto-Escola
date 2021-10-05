@@ -13,6 +13,9 @@ import br.com.ebix.escola.model.Aluno;
 import br.com.ebix.escola.utils.ValidaStringUtil;
 
 public class AlunoFacadeImpl implements AlunoFacade {
+	// @Autowired
+	// private AlunoDao alunoDao;
+	
 	private AlunoDaoImpl alunoDaoImpl = new AlunoDaoImpl();
 
 	@Override
@@ -26,7 +29,10 @@ public class AlunoFacadeImpl implements AlunoFacade {
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		try {
 			ResultSet rs = alunoDaoImpl.getAll();
-
+			
+			// Ta errado isso ai
+			// Util para formatar Date para Calendar
+			
 			while (rs.next()) {
 				Aluno aluno = new Aluno();
 				aluno.setCod_aluno(rs.getLong("cod_aluno"));
@@ -45,6 +51,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 			}
 			rs.close();
 			return alunos;
+			// ???????????????????????
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return alunos;
