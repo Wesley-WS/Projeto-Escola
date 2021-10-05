@@ -32,15 +32,15 @@
 			</div>
 		</div>
 		<div style="padding: 16px;">
-			<s:form action="adicionar" method="post">
-				<s:textfield name="nome" label="Nome" />
-				<s:textfield name="cpf" label="Cpf" />
-				<s:textfield name="dataNascimento" label="Data de nascimento" />
-				<s:textfield name="email" label="Email" />
-				<s:textfield name="telefoneCelular" label="Telefone celular" />
-				<s:textfield name="telefoneResidencial" label="Telefone residencial" />
+			<s:form action="cadastrar" method="post">
+				<s:textfield name="aluno.nome" label="Nome" />
+				<s:textfield name="aluno.cpf" label="Cpf" />
+				<s:textfield name="aluno.dataNascimento" label="Data de nascimento" />
+				<s:textfield name="aluno.email" label="Email" />
+				<s:textfield name="aluno.telefoneCelular" label="Telefone celular" />
+				<s:textfield name="aluno.telefoneResidencial" label="Telefone residencial" />
 
-				<s:submit />
+				<s:submit method="adicionar"/>
 			</s:form>
 		</div>
 	</div>

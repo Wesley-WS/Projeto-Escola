@@ -10,5 +10,13 @@ public class Aluno extends Pessoa {
 	public void setCod_aluno(Long cod_aluno) {
 		this.cod_aluno = cod_aluno;
 	}
+
+	@Override
+	public String toString() {
+		return "Aluno [cod_aluno=" + cod_aluno + ", getNome()=" + getNome() + ", getCpf()=" + getCpf() + ", getEmail()="
+				+ getEmail() + ", getTelefoneCelular()=" + getTelefoneCelular() + ", getTelefoneResidencial()="
+				+ getTelefoneResidencial() + ", getDataNascimento()=" + getDataNascimento() + "]";
+	}
+	
 	
 }

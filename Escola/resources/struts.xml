@@ -22,28 +22,22 @@
 	</package>
 	
 	<package name="alunos" extends="default" namespace="/alunos">
-		<action name="listar" class="br.com.ebix.escola.action.AlunosAction" method="listar">
-			<result name="success">listar.jsp</result>
-		</action>
-		<action name="adicionarFormulario" class="br.com.ebix.escola.action.AlunosAction">
-			<result name="success">adicionarFormulario.jsp</result>
-		</action>
-		<action name="atualizarFormulario" class="br.com.ebix.escola.action.AlunosAction">
-			<result name="success">atualizarFormulario.jsp</result>
-		</action>
-		
-		<action name="adicionar" class="br.com.ebix.escola.action.AlunosAction" method="adicionar">
+		<action name="cadastrar" class="br.com.ebix.escola.action.AlunosAction">
 			<result name="success" type="redirect">alunos</result>
 			<result name="input">adicionarFormulario.jsp</result>
 		</action>
-		<action name="atualizar" class="br.com.ebix.escola.action.AlunosAction" method="atualizar">
+		<action name="atualizar" class="br.com.ebix.escola.action.AlunosAction">
 			<result name="success" type="redirect">alunos</result>
 			<result name="input">atualizarFormulario.jsp</result>
+		</action>
+		<action name="listar" class="br.com.ebix.escola.action.AlunosAction" method="listar">
+			<result name="success">listar.jsp</result>
 		</action>
 		<action name="deletar" class="br.com.ebix.escola.action.AlunosAction" method="remover">
 			<result name="success" type="redirect">alunos</result>
 		</action>
 	</package>
+	
 	<package name="professores" extends="default" namespace="/professores">
 		<action name="listar" class="br.com.ebix.escola.action.ProfessoresAction" method="listar">
 			<result name="success">listar.jsp</result>
@@ -68,17 +62,16 @@
 		</action>
 	</package>
 	<package name="materias" extends="default" namespace="/materias">
-		<action name="listar" class="br.com.ebix.escola.action.MateriasAction">
-			<result name="success">listar.jsp</result>
-		</action>
 		<action name="adicionarFormulario" class="br.com.ebix.escola.action.MateriasAction">
 			<result name="success">adicionarFormulario.jsp</result>
 		</action>
-		
 		<action name="atualizarFormulario" class="br.com.ebix.escola.action.MateriasAction">
 			<result name="success">atualizarFormulario.jsp</result>
 		</action>
 		
+		<action name="listar" class="br.com.ebix.escola.action.MateriasAction" method="listar">
+			<result name="success">listar.jsp</result>
+		</action>
 		<action name="adicionar" class="br.com.ebix.escola.action.MateriasAction" method="adicionar">
 			<result name="success" type="redirect">listar</result>
 			<result name="input">adicionarFormulario.jsp</result>

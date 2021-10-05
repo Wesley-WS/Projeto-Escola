@@ -17,71 +17,35 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 	 */
 	private static final long serialVersionUID = 1L;
 	private AlunoFacadeImpl alunoFacadeImpl = new AlunoFacadeImpl();
-	private Long cod_aluno;
-	private String nome;
-	private String cpf;
-	private String email;
-	private String telefoneCelular;
-	private String telefoneResidencial;
-	private Calendar dataNascimento;	
 	
+	private Aluno aluno = new Aluno();
+
 	private List<Aluno> alunos;
-	
-	public Long getCod_aluno() {
-		return cod_aluno;
+
+	public Aluno getAluno() {
+		return aluno;
 	}
 
-	public void setCod_aluno(Long cod_aluno) {
-		this.cod_aluno = cod_aluno;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public void setTelefoneCelular(String telefoneCelular) {
-		this.telefoneCelular = telefoneCelular;
-	}
-
-	public void setTelefoneResidencial(String telefoneResidencial) {
-		this.telefoneResidencial = telefoneResidencial;
-	}
-
-	public void setDataNascimento(Calendar dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
 	}
 	
 	public List<Aluno> getAlunos() {
 		return alunos;
 	}
 
-	@SkipValidation
-	public String execute() {
-		return "success";
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
 	}
-	
+
+	@SkipValidation
 	public String listar() {
 		alunos = alunoFacadeImpl.getAll();
 		return "success";
 	}
-
+	
+	@SkipValidation
 	public String adicionar() {
-		Aluno aluno = new Aluno();
-		aluno.setNome(nome);
-		aluno.setCpf(cpf);
-		aluno.setEmail(email);
-		aluno.setTelefoneCelular(telefoneCelular);
-		aluno.setTelefoneResidencial(telefoneResidencial);
-		aluno.setDataNascimento(dataNascimento);
-		
 		if(alunoFacadeImpl.add(aluno)) {
 			alunos = alunoFacadeImpl.getAll();
 			return "success";
@@ -90,17 +54,8 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 		}
 	}
 	
+	@SkipValidation
 	public String atualizar() {
-		Aluno aluno = new Aluno();
-		aluno.setCod_aluno(cod_aluno);
-		aluno.setNome(nome);
-		aluno.setCpf(cpf);
-		aluno.setEmail(email);
-		aluno.setTelefoneCelular(telefoneCelular);
-		aluno.setTelefoneResidencial(telefoneResidencial);
-		aluno.setDataNascimento(dataNascimento);
-		System.out.println(aluno.getCod_aluno());
-		
 		if(alunoFacadeImpl.update(aluno)) {
 			alunos = alunoFacadeImpl.getAll();
 			return "success";
@@ -109,10 +64,8 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 		}
 	}
 	
+	@SkipValidation
 	public String remover() {
-		Aluno aluno = new Aluno();
-		aluno.setCod_aluno(cod_aluno);
-		
 		if(alunoFacadeImpl.delete(aluno)) {
 			return "success";
 		} else {
@@ -120,8 +73,4 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 		}
 	}
 	
-	/*@Override
-	public Object getModel() {
-		return (alunos == null) ? aluno : alunos;
-	}*/
 }

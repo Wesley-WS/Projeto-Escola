@@ -62,8 +62,6 @@ public class ProfessoresAction extends ActionSupport /*implements ModelDriven<Ob
 		return "success";
 	}
 	
-	
-	
 	@SkipValidation
 	public String listar() {
 		professores = professorFacadeImpl.getAll();

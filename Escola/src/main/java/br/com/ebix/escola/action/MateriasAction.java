@@ -12,11 +12,14 @@ import br.com.ebix.escola.model.Materia;
 
 public class MateriasAction extends ActionSupport /*implements ModelDriven<Object>*/ {
 	private static final long serialVersionUID = 1L;
-	private List<Materia> materias = new ArrayList<Materia>();
+	
 	private MateriaFacadeImpl materiaFacadeImpl = new MateriaFacadeImpl();
+	
 	private Long cod_materia;
 	private String nome;
 	private String sigla;
+	
+	private List<Materia> materias;
 	
 	public void setCod_materia(Long cod_materia) {
 		this.cod_materia = cod_materia;
@@ -35,10 +38,6 @@ public class MateriasAction extends ActionSupport /*implements ModelDriven<Objec
 	}
 	
 	@SkipValidation
-	public String execute() {
-		return "success";
-	}
-	
 	public String listar() {
 		materias = materiaFacadeImpl.getAll();
 		return "success";
@@ -62,6 +61,7 @@ public class MateriasAction extends ActionSupport /*implements ModelDriven<Objec
 		materia.setCod_materia(cod_materia);
 		materia.setNome(nome);
 		materia.setSigla(sigla);
+		System.out.println(materia.getCod_materia());
 		
 		if(materiaFacadeImpl.update(materia)) {
 			materias = materiaFacadeImpl.getAll();
