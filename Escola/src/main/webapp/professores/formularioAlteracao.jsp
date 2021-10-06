@@ -34,7 +34,7 @@
 							
 							<div>
 								<label>Nome</label><br />
-								<input type="text" name="´professor.nome" />
+								<input type="text" name="professor.nome" />
 							</div>
 							<div>
 								<label>Cpf</label><br />
