@@ -2,6 +2,9 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
+<%@	taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="context" value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +16,7 @@
 </head>
 <body>
 	<div class="app">
-		<s:include value="./components/sidebar.jspf"></s:include>
+		<s:include value="../components/sidebar.jspf"></s:include>
 		<div class="body-wrapper">
 			<div class="body">
 				<div class="row">
@@ -35,7 +38,7 @@
 								</tr>
 							</s:iterator>
 						</table>
-						<a href="adicionarFormulario" class="btn btn-danger"><i class="fas fa-times"></i> Inserir Tarefa</a>
+						<a href="iniciarCadastro" class="btn btn-danger"><i class="fas fa-plus"></i> Inserir tarefa</a>
 					</div>
 				</div>
 			</div>

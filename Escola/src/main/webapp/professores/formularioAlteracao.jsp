@@ -32,12 +32,30 @@
 						<s:form action="atualizar" method="post">
 							<s:hidden name="cod_professor" value="%{cod_professor}" />
 							
-							<s:textfield name="nome" label="Nome" />
-							<s:textfield name="cpf" label="Cpf" />
-							<s:textfield name="dataNascimento" label="Data de nascimento" />
-							<s:textfield name="email" label="Email" />
-							<s:textfield name="telefoneCelular" label="Telefone celular" />
-							<s:textfield name="telefoneResidencial" label="Telefone residencial" />
+							<div>
+								<label>Nome</label><br />
+								<input type="text" name="´professor.nome" />
+							</div>
+							<div>
+								<label>Cpf</label><br />
+								<input type="text" name="professor.cpf" />
+							</div>
+							<div>
+								<label>Data de nascimento</label><br />
+								<input type="text" name="professor.dataNascimento" />
+							</div>
+							<div>
+								<label>Email</label><br />
+								<input type="email" name="professor.email" />
+							</div>
+							<div>
+								<label>Telefone Celular</label><br />
+								<input type="text" name="professor.telefoneCelular" />
+							</div>
+							<div>
+								<label>Telefone Residêncial</label><br />
+								<input type="text" name="professor.telefoneResidencial" />
+							</div>
 			
 							<s:submit />
 						</s:form>

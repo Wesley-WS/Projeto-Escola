@@ -32,27 +32,27 @@
 						<s:form action="adicionar" method="post">
 							<div>
 								<label>Nome</label><br />
-								<input type="text" name="nome" />
+								<input type="text" name="´professor.nome" />
 							</div>
 							<div>
 								<label>Cpf</label><br />
-								<input type="text" name="cpf" />
+								<input type="text" name="professor.cpf" />
 							</div>
 							<div>
 								<label>Data de nascimento</label><br />
-								<input type="text" name="dataNascimento" />
+								<input type="text" name="professor.dataNascimento" />
 							</div>
 							<div>
 								<label>Email</label><br />
-								<input type="email" name="email" />
+								<input type="email" name="professor.email" />
 							</div>
 							<div>
 								<label>Telefone Celular</label><br />
-								<input type="text" name="telefoneCelular" />
+								<input type="text" name="professor.telefoneCelular" />
 							</div>
 							<div>
 								<label>Telefone Residêncial</label><br />
-								<input type="text" name="telefoneResidencial" />
+								<input type="text" name="professor.telefoneResidencial" />
 							</div>
 
 							<s:submit />
