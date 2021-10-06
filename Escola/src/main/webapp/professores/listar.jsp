@@ -37,7 +37,7 @@
 								<th colspan="2">Ações</th>
 							</tr>
 				
-							<s:iterator value="alunos">
+							<s:iterator value="professores">
 								<tr>
 									<td><s:property value="nome" /></td>
 									<td><s:property value="cpf" /></td>
