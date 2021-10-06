@@ -1,11 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+
 :root {
-	--primary-color: #1AA6B7;
-	--secondary-color: #FF414D;
+    --dark: #222831;
+    --light: #EEEEEE;
+    --menu-itens-transparent: #ffffff08;
+    --primary-color: #F05454;
 }
 
 body {
+	background-color: var(--light);
 	padding: 0px;
+	font-family: 'Nunito', sans-serif;
 	margin: 0px;
+}
+
+.app {
+    display: flex;
+    left: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.body-wrapper {
+	display: flex;
+    flex: 1 1 auto;
+    padding-left: 16px;
+}
+
+.body {
+	display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.col {
+	flex: 1 1 auto;
 }
 
 .table {
@@ -18,7 +54,7 @@ body {
 .table tr:hover {background-color: #ddd;}
 
 .table th {
-	background-color: var(--primary-color);
+	background-color: var(--dark);
 	color: whitesmoke;
 	padding: 8px;
 	text-align: left;
@@ -32,51 +68,64 @@ body {
 	Sidebar
 */
 .sidebar {
-  background-color: whitesmoke;
-  letter-spacing: 1.5px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+    background-color: var(--dark);
+    display: flex;
+    flex: 0 1 auto;
 }
 
-.sidebar-button-wrapper {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
+.sidebar-content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
 }
 
-.ico {
-  padding: 0px 16px;
+.sidebar-menu-wrapper {
+    flex: 1 1 auto;
 }
 
 .sidebar-item {
-  display: flex;
-  padding: 16px 8px 16px 16px;
-  text-align: center;
-  background-color: #660033;
-}
-
-.sidebar-item a{
-  color: white;
-  text-decoration: none;
-}
-.sidebar-item i {
-	color: white;
-	text-decoration: none;
+    align-items: center;
+    background-color: var(--menu-itens-transparent);
+    border-radius: 4px;
+    color: var(--light);
+    cursor: pointer;
+    display: flex;
+    margin: 6px 8px;
 }
 
 .sidebar-item:hover {
-  background-color: #770044;
+    background-color: var(--light);
+    color: var(--dark-sidebar);
 }
 
-.sidebar-footer{
-  display: flex;
-  flex: 0 1 auto;
+.sidebar-menu-item {
+    padding: 8px 16px;
 }
 
+.sidebar-button {
+    padding: 8px 16px;
+    white-space: nowrap;
+}
+
+.sidebar-extras-header {
+    display: flex;
+    border-bottom: 1px solid #0000002a;
+}
+
+.sidebar-welcome {
+    align-items: center;
+    color: var(--light);
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.sidebar-extras-footer {
+    border-top: 1px solid #0000002a;
+}
+
+/*
+	
+*/
 .modal-wrapper {
 	left: 0;
 	position: absolute;
@@ -103,10 +152,11 @@ body {
 	border: none;
 	cursor: pointer;
 	padding: 8px 16px;
+	text-decoration: none;
 }
 
 .btn-danger {
-	background-color: var(--secondary-color);
+	background-color: var(--primary-color);
 	color: whitesmoke;
 }
 
@@ -118,8 +168,8 @@ body {
 	display: none;
 }
 
-.content {
-	justify-content: center;
+.icon {
+    padding: 0px 8px;
 }
 
 .mb-8 {

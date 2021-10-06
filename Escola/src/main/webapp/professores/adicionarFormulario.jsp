@@ -21,27 +21,45 @@
 <title>Formulario - Cadastrar professor</title>
 </head>
 <body>
-	<div style="background-color: whitesmoke;">
-		<div class="d-flex modal-header">
-			<div style="flex: 1 1 auto;">
-				<h3>Cadastrar professor</h3>
-			</div>
-			<div style="align-self: center;">
-				<a href="#"><i class="fas fa-times" aria-hidden="true"></i>
-					Fechar</a>
-			</div>
-		</div>
-		<div style="padding: 16px;">
-			<s:form action="adicionar" method="post">
-				<s:textfield name="nome" label="Nome" />
-				<s:textfield name="cpf" label="Cpf" />
-				<s:textfield name="dataNascimento" label="Data de nascimento" />
-				<s:textfield name="email" label="Email" />
-				<s:textfield name="telefoneCelular" label="Telefone celular" />
-				<s:textfield name="telefoneResidencial" label="Telefone residencial" />
+	<div class="app">
+		<s:include value="../components/sidebar.jspf"></s:include>
+		<div class="body-wrapper">
+			<div class="body">
+				<div class="row">
+					<div class="col">
+						<h2>Cadastrar professor</h2>
+						
+						<s:form action="adicionar" method="post">
+							<div>
+								<label>Nome</label><br />
+								<input type="text" name="nome" />
+							</div>
+							<div>
+								<label>Cpf</label><br />
+								<input type="text" name="cpf" />
+							</div>
+							<div>
+								<label>Data de nascimento</label><br />
+								<input type="text" name="dataNascimento" />
+							</div>
+							<div>
+								<label>Email</label><br />
+								<input type="email" name="email" />
+							</div>
+							<div>
+								<label>Telefone Celular</label><br />
+								<input type="text" name="telefoneCelular" />
+							</div>
+							<div>
+								<label>Telefone Residêncial</label><br />
+								<input type="text" name="telefoneResidencial" />
+							</div>
 
-				<s:submit />
-			</s:form>
+							<s:submit />
+						</s:form>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
