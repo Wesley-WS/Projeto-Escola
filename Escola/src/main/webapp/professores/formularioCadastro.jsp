@@ -29,7 +29,7 @@
 					<div class="col">
 						<h2>Cadastrar professor</h2>
 						
-						<s:form action="adicionar" method="post">
+						<s:form action="cadastrar" method="post">
 							<div>
 								<label>Nome</label><br />
 								<input type="text" name="´professor.nome" />
