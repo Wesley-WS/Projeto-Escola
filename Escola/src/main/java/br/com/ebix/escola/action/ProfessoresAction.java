@@ -1,18 +1,15 @@
 package br.com.ebix.escola.action;
 
-import java.util.Calendar;
 import java.util.List;
 
 import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
 
 import br.com.ebix.escola.facade.ProfessorFacadeImpl;
-import br.com.ebix.escola.model.Aluno;
 import br.com.ebix.escola.model.Professor;
 
-public class ProfessoresAction extends ActionSupport /*implements ModelDriven<Object>*/ {
+public class ProfessoresAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private ProfessorFacadeImpl professorFacadeImpl = new ProfessorFacadeImpl();
 	private List<Professor> professores;
@@ -29,15 +26,7 @@ public class ProfessoresAction extends ActionSupport /*implements ModelDriven<Ob
 		return "success";
 	}
 	
-	public String cadastrar() {
-		Professor professor = new Professor();
-		professor.setNome(nome);
-		professor.setCpf(cpf);
-		professor.setEmail(email);
-		professor.setTelefoneCelular(telefoneCelular);
-		professor.setTelefoneResidencial(telefoneResidencial);
-		professor.setDataNascimento(dataNascimento);
-		
+	public String cadastrar() {		
 		if(professorFacadeImpl.add(professor)) {
 			professores = professorFacadeImpl.getAll();
 			return "success";
@@ -46,15 +35,6 @@ public class ProfessoresAction extends ActionSupport /*implements ModelDriven<Ob
 		}
 	}
 	public String alterar() {
-		Professor professor = new Professor();
-		professor.setCod_professor(cod_professor);
-		professor.setNome(nome);
-		professor.setCpf(cpf);
-		professor.setEmail(email);
-		professor.setTelefoneCelular(telefoneCelular);
-		professor.setTelefoneResidencial(telefoneResidencial);
-		professor.setDataNascimento(dataNascimento);
-		
 		if(professorFacadeImpl.update(professor)) {
 			professores = professorFacadeImpl.getAll();
 			return "success";
@@ -64,9 +44,6 @@ public class ProfessoresAction extends ActionSupport /*implements ModelDriven<Ob
 	}
 	
 	public String deletar() {
-		Professor professor = new Professor();
-		professor.setCod_professor(cod_professor);
-		
 		if(professorFacadeImpl.delete(professor)) {
 			return "success";
 		} else {
@@ -74,8 +51,4 @@ public class ProfessoresAction extends ActionSupport /*implements ModelDriven<Ob
 		}
 	}
 	
-	/*@Override
-	public Object getModel() {
-		return (alunos == null) ? aluno : alunos;
-	}*/
 }
