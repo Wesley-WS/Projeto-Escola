@@ -43,8 +43,7 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 		return "success";
 	}
 	
-	@SkipValidation
-	public String adicionar() {
+	public String cadastrar() {
 		if(alunoFacadeImpl.add(aluno)) {
 			alunos = alunoFacadeImpl.getAll();
 			return "success";
@@ -53,8 +52,7 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 		}
 	}
 	
-	@SkipValidation
-	public String atualizar() {
+	public String alterar() {
 		if(alunoFacadeImpl.update(aluno)) {
 			alunos = alunoFacadeImpl.getAll();
 			return "success";
@@ -63,8 +61,7 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 		}
 	}
 	
-	@SkipValidation
-	public String remover() {
+	public String deletar() {
 		if(alunoFacadeImpl.delete(aluno)) {
 			return "success";
 		} else {
