@@ -7,7 +7,7 @@ import br.com.ebix.escola.model.Aluno;
 
 public interface AlunoFacade {
 	List<Aluno> getAll();
-	Optional<Aluno> get(int id);
+	Aluno get(Aluno aluno);
 	boolean add(Aluno aluno);
 	boolean update(Aluno aluno);
 	boolean delete(Aluno aluno);

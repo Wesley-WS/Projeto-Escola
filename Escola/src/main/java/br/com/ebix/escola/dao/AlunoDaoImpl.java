@@ -1,49 +1,107 @@
 package br.com.ebix.escola.dao;
 
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 import java.util.Optional;
 
 import br.com.ebix.escola.model.Aluno;
 
 public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 	@Override
-	public Optional<Aluno> get(int id) {
-		// TODO Auto-generated method stub
+	public Optional<Aluno> get(Aluno aluno) {
+		Aluno alunoObtido = null;
+		try (Connection conn = getConnection()) {
+			String sql = "SELECT * FROM escola.alunos WHERE id=?";
+
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setLong(1, aluno.getCod_aluno());
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				alunoObtido = new Aluno();
+				alunoObtido.setCod_aluno(rs.getLong("cod_aluno"));
+				alunoObtido.setNome(rs.getString("nome"));
+				alunoObtido.setCpf(rs.getString("cpf"));
+
+				Date date = rs.getDate("dataNascimento");
+				Calendar calendario = Calendar.getInstance();
+				calendario.setTime(date);
+				alunoObtido.setDataNascimento(calendario);
+
+				alunoObtido.setEmail(rs.getString("email"));
+				alunoObtido.setTelefoneCelular(rs.getString("telefone_celular"));
+				alunoObtido.setTelefoneResidencial(rs.getString("telefone_residencial"));
+			}
+			rs.close();
+			ps.close();
+			conn.close();
+			
+			return Optional.ofNullable(alunoObtido);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return Optional.ofNullable(alunoObtido);
+		}
 		
-		return null;
 	}
 
 	@Override
-	public ResultSet getAll() {
-		ResultSet resultado = null;
-		try {
+	public List<Aluno> getAll() {
+		List<Aluno> alunos = new ArrayList<Aluno>();
+		try(Connection conn = getConnection()) {
 			String sql = "SELECT * FROM escola.alunos ";
-			PreparedStatement ps = getConnection().prepareStatement(sql);
-			resultado = ps.executeQuery();
-			return resultado;
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				Aluno aluno = new Aluno();
+				aluno.setCod_aluno(rs.getLong("cod_aluno"));
+				aluno.setNome(rs.getString("nome"));
+				aluno.setCpf(rs.getString("cpf"));
+
+				Date date = rs.getDate("dataNascimento");
+				Calendar calendario = Calendar.getInstance();
+				calendario.setTime(date);
+				aluno.setDataNascimento(calendario);
+
+				aluno.setEmail(rs.getString("email"));
+				aluno.setTelefoneCelular(rs.getString("telefone_celular"));
+				aluno.setTelefoneResidencial(rs.getString("telefone_residencial"));
+				alunos.add(aluno);
+			}
+			rs.close();
+			ps.close();
+			conn.close();
+			
+			return alunos;
 		} catch (SQLException e) {
 			e.printStackTrace();
-			return resultado;
+			return alunos;
 		}
 	}
 
 	@Override
-	public void add(Aluno t) {
-		try {
+	public void add(Aluno aluno) {
+		try (Connection conn = getConnection()) {
 			String sql = "INSERT INTO escola.alunos (nome, cpf, dataNascimento, email, telefone_celular, telefone_residencial) VALUES(?, ?, ?, ?, ?, ?)";
+			
 			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setString(1, t.getNome());
-			ps.setString(2, t.getCpf());
-			ps.setDate(3, new Date(t.getDataNascimento().getTimeInMillis()));
-			ps.setString(4, t.getEmail());
-			ps.setString(5, t.getTelefoneCelular());
-			ps.setString(6, t.getTelefoneResidencial());
+			ps.setString(1, aluno.getNome());
+			ps.setString(2, aluno.getCpf());
+			ps.setDate(3, new Date(aluno.getDataNascimento().getTimeInMillis()));
+			ps.setString(4, aluno.getEmail());
+			ps.setString(5, aluno.getTelefoneCelular());
+			ps.setString(6, aluno.getTelefoneResidencial());
 			
 			ps.execute();
 			ps.close();
+			conn.close();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -51,8 +109,9 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 
 	@Override
 	public void update(Aluno t) {
-		try {
+		try (Connection conn = getConnection()) {
 			String sql = "UPDATE escola.alunos SET nome=?, cpf=?, dataNascimento=?, email=?, telefone_celular=?, telefone_residencial=? WHERE cod_aluno=?";
+			
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, t.getNome());
 			ps.setString(2, t.getCpf());
@@ -64,6 +123,7 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 			
 			ps.execute();
 			ps.close();
+			conn.close();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -71,13 +131,15 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 
 	@Override
 	public void delete(Aluno t) {
-		try {
+		try (Connection conn = getConnection()) {
 			String sql = "DELETE FROM escola.alunos WHERE cod_aluno=?";
+			
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setLong(1, t.getCod_aluno());
+			
 			ps.execute();
 			ps.close();
-			
+			conn.close();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
