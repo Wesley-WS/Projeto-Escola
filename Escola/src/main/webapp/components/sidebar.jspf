@@ -1,15 +1,36 @@
 <div class="sidebar">
-  <div class="sidebar-button-wrapper">
-    <div class="sidebar-item">
-      <div class="ico"><i class="fas fa-home"></i></div>
-      <a href="#">Home</a>
+    <div class="sidebar-content">
+        <div class="sidebar-extras-header">
+            <div class="sidebar-item sidebar-menu-item">
+                <div class="icon"><i class="fas fa-bars"></i></div>
+            </div>
+            <div class="sidebar-welcome sidebar-button">Bem vindo(a)</div>
+        </div>
+
+        <div class="sidebar-menu-wrapper">
+            <div class="sidebar-item">
+                <div class="icon"><i class="fas fa-home"></i></div>
+                <div class="sidebar-button">Home</div>
+            </div>
+            <div class="sidebar-item">
+                <div class="icon"><i class="fas fa-user-graduate"></i></div>
+                <div class="sidebar-button">Lista de alunos</div>
+            </div>
+            <div class="sidebar-item">
+                <div class="icon"><i class="fas fa-glasses"></i></div>
+                <div class="sidebar-button">Lista de professores</div>
+            </div>
+            <div class="sidebar-item">
+                <div class="icon"><i class="fas fa-chalkboard"></i></div>
+                <div class="sidebar-button">Lista de materias</div>
+            </div>
+        </div>
+
+        <div class="sidebar-extras-footer">
+            <div id="close-app" class="sidebar-item">
+                <div class="icon"><i class="fas fa-walking"></i></div>
+                <div class="sidebar-button">SAIR</div>
+            </div>
+        </div>
     </div>
-    <div class="sidebar-item">
-      <div class="ico"><i class="fas fa-list"></i></div>
-      <a href="#">Listagem</a>
-    </div>
-  </div>
-  <div class="sidebar-footer">
-    <label>Sla</label>
-  </div>
 </div>

@@ -21,6 +21,7 @@
 <title>Professores</title>
 </head>
 <body>
+<<<<<<< HEAD
 	<div class="d-flex content">
 		<table class="table" border="1">
 			<tr>
@@ -41,6 +42,39 @@
 				</tr>
 			</s:iterator>
 		</table>
+=======
+	<div class="app"> <!-- TODO: arrumar responsividade e o botão de adicionar -->
+		<s:include value="../components/sidebar.jspf"></s:include>
+		<div class="body-wrapper">
+			<div class="body">
+				<div class="row">
+					<div class="col">
+						<h2>Lista de professores</h2>
+					
+						<table class="table" border="1">
+							<tr>
+								<th>Nome</th>
+								<th>CPF</th>
+								<th>Email</th>
+								<th colspan="2">Ações</th>
+							</tr>
+				
+							<s:iterator value="alunos">
+								<tr>
+									<td><s:property value="nome" /></td>
+									<td><s:property value="cpf" /></td>
+									<td><s:property value="email" /></td>
+									<td colspan="2"><a href="atualizarFormulario?cod_professor=${cod_professor}" class="btn btn-primary"> Atualizar</a><a href="deletar?cod_professor=${cod_professor}" class="btn btn-danger"><i class="fas fa-trash"></i> Deletar</a></td>
+								</tr>
+							</s:iterator>
+						</table>
+						
+						<a href="adicionarFormulario" class="btn btn-danger"><i class="fas fa-times"></i> Inserir Professor</a>
+					</div>
+				</div>
+			</div>
+		</div>
+>>>>>>> branch 'main' of https://github.com/Wesley-WS/Projeto-Escola.git
 	</div>
 </body>
 </html>

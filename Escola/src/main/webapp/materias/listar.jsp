@@ -12,26 +12,34 @@
 	<title>Materias</title>
 </head>
 <body>
-	<h1>Materias</h1>
-	
-	<div class="d-flex content">	
-		<table class="table" border="1">
-			<tr>
-				<th>Nome</th>
-				<th>Sigla</th>
-				<th></th>
-				<th><a href="adicionarFormulario" class="btn btn-danger">Adicionar materia</a></th>
-			</tr>
-			
-			<s:iterator value="materias">
-				<tr>
-					<td><s:property value="nome" /></td>
-					<td><s:property value="sigla" /></td>
-					<td><a href="atualizarFormulario?cod_materia=${cod_materia}" class="btn btn-primary"> Atualizar</a></td>
-					<td><a href="deletar?cod_materia=${cod_materia}" class="btn btn-primary"><i class="fas fa-trash"></i> Deletar</a></td>
-				</tr>
-			</s:iterator>
-		</table>
+	<div class="app">
+		<s:include value="./components/sidebar.jspf"></s:include>
+		<div class="body-wrapper">
+			<div class="body">
+				<div class="row">
+					<div class="col">
+						<h2>Lista de materias</h2>
+						
+						<table class="table" border="1">
+							<tr>
+								<th>Nome</th>
+								<th>Sigla</th>
+								<th colspan="2">Ações</th>
+							</tr>
+							
+							<s:iterator value="materias">
+								<tr>
+									<td><s:property value="nome" /></td>
+									<td><s:property value="sigla" /></td>
+									<td colspan="2"><a href="atualizarFormulario?cod_materia=${cod_materia}" class="btn btn-primary"> Atualizar</a><a href="deletar?cod_materia=${cod_materia}" class="btn btn-primary"><i class="fas fa-trash"></i> Deletar</a></td>
+								</tr>
+							</s:iterator>
+						</table>
+						<a href="adicionarFormulario" class="btn btn-danger"><i class="fas fa-times"></i> Inserir Tarefa</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

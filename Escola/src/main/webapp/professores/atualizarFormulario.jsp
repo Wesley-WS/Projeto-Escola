@@ -21,29 +21,29 @@
 <title>Formulario - Atualizar professor</title>
 </head>
 <body>
-	<div style="background-color: whitesmoke;">
-		<div class="d-flex modal-header">
-			<div style="flex: 1 1 auto;">
-				<h3>Atualizar professor</h3>
+	<div class="app">
+		<s:include value="../components/sidebar.jspf"></s:include>
+		<div class="body-wrapper">
+			<div class="body">
+				<div class="row">
+					<div class="col">
+						<h2>Atualizar professor</h2>
+						
+						<s:form action="atualizar" method="post">
+							<s:hidden name="cod_professor" value="%{cod_professor}" />
+							
+							<s:textfield name="nome" label="Nome" />
+							<s:textfield name="cpf" label="Cpf" />
+							<s:textfield name="dataNascimento" label="Data de nascimento" />
+							<s:textfield name="email" label="Email" />
+							<s:textfield name="telefoneCelular" label="Telefone celular" />
+							<s:textfield name="telefoneResidencial" label="Telefone residencial" />
+			
+							<s:submit />
+						</s:form>
+					</div>
+				</div>
 			</div>
-			<div style="align-self: center;">
-				<a href="#"><i class="fas fa-times" aria-hidden="true"></i>
-					Fechar</a>
-			</div>
-		</div>
-		<div style="padding: 16px;">
-			<s:form action="atualizar" method="post">
-				<s:hidden name="cod_professor" value="%{cod_professor}" />
-				
-				<s:textfield name="nome" label="Nome" />
-				<s:textfield name="cpf" label="Cpf" />
-				<s:textfield name="dataNascimento" label="Data de nascimento" />
-				<s:textfield name="email" label="Email" />
-				<s:textfield name="telefoneCelular" label="Telefone celular" />
-				<s:textfield name="telefoneResidencial" label="Telefone residencial" />
-
-				<s:submit />
-			</s:form>
 		</div>
 	</div>
 </body>
