@@ -42,7 +42,7 @@
 									<td><s:property value="nome" /></td>
 									<td><s:property value="cpf" /></td>
 									<td><s:property value="email" /></td>
-									<td colspan="2"><a href="atualizarFormulario?cod_professor=${cod_professor}" class="btn btn-primary"> Atualizar</a><a href="deletar?cod_professor=${cod_professor}" class="btn btn-danger"><i class="fas fa-trash"></i> Deletar</a></td>
+									<td colspan="2"><a href="iniciarAlteracao?cod_professor=${cod_professor}" class="btn btn-primary"> Atualizar</a><a href="deletar?cod_professor=${cod_professor}" class="btn btn-danger"><i class="fas fa-trash"></i> Deletar</a></td>
 								</tr>
 							</s:iterator>
 						</table>

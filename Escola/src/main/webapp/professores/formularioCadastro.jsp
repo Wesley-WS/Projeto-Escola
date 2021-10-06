@@ -54,7 +54,6 @@
 								<label>Telefone Residêncial</label><br />
 								<input type="text" name="professor.telefoneResidencial" />
 							</div>
-
 							<s:submit />
 						</s:form>
 					</div>

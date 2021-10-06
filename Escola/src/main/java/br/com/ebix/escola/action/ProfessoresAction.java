@@ -14,7 +14,18 @@ public class ProfessoresAction extends ActionSupport {
 	private ProfessorFacadeImpl professorFacadeImpl = new ProfessorFacadeImpl();
 	private List<Professor> professores;
 	private Professor professor = new Professor();
+	
+	public Professor getProfessor() {
+		return professor;
+	}
 
+	public void setProfessor(Professor professor) {
+		this.professor = professor;
+	}
+
+	public void setProfessores(List<Professor> professores) {
+		this.professores = professores;
+	}
 
 	public List<Professor> getProfessores() {
 		return professores;
@@ -27,9 +38,8 @@ public class ProfessoresAction extends ActionSupport {
 	}
 	
 	public String cadastrar() {		
-		System.out.println(professor.getNome());
 		if(professorFacadeImpl.add(professor)) {
-			professores = professorFacadeImpl.getAll();
+			//professores = professorFacadeImpl.getAll();
 			return "success";
 		} else {
 			return "error";
@@ -37,7 +47,7 @@ public class ProfessoresAction extends ActionSupport {
 	}
 	public String alterar() {
 		if(professorFacadeImpl.update(professor)) {
-			professores = professorFacadeImpl.getAll();
+			//professores = professorFacadeImpl.getAll();
 			return "success";
 		} else {
 			return "error";
