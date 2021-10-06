@@ -27,6 +27,7 @@ public class ProfessoresAction extends ActionSupport {
 	}
 	
 	public String cadastrar() {		
+		System.out.println(professor.getNome());
 		if(professorFacadeImpl.add(professor)) {
 			professores = professorFacadeImpl.getAll();
 			return "success";
