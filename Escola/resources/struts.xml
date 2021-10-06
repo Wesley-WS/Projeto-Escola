@@ -42,22 +42,23 @@
 		<action name="listar" class="br.com.ebix.escola.action.ProfessoresAction" method="listar">
 			<result name="success">listar.jsp</result>
 		</action>
-		<action name="adicionarFormulario" class="br.com.ebix.escola.action.ProfessoresAction">
-			<result name="success">adicionarFormulario.jsp</result>
+		<action name="iniciarCadastro">
+			<result name="success">FormularioCadastro.jsp</result>
 		</action>
-		<action name="atualizarFormulario" class="br.com.ebix.escola.action.ProfessoresAction">
-			<result name="success">atualizarFormulario.jsp</result>
+		<action name="cadastrar" class="br.com.ebix.escola.action.ProfessoresAction" method="cadastrar">
+			<result name="success" type="redirect">listar</result>
+			<result name="input">FormularioCadastro.jsp</result>
 		</action>
 		
-		<action name="adicionar" class="br.com.ebix.escola.action.ProfessoresAction" method="adicionar">
-			<result name="success" type="redirect">listar</result>
-			<result name="input">adicionarFormulario.jsp</result>
+		<action name="iniciarAlteracao">
+			<result name="success">FormularioAlteracao.jsp</result>
 		</action>
-		<action name="atualizar" class="br.com.ebix.escola.action.ProfessoresAction" method="atualizar">
+		
+		<action name="alterar" class="br.com.ebix.escola.action.ProfessoresAction" method="alterar">
 			<result name="success" type="redirect">listar</result>
-			<result name="input">atualizarFormulario.jsp</result>
+			<result name="input">FormularioAlteracao.jsp</result>
 		</action>
-		<action name="deletar" class="br.com.ebix.escola.action.ProfessoresAction" method="remover">
+		<action name="deletar" class="br.com.ebix.escola.action.ProfessoresAction" method="deletar">
 			<result name="success" type="redirect">listar</result>
 		</action>
 	</package>

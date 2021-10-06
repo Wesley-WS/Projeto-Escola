@@ -16,50 +16,11 @@ public class ProfessoresAction extends ActionSupport /*implements ModelDriven<Ob
 	private static final long serialVersionUID = 1L;
 	private ProfessorFacadeImpl professorFacadeImpl = new ProfessorFacadeImpl();
 	private List<Professor> professores;
-	
-	private Long cod_professor;
-	private String nome;
-	private String cpf;
-	private String email;
-	private String telefoneCelular;
-	private String telefoneResidencial;
-	private Calendar dataNascimento;
-	
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public void setCod_professor(Long cod_professor) {
-		this.cod_professor = cod_professor;
-	}
-	public void setTelefoneCelular(String telefoneCelular) {
-		this.telefoneCelular = telefoneCelular;
-	}
-
-	public void setTelefoneResidencial(String telefoneResidencial) {
-		this.telefoneResidencial = telefoneResidencial;
-	}
-
-	public void setDataNascimento(Calendar dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
+	private Professor professor = new Professor();
 
 
 	public List<Professor> getProfessores() {
 		return professores;
-	}
-	
-	@SkipValidation
-	public String execute() {
-		return "success";
 	}
 	
 	@SkipValidation
@@ -68,7 +29,7 @@ public class ProfessoresAction extends ActionSupport /*implements ModelDriven<Ob
 		return "success";
 	}
 	
-	public String adicionar() {
+	public String cadastrar() {
 		Professor professor = new Professor();
 		professor.setNome(nome);
 		professor.setCpf(cpf);
@@ -84,7 +45,7 @@ public class ProfessoresAction extends ActionSupport /*implements ModelDriven<Ob
 			return "error";
 		}
 	}
-	public String atualizar() {
+	public String alterar() {
 		Professor professor = new Professor();
 		professor.setCod_professor(cod_professor);
 		professor.setNome(nome);
@@ -102,7 +63,7 @@ public class ProfessoresAction extends ActionSupport /*implements ModelDriven<Ob
 		}
 	}
 	
-	public String remover() {
+	public String deletar() {
 		Professor professor = new Professor();
 		professor.setCod_professor(cod_professor);
 		

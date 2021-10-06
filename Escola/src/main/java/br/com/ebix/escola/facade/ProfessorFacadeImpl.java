@@ -68,17 +68,8 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 
 	@Override
 	public boolean update(Professor p) {
-		// TODO Auto-generated method stub
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getCod_professor()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getNome()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getCpf()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getEmail()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getDataNascimento())) {
-			return false;
-		} else {
-			professorDaoImpl.update(p);
-			return true;
-		}
+		professorDaoImpl.update(p);
+		return true;
 	}
 
 	@Override

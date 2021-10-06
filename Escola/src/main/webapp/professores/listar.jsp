@@ -31,7 +31,7 @@
 				<th><a href="adicionarFormulario" class="btn btn-danger">Inserir Professor</a></th>
 			</tr>
 
-			<s:iterator value="alunos">
+			<s:iterator value="professores">
 				<tr>
 					<td><s:property value="nome" /></td>
 					<td><s:property value="cpf" /></td>

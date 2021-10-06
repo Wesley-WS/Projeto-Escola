@@ -63,7 +63,7 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 			ps.setString(6, p.getTelefoneResidencial());
 			ps.setLong(7, p.getCod_professor());
 			ps.execute();
-			
+			System.out.println("è no DAO");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
