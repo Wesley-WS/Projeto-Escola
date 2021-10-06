@@ -93,6 +93,7 @@ body {
     cursor: pointer;
     display: flex;
     margin: 6px 8px;
+	text-decoration: none;
 }
 
 .sidebar-item:hover {

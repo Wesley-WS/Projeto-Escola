@@ -8,22 +8,22 @@
         </div>
 
         <div class="sidebar-menu-wrapper">
-            <div class="sidebar-item">
+            <a href="/Escola/home" class="sidebar-item">
                 <div class="icon"><i class="fas fa-home"></i></div>
                 <div class="sidebar-button">Home</div>
-            </div>
-            <div class="sidebar-item">
+            </a>
+            <a href="/Escola/alunos/listar" class="sidebar-item">
                 <div class="icon"><i class="fas fa-user-graduate"></i></div>
                 <div class="sidebar-button">Lista de alunos</div>
-            </div>
-            <div class="sidebar-item">
+            </a>
+            <a href="/Escola/professores/listar" class="sidebar-item">
                 <div class="icon"><i class="fas fa-glasses"></i></div>
                 <div class="sidebar-button">Lista de professores</div>
-            </div>
-            <div class="sidebar-item">
+            </a>
+            <a href="/Escola/materias/listar" class="sidebar-item">
                 <div class="icon"><i class="fas fa-chalkboard"></i></div>
                 <div class="sidebar-button">Lista de materias</div>
-            </div>
+            </a>
         </div>
 
         <div class="sidebar-extras-footer">

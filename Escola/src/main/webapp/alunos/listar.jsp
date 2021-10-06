@@ -21,26 +21,36 @@
 <title>Alunos</title>
 </head>
 <body>
-	<div class="d-flex content">
-		<table class="table" border="1">
-			<tr>
-				<th>Nome</th>
-				<th>CPF</th>
-				<th>Email</th>
-				<th></th>
-				<th><a href="cadastrar" class="btn btn-danger">Cadastrar aluno</a></th>
-			</tr>
-
-			<s:iterator value="alunos">
-				<tr>
-					<td><s:property value="nome" /></td>
-					<td><s:property value="cpf" /></td>
-					<td><s:property value="email" /></td>
-					<td><a href="atualizar?aluno.cod_aluno=${cod_aluno}" class="btn btn-primary"> Atualizar</a></td>
-					<td><a href="deletar?aluno.cod_aluno=${cod_aluno}" class="btn btn-danger"><i class="fas fa-trash"></i> Deletar</a></td>
-				</tr>
-			</s:iterator>
-		</table>
+	<div class="app">
+		<s:include value="../components/sidebar.jspf"></s:include>
+		<div class="body-wrapper">
+			<div class="body">
+				<div class="row">
+					<div class="col">
+						<h2>Lista de alunos</h2>
+						
+						<table class="table" border="1">
+							<tr>
+								<th>Nome</th>
+								<th>CPF</th>
+								<th>Email</th>
+								<th colspan="2">Ações</th>
+							</tr>
+				
+							<s:iterator value="alunos">
+								<tr>
+									<td><s:property value="nome" /></td>
+									<td><s:property value="cpf" /></td>
+									<td><s:property value="email" /></td>
+									<td colspan="2"><a href="alterar?aluno.cod_aluno=${cod_aluno}" class="btn btn-primary">Atualizar</a><a href="deletar?aluno.cod_aluno=${cod_aluno}" class="btn btn-danger"><i class="fas fa-trash"></i> Deletar</a></td>
+								</tr>
+							</s:iterator>
+						</table>
+						<a href="iniciarCadastro" class="btn btn-danger">Cadastrar aluno</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
