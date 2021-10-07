@@ -34,14 +34,14 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 	}
 
 	@Override
-	public boolean add(Professor p) {
+	public boolean add(Professor professor) {
 		// TODO Auto-generated method stub
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getNome()) ||
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getCpf()) ||
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(p.getDataNascimento())) {
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getNome()) ||
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCpf()) ||
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getDataNascimento())) {
 			return false;
 		} else {
-			professorDao.add(p);
+			professorDao.add(professor);
 			return true;
 		}
 
@@ -71,5 +71,7 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 		}
 
 	}
+	
+	
 
 }
