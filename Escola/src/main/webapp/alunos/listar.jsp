@@ -44,7 +44,7 @@
 									<td><s:property value="email" /></td>
 									<td colspan="2">
 										<a href="alterar?aluno.cod_aluno=${cod_aluno}">Atualizar</a>
-										<a href="detalhar?aluno.cod_professor=${cod_aluno}">Detalhar</a>
+										<a href="detalhar?aluno.cod_aluno=${cod_aluno}">Detalhar</a>
 										<a href="deletar?aluno.cod_aluno=${cod_aluno}" class="btn btn-danger"><i class="fas fa-trash"></i> Deletar</a>
 									</td>
 								</tr>
