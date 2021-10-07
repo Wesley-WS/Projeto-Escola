@@ -16,7 +16,7 @@ public class MateriaDaoImpl extends ConnectionFactory implements MateriaDao {
 	public Optional<Materia> get(Materia materia) {
 		Materia materiaObtida = null;
 		try (Connection conn = getConnection()) {
-			String sql = "SELECT * FROM escola.materias WHERE id=?";
+			String sql = "SELECT * FROM escola.materias WHERE cod_materia=?";
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setLong(1, materia.getCod_materia());

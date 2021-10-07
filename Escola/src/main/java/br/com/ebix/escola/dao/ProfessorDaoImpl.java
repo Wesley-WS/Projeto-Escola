@@ -17,7 +17,7 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 	public Optional<Professor> get(Professor professor) {
 		Professor professorObtido = null;
 		try (Connection conn = getConnection()) {
-			String sql = "SELECT * FROM escola.professores WHERE id=?";
+			String sql = "SELECT * FROM escola.professores WHERE cod_professor=?";
 
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setLong(1, professor.getCod_professor());
