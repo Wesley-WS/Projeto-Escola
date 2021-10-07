@@ -1,5 +1,6 @@
 package br.com.ebix.escola.facade;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,16 +18,20 @@ public class AlunoFacadeImpl implements AlunoFacade {
 	
 	@Override
 	public Aluno get(Aluno aluno) {
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno())) {
-			return null;
+		Optional<Aluno> alunoObtido = alunoDao.get(aluno);
+		
+		if(alunoObtido.isPresent()) {
+			return alunoObtido.get();
 		} else {
-			Optional<Aluno> alunoObtido = alunoDao.get(aluno);
-			
-			if(alunoObtido.isPresent()) {
-				return alunoObtido.get();
-			} else {
-				return null;
-			}
+			Aluno alunoInexistente = new Aluno();
+			alunoInexistente.setCod_aluno(-1l);
+			alunoInexistente.setCpf("NA");
+			alunoInexistente.setDataNascimento(Calendar.getInstance());
+			alunoInexistente.setEmail("NA");
+			alunoInexistente.setNome("NA");
+			alunoInexistente.setTelefoneCelular("NA");
+			alunoInexistente.setTelefoneResidencial("NA");
+			return alunoInexistente;
 		}
 	}
 

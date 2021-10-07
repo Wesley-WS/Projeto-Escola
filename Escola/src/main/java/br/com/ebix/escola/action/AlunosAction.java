@@ -46,16 +46,21 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 	
 	public String cadastrar() {
 		if(alunoFacade.add(aluno)) {
-			alunos = alunoFacade.getAll();
+			// alunos = alunoFacade.getAll();
 			return "success";
 		} else {
 			return "input";
 		}
 	}
 	
+	public String detalhar() {
+		aluno = alunoFacade.get(aluno);
+		return "success";
+	}
+	
 	public String alterar() {
 		if(alunoFacade.update(aluno)) {
-			alunos = alunoFacade.getAll();
+			// alunos = alunoFacade.getAll();
 			return "success";
 		} else {
 			return "input";
