@@ -6,16 +6,17 @@ import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import br.com.ebix.escola.facade.AlunoFacade;
 import br.com.ebix.escola.facade.AlunoFacadeImpl;
 import br.com.ebix.escola.model.Aluno;
 
+
 public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>*/ {
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	private AlunoFacadeImpl alunoFacadeImpl = new AlunoFacadeImpl();
+	
+	// @Autowired
+	// private AlunoFacade alunoFacade;
+	private AlunoFacade alunoFacade = new AlunoFacadeImpl();
 	
 	private Aluno aluno = new Aluno();
 
@@ -39,13 +40,13 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 
 	@SkipValidation
 	public String listar() {
-		alunos = alunoFacadeImpl.getAll();
+		alunos = alunoFacade.getAll();
 		return "success";
 	}
 	
 	public String cadastrar() {
-		if(alunoFacadeImpl.add(aluno)) {
-			alunos = alunoFacadeImpl.getAll();
+		if(alunoFacade.add(aluno)) {
+			alunos = alunoFacade.getAll();
 			return "success";
 		} else {
 			return "input";
@@ -53,8 +54,8 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 	}
 	
 	public String alterar() {
-		if(alunoFacadeImpl.update(aluno)) {
-			alunos = alunoFacadeImpl.getAll();
+		if(alunoFacade.update(aluno)) {
+			alunos = alunoFacade.getAll();
 			return "success";
 		} else {
 			return "input";
@@ -62,7 +63,7 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 	}
 	
 	public String deletar() {
-		if(alunoFacadeImpl.delete(aluno)) {
+		if(alunoFacade.delete(aluno)) {
 			return "success";
 		} else {
 			return "error";

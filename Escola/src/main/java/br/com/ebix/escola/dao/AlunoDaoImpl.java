@@ -19,7 +19,7 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 		try (Connection conn = getConnection()) {
 			String sql = "SELECT * FROM escola.alunos WHERE id=?";
 
-			PreparedStatement ps = getConnection().prepareStatement(sql);
+			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setLong(1, aluno.getCod_aluno());
 			ResultSet rs = ps.executeQuery();
 			
@@ -91,7 +91,7 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 		try (Connection conn = getConnection()) {
 			String sql = "INSERT INTO escola.alunos (nome, cpf, dataNascimento, email, telefone_celular, telefone_residencial) VALUES(?, ?, ?, ?, ?, ?)";
 			
-			PreparedStatement ps = getConnection().prepareStatement(sql);
+			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, aluno.getNome());
 			ps.setString(2, aluno.getCpf());
 			ps.setDate(3, new Date(aluno.getDataNascimento().getTimeInMillis()));
@@ -108,18 +108,18 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 	}
 
 	@Override
-	public void update(Aluno t) {
+	public void update(Aluno aluno) {
 		try (Connection conn = getConnection()) {
 			String sql = "UPDATE escola.alunos SET nome=?, cpf=?, dataNascimento=?, email=?, telefone_celular=?, telefone_residencial=? WHERE cod_aluno=?";
 			
-			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setString(1, t.getNome());
-			ps.setString(2, t.getCpf());
-			ps.setDate(3, new Date(t.getDataNascimento().getTimeInMillis()));
-			ps.setString(4, t.getEmail());
-			ps.setString(5, t.getTelefoneCelular());
-			ps.setString(6, t.getTelefoneResidencial());
-			ps.setLong(7, t.getCod_aluno());
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, aluno.getNome());
+			ps.setString(2, aluno.getCpf());
+			ps.setDate(3, new Date(aluno.getDataNascimento().getTimeInMillis()));
+			ps.setString(4, aluno.getEmail());
+			ps.setString(5, aluno.getTelefoneCelular());
+			ps.setString(6, aluno.getTelefoneResidencial());
+			ps.setLong(7, aluno.getCod_aluno());
 			
 			ps.execute();
 			ps.close();
@@ -130,12 +130,12 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 	}
 
 	@Override
-	public void delete(Aluno t) {
+	public void delete(Aluno aluno) {
 		try (Connection conn = getConnection()) {
 			String sql = "DELETE FROM escola.alunos WHERE cod_aluno=?";
 			
-			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setLong(1, t.getCod_aluno());
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setLong(1, aluno.getCod_aluno());
 			
 			ps.execute();
 			ps.close();

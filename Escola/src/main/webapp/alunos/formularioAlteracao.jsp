@@ -27,19 +27,37 @@
 			<div class="body">
 				<div class="row">
 					<div class="col">
-						<h2>Alterar aluno</h2>
+						<h2>Atualizar aluno</h2>
 						
 						<s:form action="alterar" method="post">
 							<s:hidden name="aluno.cod_aluno" value="%{aluno.cod_aluno}" />
 							
-							<s:textfield name="aluno.nome" label="Nome" />
-							<s:textfield name="aluno.cpf" label="Cpf" />
-							<s:textfield name="aluno.dataNascimento" label="Data de nascimento" />
-							<s:textfield name="aluno.email" label="Email" />
-							<s:textfield name="aluno.telefoneCelular" label="Telefone celular" />
-							<s:textfield name="aluno.telefoneResidencial" label="Telefone residencial" />
+							<div>
+								<label>Nome</label><br />
+								<input type="text" name="aluno.nome" />
+							</div>
+							<div>
+								<label>Cpf</label><br />
+								<input type="text" name="aluno.cpf" />
+							</div>
+							<div>
+								<label>Data de nascimento</label><br />
+								<input type="text" name="aluno.dataNascimento" />
+							</div>
+							<div>
+								<label>Email</label><br />
+								<input type="email" name="aluno.email" />
+							</div>
+							<div>
+								<label>Telefone Celular</label><br />
+								<input type="text" name="aluno.telefoneCelular" />
+							</div>
+							<div>
+								<label>Telefone Residêncial</label><br />
+								<input type="text" name="aluno.telefoneResidencial" />
+							</div>
 			
-							<s:submit method="alterar"/>
+							<s:submit />
 						</s:form>
 					</div>
 				</div>

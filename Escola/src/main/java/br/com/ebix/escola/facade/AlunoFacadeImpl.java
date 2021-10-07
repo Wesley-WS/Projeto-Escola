@@ -3,22 +3,24 @@ package br.com.ebix.escola.facade;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.ebix.escola.dao.AlunoDao;
 import br.com.ebix.escola.dao.AlunoDaoImpl;
 import br.com.ebix.escola.model.Aluno;
 import br.com.ebix.escola.utils.ValidaStringUtil;
 
 public class AlunoFacadeImpl implements AlunoFacade {
-	// @Autowired
-	// private AlunoDao alunoDao;
 	
-	private AlunoDaoImpl alunoDaoImpl = new AlunoDaoImpl();
-
+	//@Autowired
+	//private AlunoDao alunoDao;
+	
+	private AlunoDao alunoDao = new AlunoDaoImpl();
+	
 	@Override
 	public Aluno get(Aluno aluno) {
 		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno())) {
 			return null;
 		} else {
-			Optional<Aluno> alunoObtido = alunoDaoImpl.get(aluno);
+			Optional<Aluno> alunoObtido = alunoDao.get(aluno);
 			
 			if(alunoObtido.isPresent()) {
 				return alunoObtido.get();
@@ -30,7 +32,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public List<Aluno> getAll() {
-		return alunoDaoImpl.getAll();
+		return alunoDao.getAll();
 	}
 
 	@Override
@@ -40,7 +42,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getDataNascimento())) {
 			return false;
 		} else {
-			alunoDaoImpl.add(aluno);
+			alunoDao.add(aluno);
 			return true;
 		}
 
@@ -67,7 +69,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getDataNascimento())) {
 			return false;
 		} else {
-			alunoDaoImpl.update(aluno);
+			alunoDao.update(aluno);
 			return true;
 		}
 	}
@@ -77,7 +79,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno())) {
 			return false;
 		} else {
-			alunoDaoImpl.delete(aluno);
+			alunoDao.delete(aluno);
 			return true;
 		}
 
