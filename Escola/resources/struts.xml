@@ -48,16 +48,12 @@
 		<action name="listar" class="br.com.ebix.escola.action.ProfessoresAction" method="listar">
 			<result name="success">listar.jsp</result>
 		</action>
-		<action name="iniciarCadastro">
-			<result name="success">formularioCadastro.jsp</result>
-		</action>
+		
 		<action name="cadastrar" class="br.com.ebix.escola.action.ProfessoresAction" method="cadastrar">
 			<result name="success" type="redirect">professores</result>
 			<result name="input">formularioCadastro.jsp</result>
 		</action>
-		<action name="iniciarAlteracao">
-			<result name="success">formularioAlteracao.jsp</result>
-		</action>
+		
 		<action name="alterar" class="br.com.ebix.escola.action.ProfessoresAction" method="alterar">
 			<result name="success" type="redirect">professores</result>
 			<result name="input">formularioAlteracao.jsp</result>

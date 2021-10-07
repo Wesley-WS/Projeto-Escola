@@ -28,9 +28,9 @@
 				<div class="row">
 					<div class="col">
 						<h2>Atualizar professor</h2>
-						
 						<s:form action="alterar" method="post">
-							<s:hidden name="cod_professor" value="%{cod_professor}" />
+							
+							<s:hidden name="professor.cod_professor" value="%{professor.cod_professor}" />
 							
 							<div>
 								<label>Nome</label><br />

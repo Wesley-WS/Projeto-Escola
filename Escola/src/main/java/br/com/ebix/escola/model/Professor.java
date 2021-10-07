@@ -10,5 +10,6 @@ public class Professor extends Pessoa{
 	public void setCod_professor(Long cod_professor) {
 		this.cod_professor = cod_professor;
 	}
+	
 
 }

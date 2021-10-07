@@ -6,15 +6,21 @@ import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import br.com.ebix.escola.facade.ProfessorFacade;
 import br.com.ebix.escola.facade.ProfessorFacadeImpl;
 import br.com.ebix.escola.model.Professor;
 
 public class ProfessoresAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
-	private ProfessorFacadeImpl professorFacadeImpl = new ProfessorFacadeImpl();
+	
+	private ProfessorFacade professorFacade = new ProfessorFacadeImpl();
 	private List<Professor> professores;
 	private Professor professor = new Professor();
 	
+	public List<Professor> getProfessores() {
+		return professores;
+	}
+
 	public Professor getProfessor() {
 		return professor;
 	}
@@ -26,36 +32,33 @@ public class ProfessoresAction extends ActionSupport {
 	public void setProfessores(List<Professor> professores) {
 		this.professores = professores;
 	}
-
-	public List<Professor> getProfessores() {
-		return professores;
-	}
 	
 	@SkipValidation
 	public String listar() {
-		professores = professorFacadeImpl.getAll();
+		professores = professorFacade.getAll();
 		return "success";
 	}
 	
 	public String cadastrar() {		
-		if(professorFacadeImpl.add(professor)) {
-			//professores = professorFacadeImpl.getAll();
+		if(professorFacade.add(professor)) {
+			professores = professorFacade.getAll();
 			return "success";
 		} else {
-			return "error";
+			return "input";
 		}
 	}
+	
 	public String alterar() {
-		if(professorFacadeImpl.update(professor)) {
-			//professores = professorFacadeImpl.getAll();
+		if(professorFacade.update(professor)) {
+			professores = professorFacade.getAll();
 			return "success";
 		} else {
-			return "error";
+			return "input";
 		}
 	}
 	
 	public String deletar() {
-		if(professorFacadeImpl.delete(professor)) {
+		if(professorFacade.delete(professor)) {
 			return "success";
 		} else {
 			return "error";

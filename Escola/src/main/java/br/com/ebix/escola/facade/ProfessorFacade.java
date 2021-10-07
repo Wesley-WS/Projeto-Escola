@@ -7,7 +7,7 @@ import br.com.ebix.escola.model.Professor;
 
 public interface ProfessorFacade {
 	List<Professor> getAll();
-	Optional<Professor> get(int id);
+	Professor get(Professor professor);
 	boolean add(Professor professor);
 	boolean update(Professor professor);
 	boolean delete(Professor professor);

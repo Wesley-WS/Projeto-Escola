@@ -42,12 +42,12 @@
 									<td><s:property value="nome" /></td>
 									<td><s:property value="cpf" /></td>
 									<td><s:property value="email" /></td>
-									<td colspan="2"><a href="iniciarAlteracao?cod_professor=${cod_professor}" class="btn btn-primary"> Atualizar</a><a href="deletar?cod_professor=${cod_professor}" class="btn btn-danger"><i class="fas fa-trash"></i> Deletar</a></td>
+									<td colspan="2"><a href="alterar?professor.cod_professor=${cod_professor}" class="btn btn-primary"> Atualizar</a><a href="deletar?professor.cod_professor=${cod_professor}" class="btn btn-danger"><i class="fas fa-trash"></i> Deletar</a></td>
 								</tr>
 							</s:iterator>
 						</table>
 						
-						<a href="iniciarCadastro" class="btn btn-danger"><i class="fas fa-plus"></i> Inserir Professor</a>
+						<a href="cadastrar" class="btn btn-danger"><i class="fas fa-plus"></i> Inserir Professor</a>
 					</div>
 				</div>
 			</div>
