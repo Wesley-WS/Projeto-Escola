@@ -34,7 +34,11 @@
 								<tr>
 									<td><s:property value="nome" /></td>
 									<td><s:property value="sigla" /></td>
-									<td colspan="2"><a href="alterar?materia.cod_materia=${cod_materia}"> Atualizar</a><a href="deletar?materia.cod_materia=${cod_materia}" class="btn btn-danger"><i class="fas fa-trash"></i> Deletar</a></td>
+									<td colspan="2">
+										<a href="alterar?materia.cod_materia=${cod_materia}"> Atualizar</a>
+										<a href="detalhar?materia.cod_materia=${cod_materia}">Detalhar</a>
+										<a href="deletar?materia.cod_materia=${cod_materia}" class="btn btn-danger"><i class="fas fa-trash"></i> Deletar</a>
+									</td>
 								</tr>
 							</s:iterator>
 						</table>
