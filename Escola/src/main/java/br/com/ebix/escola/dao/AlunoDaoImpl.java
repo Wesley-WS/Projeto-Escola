@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 import br.com.ebix.escola.model.Aluno;
+import br.com.ebix.escola.utils.ConverteDataUtil;
 
 public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 	@Override
@@ -28,10 +29,8 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 				alunoObtido.setCod_aluno(rs.getLong("cod_aluno"));
 				alunoObtido.setNome(rs.getString("nome"));
 				alunoObtido.setCpf(rs.getString("cpf"));
-
-				Date date = rs.getDate("dataNascimento");
-				Calendar calendario = Calendar.getInstance();
-				calendario.setTime(date);
+				
+				Calendar calendario = ConverteDataUtil.converterDateParaCalendar(rs.getDate("dataNascimento"));
 				alunoObtido.setDataNascimento(calendario);
 
 				alunoObtido.setEmail(rs.getString("email"));
@@ -65,9 +64,7 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 				aluno.setNome(rs.getString("nome"));
 				aluno.setCpf(rs.getString("cpf"));
 
-				Date date = rs.getDate("dataNascimento");
-				Calendar calendario = Calendar.getInstance();
-				calendario.setTime(date);
+				Calendar calendario = ConverteDataUtil.converterDateParaCalendar(rs.getDate("dataNascimento"));
 				aluno.setDataNascimento(calendario);
 
 				aluno.setEmail(rs.getString("email"));
@@ -94,7 +91,7 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, aluno.getNome());
 			ps.setString(2, aluno.getCpf());
-			ps.setDate(3, new Date(aluno.getDataNascimento().getTimeInMillis()));
+			ps.setDate(3, ConverteDataUtil.converterCalendarParaDate(aluno.getDataNascimento()));
 			ps.setString(4, aluno.getEmail());
 			ps.setString(5, aluno.getTelefoneCelular());
 			ps.setString(6, aluno.getTelefoneResidencial());
@@ -115,7 +112,7 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, aluno.getNome());
 			ps.setString(2, aluno.getCpf());
-			ps.setDate(3, new Date(aluno.getDataNascimento().getTimeInMillis()));
+			ps.setDate(3, ConverteDataUtil.converterCalendarParaDate(aluno.getDataNascimento()));
 			ps.setString(4, aluno.getEmail());
 			ps.setString(5, aluno.getTelefoneCelular());
 			ps.setString(6, aluno.getTelefoneResidencial());
