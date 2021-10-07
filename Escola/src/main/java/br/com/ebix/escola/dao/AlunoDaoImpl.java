@@ -1,7 +1,6 @@
 package br.com.ebix.escola.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -91,7 +90,7 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, aluno.getNome());
 			ps.setString(2, aluno.getCpf());
-			ps.setDate(3, ConverteDataUtil.converterCalendarParaDate(aluno.getDataNascimento()));
+			ps.setDate(3, ConverteDataUtil.converterCalendarParaDatesql(aluno.getDataNascimento()));
 			ps.setString(4, aluno.getEmail());
 			ps.setString(5, aluno.getTelefoneCelular());
 			ps.setString(6, aluno.getTelefoneResidencial());
@@ -112,7 +111,7 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, aluno.getNome());
 			ps.setString(2, aluno.getCpf());
-			ps.setDate(3, ConverteDataUtil.converterCalendarParaDate(aluno.getDataNascimento()));
+			ps.setDate(3, ConverteDataUtil.converterCalendarParaDatesql(aluno.getDataNascimento()));
 			ps.setString(4, aluno.getEmail());
 			ps.setString(5, aluno.getTelefoneCelular());
 			ps.setString(6, aluno.getTelefoneResidencial());
