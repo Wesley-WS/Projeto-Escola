@@ -1,7 +1,6 @@
 package br.com.ebix.escola.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,12 +10,41 @@ import java.util.List;
 import java.util.Optional;
 
 import br.com.ebix.escola.model.Professor;
+import br.com.ebix.escola.utils.ConverteDataUtil;
 
 public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao {
 	
 	public Optional<Professor> get(Professor professor) {
-		
-		return null;
+		Professor professorObtido = null;
+		try (Connection conn = getConnection()) {
+			String sql = "SELECT * FROM escola.professores WHERE id=?";
+
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setLong(1, professor.getCod_professor());
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				professorObtido = new Professor();
+				professorObtido.setCod_professor(rs.getLong("cod_professor"));
+				professorObtido.setNome(rs.getString("nome"));
+				professorObtido.setCpf(rs.getString("cpf"));
+				
+				Calendar calendario = ConverteDataUtil.converterDateParaCalendar(rs.getDate("dataNascimento"));
+				professorObtido.setDataNascimento(calendario);
+
+				professorObtido.setEmail(rs.getString("email"));
+				professorObtido.setTelefoneCelular(rs.getString("telefone_celular"));
+				professorObtido.setTelefoneResidencial(rs.getString("telefone_residencial"));
+			}
+			rs.close();
+			ps.close();
+			conn.close();
+			
+			return Optional.ofNullable(professorObtido);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return Optional.ofNullable(professorObtido);
+		}
 	}
 	
 	@Override
@@ -34,9 +62,7 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 				professor.setNome(rs.getString("nome"));
 				professor.setCpf(rs.getString("cpf"));
 
-				Date date = rs.getDate("dataNascimento");
-				Calendar calendario = Calendar.getInstance();
-				calendario.setTime(date);
+				Calendar calendario = ConverteDataUtil.converterDateParaCalendar(rs.getDate("dataNascimento"));
 				professor.setDataNascimento(calendario);
 
 				professor.setEmail(rs.getString("email"));
@@ -64,7 +90,7 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 			ps.setString(1, professor.getNome());
 			ps.setString(2, professor.getCpf());
 			ps.setString(3, professor.getEmail());
-			ps.setDate(4, new Date(professor.getDataNascimento().getTimeInMillis()));
+			ps.setDate(4, ConverteDataUtil.converterCalendarParaDatesql(professor.getDataNascimento()));
 			ps.setString(5, professor.getTelefoneCelular());
 			ps.setString(6, professor.getTelefoneResidencial());
 			ps.execute();
@@ -84,7 +110,7 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 			ps.setString(1, professor.getNome());
 			ps.setString(2, professor.getCpf());
 			ps.setString(3, professor.getEmail());
-			ps.setDate(4, new Date(professor.getDataNascimento().getTimeInMillis()));
+			ps.setDate(4, ConverteDataUtil.converterCalendarParaDatesql(professor.getDataNascimento()));
 			ps.setString(5, professor.getTelefoneCelular());
 			ps.setString(6, professor.getTelefoneResidencial());
 			ps.setLong(7, professor.getCod_professor());
