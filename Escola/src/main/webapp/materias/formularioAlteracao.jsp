@@ -21,25 +21,31 @@
 <title>Formulario - Atualizar matéria</title>
 </head>
 <body>
-	<div style="background-color: whitesmoke;">
-		<div class="d-flex modal-header">
-			<div style="flex: 1 1 auto;">
-				<h3>Atualizar matéria</h3>
-			</div>
-			<div style="align-self: center;">
-				<a href="#"><i class="fas fa-times" aria-hidden="true"></i>
-					Fechar</a>
-			</div>
-		</div>
-		<div style="padding: 16px;">
-			<s:form action="atualizar" method="post">
-				<s:hidden name="cod_materia" value="%{cod_materia}" />
-			
-				<s:textfield name="nome" label="Nome" />
-				<s:textfield name="sigla" label="Sigla" />
+	<div class="app">
+		<s:include value="../components/sidebar.jspf"></s:include>
+		<div class="body-wrapper">
+			<div class="body">
+				<div class="row">
+					<div class="col">
+						<h2>Atualizar matéria</h2>
+						
+						<s:form action="alterar" method="post">
+							<s:hidden name="materia.cod_materia" value="%{materia.cod_materia}" />
+							
+							<div>
+								<label>Nome</label><br />
+								<input type="text" name="materia.nome" />
+							</div>
+							<div>
+								<label>Sigla</label><br />
+								<input type="text" name="materia.sigla" />
+							</div>
 
-				<s:submit />
-			</s:form>
+							<s:submit />
+						</s:form>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

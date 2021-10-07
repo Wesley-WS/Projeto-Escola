@@ -46,7 +46,7 @@
 								</tr>
 							</s:iterator>
 						</table>
-						<a href="iniciarCadastro" class="btn btn-danger">Cadastrar aluno</a>
+						<a href="iniciarCadastro" class="btn btn-danger"><i class="fas fa-plus"></i> Inserir aluno</a>
 					</div>
 				</div>
 			</div>

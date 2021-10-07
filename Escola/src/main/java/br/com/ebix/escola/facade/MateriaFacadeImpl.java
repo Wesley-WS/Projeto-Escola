@@ -1,8 +1,5 @@
 package br.com.ebix.escola.facade;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,51 +11,43 @@ public class MateriaFacadeImpl implements MateriaFacade {
 	private MateriaDaoImpl materiaDaoImpl = new MateriaDaoImpl();
 
 	@Override
-	public Optional<Materia> get(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Materia> getAll() {
-		List<Materia> materias = new ArrayList<Materia>();
-		try {
-			ResultSet rs = materiaDaoImpl.getAll();
-
-			while (rs.next()) {
-				Materia materia = new Materia();
-				materia.setCod_materia(rs.getLong("cod_materia"));
-				materia.setNome(rs.getString("nome"));
-				materia.setSigla(rs.getString("sigla"));
-
-				materias.add(materia);
+	public Materia get(Materia materia) {
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getCod_materia())) {
+			return null;
+		} else {
+			Optional<Materia> materiaObtida = materiaDaoImpl.get(materia);
+			
+			if(materiaObtida.isPresent()) {
+				return materiaObtida.get();
+			}else {
+				return null;
 			}
-			rs.close();
-			return materias;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return materias;
 		}
 	}
 
 	@Override
-	public boolean add(Materia t) {
-		if (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(t.getNome())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(t.getSigla())) {
+	public List<Materia> getAll() {
+		return materiaDaoImpl.getAll();
+	}
+
+	@Override
+	public boolean add(Materia materia) {
+		if (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getNome())
+				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getSigla())) {
 			return false;
 		} else {
-			materiaDaoImpl.add(t);
+			materiaDaoImpl.add(materia);
 			return true;
 		}
 	}
 
 	@Override
-	public boolean update(Materia t) {
-		if (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(t.getNome())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(t.getSigla())) {
+	public boolean update(Materia materia) {
+		if (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getNome())
+				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getSigla())) {
 			return false;
 		} else {
-			materiaDaoImpl.update(t);
+			materiaDaoImpl.update(materia);
 			return true;
 		}
 	}

@@ -67,25 +67,29 @@
 		</action>
 	</package>
 	<package name="materias" extends="default" namespace="/materias">
-		<action name="adicionarFormulario" class="br.com.ebix.escola.action.MateriasAction">
-			<result name="success">adicionarFormulario.jsp</result>
+		<action name="iniciarCadastro" class="br.com.ebix.escola.action.MateriasAction">
+			<result name="success">formularioCadastro.jsp</result>
 		</action>
-		<action name="atualizarFormulario" class="br.com.ebix.escola.action.MateriasAction">
-			<result name="success">atualizarFormulario.jsp</result>
+		
+		<action name="iniciarAlteracao" class="br.com.ebix.escola.action.MateriasAction">
+			<result name="success">formularioAlteracao.jsp</result>
 		</action>
 		
 		<action name="listar" class="br.com.ebix.escola.action.MateriasAction" method="listar">
 			<result name="success">listar.jsp</result>
 		</action>
-		<action name="adicionar" class="br.com.ebix.escola.action.MateriasAction" method="adicionar">
+		
+		<action name="cadastrar" class="br.com.ebix.escola.action.MateriasAction" method="cadastrar">
 			<result name="success" type="redirect">listar</result>
-			<result name="input">adicionarFormulario.jsp</result>
+			<result name="input">formularioCadastro.jsp</result>
 		</action>
-		<action name="atualizar" class="br.com.ebix.escola.action.MateriasAction" method="atualizar">
+		
+		<action name="alterar" class="br.com.ebix.escola.action.MateriasAction" method="alterar">
 			<result name="success" type="redirect">listar</result>
-			<result name="input">atualizarFormulario.jsp</result>
+			<result name="input">formularioAlteracao.jsp</result>
 		</action>
-		<action name="deletar" class="br.com.ebix.escola.action.MateriasAction" method="remover">
+		
+		<action name="deletar" class="br.com.ebix.escola.action.MateriasAction" method="deletar">
 			<result name="success" type="redirect">listar</result>
 		</action>
 	</package>

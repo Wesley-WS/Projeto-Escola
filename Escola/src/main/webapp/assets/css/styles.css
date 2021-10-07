@@ -159,6 +159,11 @@ body {
 	text-align: center;
 }
 
+.btn-primary {
+	background-color: var(--dark);
+	color: whitesmoke;
+}
+
 .btn-danger {
 	background-color: var(--primary-color);
 	color: whitesmoke;
