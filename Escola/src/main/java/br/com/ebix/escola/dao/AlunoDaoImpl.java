@@ -17,7 +17,7 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 	public Optional<Aluno> get(Aluno aluno) {
 		Aluno alunoObtido = null;
 		try (Connection conn = getConnection()) {
-			String sql = "SELECT * FROM escola.alunos WHERE id=?";
+			String sql = "SELECT * FROM escola.alunos WHERE cod_aluno=?";
 
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setLong(1, aluno.getCod_aluno());

@@ -54,6 +54,7 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 	}
 	
 	public String detalhar() {
+		System.out.println(aluno.toString());
 		aluno = alunoFacade.get(aluno);
 		return "success";
 	}
