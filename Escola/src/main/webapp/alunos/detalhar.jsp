@@ -37,32 +37,32 @@
 				<div class="row p-8">
 					<div class="col">
 						<h3>Cpf</h3>
-						<p>142.526.735-52</p>
+						<p>${aluno.cpf}</p>
 					</div>
 					
 				</div>
 				<div class="row p-8">
 					<div class="col">
 						<h3>Email</h3>
-						<p>TODO@email.com</p>
+						<p>${aluno.email}</p>
 					</div>
 				</div>
 				<div class="row p-8">
 					<div class="col">
 						<h3>Data de nascimento</h3>
-						<p>01/01/2001</p>
+						<p>${aluno.dataNascimento}</p>
 					</div>
 				</div>
 				<div class="row p-8">
 					<div class="col">
 						<h3>Telefone celular</h3>
-						<p>63732363465757</p>
+						<p>${aluno.telefoneCelular}</p>
 					</div>
 				</div>
 				<div class="row p-8">
 					<div class="col">
 						<h3>Telefone residencial</h3>
-						<p>63732363465757</p>
+						<p>${aluno.telefoneResidencial}</p>
 					</div>
 				</div>
 			</div>
