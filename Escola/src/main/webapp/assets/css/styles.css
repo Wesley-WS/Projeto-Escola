@@ -26,7 +26,6 @@ body {
 .body-wrapper {
 	display: flex;
     flex: 1 1 auto;
-    padding-left: 16px;
 }
 
 .body {
@@ -151,6 +150,11 @@ body {
 	padding: 8px;
 }
 
+.bg-primary {
+	background-color: var(--primary-color);
+	color: var(--light);
+}
+
 .btn {
 	border: none;
 	cursor: pointer;
@@ -169,12 +173,36 @@ body {
 	color: whitesmoke;
 }
 
+.text-center {
+	text-align: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
 .d-flex {
 	display: flex;
 }
 
 .d-none {
 	display: none;
+}
+
+.p-8 {
+	padding: 8px;
+}
+
+.perfil-circle {
+    align-items: center;
+    background-color: var(--light);
+    border-radius: 50%;
+    color: var(--dark);
+    display: flex;
+    font-size: xxx-large;
+    height: 3em;
+    justify-content: center;
+    width: 3em;
 }
 
 .icon {
