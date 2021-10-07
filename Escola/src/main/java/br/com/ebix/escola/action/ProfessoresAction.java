@@ -67,6 +67,7 @@ public class ProfessoresAction extends ActionSupport {
 	
 	public String detalhar() {
 		professor = professorFacade.get(professor);
+		return "success";
 	}
 	
 }
