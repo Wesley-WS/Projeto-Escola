@@ -91,6 +91,10 @@
 			<result name="input">formularioAlteracao.jsp</result>
 		</action>
 		
+		<action name="detalhar" class="br.com.ebix.escola.action.MateriasAction" method="detalhar">
+			<result name="success" type="redirect">detalhar.jsp</result>
+		</action>
+		
 		<action name="deletar" class="br.com.ebix.escola.action.MateriasAction" method="deletar">
 			<result name="success" type="redirect">listar</result>
 		</action>
