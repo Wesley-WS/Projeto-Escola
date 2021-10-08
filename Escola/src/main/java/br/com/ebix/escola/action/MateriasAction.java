@@ -6,13 +6,13 @@ import org.apache.struts2.interceptor.validation.SkipValidation;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import br.com.ebix.escola.facade.MateriaFacade;
 import br.com.ebix.escola.facade.MateriaFacadeImpl;
 import br.com.ebix.escola.model.Materia;
 
 public class MateriasAction extends ActionSupport /*implements ModelDriven<Object>*/ {
 	private static final long serialVersionUID = 1L;
-	
-	private MateriaFacadeImpl materiaFacadeImpl = new MateriaFacadeImpl();
+	private MateriaFacade materiaFacade = new MateriaFacadeImpl();
 	
 	private Materia materia = new Materia();
 	
@@ -36,13 +36,13 @@ public class MateriasAction extends ActionSupport /*implements ModelDriven<Objec
 
 	@SkipValidation
 	public String listar() {
-		materias = materiaFacadeImpl.getAll();
+		materias = materiaFacade.getAll();
 		return "success";
 	}
 
 	public String cadastrar() {
-		if(materiaFacadeImpl.add(materia)) {
-			materias = materiaFacadeImpl.getAll();
+		if(materiaFacade.add(materia)) {
+			//materias = materiaFacade.getAll();
 			return "success";
 		}else {
 			return "input";
@@ -50,8 +50,8 @@ public class MateriasAction extends ActionSupport /*implements ModelDriven<Objec
 	}
 	
 	public String alterar() {
-		if(materiaFacadeImpl.update(materia)) {
-			materias = materiaFacadeImpl.getAll();
+		if(materiaFacade.update(materia)) {
+			//materias = materiaFacade.getAll();
 			
 			return "success";
 		}else {
@@ -60,11 +60,16 @@ public class MateriasAction extends ActionSupport /*implements ModelDriven<Objec
 	}
 
 	public String deletar() {
-		if(materiaFacadeImpl.delete(materia)) {
+		if(materiaFacade.delete(materia)) {
 			return "success";
 		}else {
 			return "error";
 		}
+	}
+	
+	public String detalhar() {
+		materia = materiaFacade.get(materia); //TODO: ARRUMAR ISSO AQUI
+		return "success";
 	}
 	
 	/*@Override
