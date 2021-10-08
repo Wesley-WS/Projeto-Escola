@@ -8,20 +8,21 @@ import br.com.ebix.escola.dao.AlunoDao;
 import br.com.ebix.escola.dao.AlunoDaoImpl;
 import br.com.ebix.escola.model.Aluno;
 import br.com.ebix.escola.model.Professor;
+import br.com.ebix.escola.utils.ValidaEmail;
 import br.com.ebix.escola.utils.ValidaStringUtil;
 
 public class AlunoFacadeImpl implements AlunoFacade {
-	
-	//@Autowired
-	//private AlunoDao alunoDao;
-	
+
+	// @Autowired
+	// private AlunoDao alunoDao;
+
 	private AlunoDao alunoDao = new AlunoDaoImpl();
-	
+
 	@Override
 	public Aluno get(Aluno aluno) {
 		Optional<Aluno> alunoObtido = alunoDao.get(aluno);
-		
-		if(alunoObtido.isPresent()) {
+
+		if (alunoObtido.isPresent()) {
 			return alunoObtido.get();
 		} else {
 			Aluno alunoInexistente = new Aluno();
@@ -43,7 +44,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public boolean add(Aluno aluno) {
-		if(validaDados(aluno)) {
+		if (validaDados(aluno)) {
 			return false;
 		} else {
 			alunoDao.add(aluno);
@@ -54,7 +55,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public boolean update(Aluno aluno) {
-		if(validaDados(aluno)) {
+		if (validaDados(aluno)) {
 			return false;
 		} else {
 			alunoDao.update(aluno);
@@ -64,7 +65,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public boolean delete(Aluno aluno) {
-		if(validaCod(aluno)) {
+		if (validaCod(aluno)) {
 			return false;
 		} else {
 			alunoDao.delete(aluno);
@@ -74,23 +75,24 @@ public class AlunoFacadeImpl implements AlunoFacade {
 	}
 
 	public boolean validaCod(Aluno aluno) {
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno())) {
+		if (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno())) {
 			return false;
 		} else {
 			return true;
 		}
 	}
-	
+
 	public boolean validaDados(Aluno aluno) {
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getNome()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCpf()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getEmail()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getDataNascimento())) {
+		if ((!ValidaEmail.eUmEmailValido(aluno.getEmail())
+				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getEmail()))
+				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno())
+				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getNome())
+				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCpf())
+				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getDataNascimento())) {
 			return false;
 		} else {
 			return true;
 		}
 	}
-	
+
 }
