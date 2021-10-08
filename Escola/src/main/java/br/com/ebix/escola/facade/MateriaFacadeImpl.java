@@ -9,19 +9,18 @@ import br.com.ebix.escola.model.Materia;
 import br.com.ebix.escola.utils.ValidaStringUtil;
 
 public class MateriaFacadeImpl implements MateriaFacade {
-	//private MateriaDaoImpl materiaDaoImpl = new MateriaDaoImpl();
 	private MateriaDao materiaDao = new MateriaDaoImpl();
 
 	@Override
 	public Materia get(Materia materia) {
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getCod_materia())) {
+		if (validaCod(materia)) {
 			return null;
 		} else {
 			Optional<Materia> materiaObtida = materiaDao.get(materia);
-			
-			if(materiaObtida.isPresent()) {
+
+			if (materiaObtida.isPresent()) {
 				return materiaObtida.get();
-			}else {
+			} else {
 				return null;
 			}
 		}
@@ -34,8 +33,7 @@ public class MateriaFacadeImpl implements MateriaFacade {
 
 	@Override
 	public boolean add(Materia materia) {
-		if (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getNome())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getSigla())) {
+		if (validaMateria(materia)) {
 			return false;
 		} else {
 			materiaDao.add(materia);
@@ -45,8 +43,7 @@ public class MateriaFacadeImpl implements MateriaFacade {
 
 	@Override
 	public boolean update(Materia materia) {
-		if (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getNome())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getSigla())) {
+		if (validaCod(materia) || validaMateria(materia)) {
 			return false;
 		} else {
 			materiaDao.update(materia);
@@ -55,14 +52,31 @@ public class MateriaFacadeImpl implements MateriaFacade {
 	}
 
 	@Override
-	public boolean delete(Materia t) {
-		if (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(t.getCod_materia())) {
+	public boolean delete(Materia materia) {
+		if (validaCod(materia)) {
 			return false;
 		} else {
-			materiaDao.delete(t);
+			materiaDao.delete(materia);
 			return true;
 		}
 
 	}
 
+	public boolean validaCod(Materia materia) {
+		if (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getCod_materia())) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	public boolean validaMateria(Materia materia) {
+		if (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getCod_materia())
+				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getNome())
+				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getSigla())) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 }
