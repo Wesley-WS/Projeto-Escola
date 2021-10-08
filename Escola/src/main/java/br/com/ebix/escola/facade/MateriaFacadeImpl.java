@@ -64,9 +64,9 @@ public class MateriaFacadeImpl implements MateriaFacade {
 
 	public boolean validaCod(Materia materia) {
 		if (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getCod_materia())) {
-			return false;
-		} else {
 			return true;
+		} else {
+			return false;
 		}
 	}
 
@@ -74,9 +74,9 @@ public class MateriaFacadeImpl implements MateriaFacade {
 		if (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getCod_materia())
 				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getNome())
 				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getSigla())) {
-			return false;
-		} else {
 			return true;
+		} else {
+			return false;
 		}
 	}
 }

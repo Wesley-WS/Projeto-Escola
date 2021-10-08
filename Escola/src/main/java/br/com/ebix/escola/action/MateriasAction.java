@@ -69,6 +69,7 @@ public class MateriasAction extends ActionSupport /*implements ModelDriven<Objec
 	
 	public String detalhar() {
 		materia = materiaFacade.get(materia); //TODO: ARRUMAR ISSO AQUI
+		
 		return "success";
 	}
 	
