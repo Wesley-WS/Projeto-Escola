@@ -36,10 +36,10 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 				alunoObtido.setTelefoneCelular(rs.getString("telefone_celular"));
 				alunoObtido.setTelefoneResidencial(rs.getString("telefone_residencial"));
 			}
+			
 			rs.close();
 			ps.close();
 			conn.close();
-			
 			return Optional.ofNullable(alunoObtido);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -71,10 +71,10 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 				aluno.setTelefoneResidencial(rs.getString("telefone_residencial"));
 				alunos.add(aluno);
 			}
+			
 			rs.close();
 			ps.close();
 			conn.close();
-			
 			return alunos;
 		} catch (SQLException e) {
 			e.printStackTrace();

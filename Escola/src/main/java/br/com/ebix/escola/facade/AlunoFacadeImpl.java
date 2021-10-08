@@ -7,6 +7,7 @@ import java.util.Optional;
 import br.com.ebix.escola.dao.AlunoDao;
 import br.com.ebix.escola.dao.AlunoDaoImpl;
 import br.com.ebix.escola.model.Aluno;
+import br.com.ebix.escola.model.Professor;
 import br.com.ebix.escola.utils.ValidaStringUtil;
 
 public class AlunoFacadeImpl implements AlunoFacade {
@@ -42,9 +43,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public boolean add(Aluno aluno) {
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getNome()) ||
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCpf()) ||
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getDataNascimento())) {
+		if(validaDados(aluno)) {
 			return false;
 		} else {
 			alunoDao.add(aluno);
@@ -52,26 +51,10 @@ public class AlunoFacadeImpl implements AlunoFacade {
 		}
 
 	}
-	
-	/*public boolean valida(Aluno aluno) {
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getNome()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCpf()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getEmail()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getDataNascimento())) {
-			return false;
-		} else if() {
-			
-		}
-	}*/
 
 	@Override
 	public boolean update(Aluno aluno) {
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getNome()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCpf()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getEmail()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getDataNascimento())) {
+		if(validaDados(aluno)) {
 			return false;
 		} else {
 			alunoDao.update(aluno);
@@ -81,7 +64,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public boolean delete(Aluno aluno) {
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno())) {
+		if(validaCod(aluno)) {
 			return false;
 		} else {
 			alunoDao.delete(aluno);
@@ -90,4 +73,24 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	}
 
+	public boolean validaCod(Aluno aluno) {
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno())) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
+	public boolean validaDados(Aluno aluno) {
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno()) || 
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getNome()) || 
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCpf()) || 
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getEmail()) || 
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getDataNascimento())) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
 }
