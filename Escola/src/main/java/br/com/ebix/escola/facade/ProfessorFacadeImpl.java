@@ -7,6 +7,7 @@ import java.util.Optional;
 import br.com.ebix.escola.dao.ProfessorDao;
 import br.com.ebix.escola.dao.ProfessorDaoImpl;
 import br.com.ebix.escola.model.Professor;
+import br.com.ebix.escola.utils.ValidaCpf;
 import br.com.ebix.escola.utils.ValidaStringUtil;
 
 
@@ -68,21 +69,22 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 	
 	public boolean validaCod(Professor professor) {
 		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCod_professor())) {
-			return false;
-		} else {
 			return true;
+		} else {
+			return false;
 		}
 	}
 	
 	public boolean validaPessoa(Professor professor) {
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCod_professor()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getNome()) || 
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getNome()) || 
 				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCpf()) || 
 				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getEmail()) || 
 				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getDataNascimento())) {
-			return false;
-		} else {
 			return true;
+		}else if (ValidaCpf.cpfEInvalido(professor.getCpf())){
+			return true;
+		}else {
+			return false;
 		}
 	}
 

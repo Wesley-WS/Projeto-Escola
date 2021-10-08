@@ -51,7 +51,7 @@
 							</s:iterator>
 						</table>
 						
-						<a href="cadastrar" class="btn btn-danger"><i class="fas fa-plus"></i> Inserir Professor</a>
+						<a href="iniciarCadastro" class="btn btn-danger"><i class="fas fa-plus"></i> Inserir Professor</a>
 					</div>
 				</div>
 			</div>

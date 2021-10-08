@@ -41,7 +41,6 @@ public class ProfessoresAction extends ActionSupport {
 	
 	public String cadastrar() {		
 		if(professorFacade.add(professor)) {
-			professores = professorFacade.getAll();
 			return "success";
 		} else {
 			return "input";
@@ -50,7 +49,6 @@ public class ProfessoresAction extends ActionSupport {
 	
 	public String alterar() {
 		if(professorFacade.update(professor)) {
-			professores = professorFacade.getAll();
 			return "success";
 		} else {
 			return "input";
