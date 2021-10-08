@@ -10,7 +10,7 @@ public class AppTestes {
 		aluno.setCod_aluno(1l);
 		aluno.setCpf("1111");
 		aluno.setDataNascimento(Calendar.getInstance());
-		aluno.setEmail("email@gmail");
+		aluno.setEmail("email@gmail.com");
 		aluno.setNome("Nome sla");
 		aluno.setTelefoneCelular("12121212112");
 		aluno.setTelefoneResidencial("333333");
