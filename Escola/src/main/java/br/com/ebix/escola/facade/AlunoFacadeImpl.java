@@ -8,6 +8,8 @@ import br.com.ebix.escola.dao.AlunoDao;
 import br.com.ebix.escola.dao.AlunoDaoImpl;
 import br.com.ebix.escola.model.Aluno;
 import br.com.ebix.escola.model.Professor;
+import br.com.ebix.escola.utils.ValidaCpf;
+import br.com.ebix.escola.utils.ValidaDataUtil;
 import br.com.ebix.escola.utils.ValidaEmail;
 import br.com.ebix.escola.utils.ValidaStringUtil;
 
@@ -44,7 +46,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public boolean add(Aluno aluno) {
-		if (validaDados(aluno)) {
+		if (dadosEstaoInvalidos(aluno)) {
 			return false;
 		} else {
 			alunoDao.add(aluno);
@@ -55,7 +57,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public boolean update(Aluno aluno) {
-		if (validaCod(aluno) || validaDados(aluno)) {
+		if (codigoEstaInvalido(aluno) || dadosEstaoInvalidos(aluno)) {
 			return false;
 		} else {
 			alunoDao.update(aluno);
@@ -65,7 +67,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public boolean delete(Aluno aluno) {
-		if (validaCod(aluno)) {
+		if (codigoEstaInvalido(aluno)) {
 			return false;
 		} else {
 			alunoDao.delete(aluno);
@@ -74,24 +76,18 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	}
 
-	public boolean validaCod(Aluno aluno) {
-		if (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno())) {
-			return false;
-		} else {
-			return true;
-		}
+	public boolean codigoEstaInvalido(Aluno aluno) {
+		return (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno()));
 	}
 
-	public boolean validaDados(Aluno aluno) {
-		if ((!ValidaEmail.eUmEmailValido(aluno.getEmail())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getEmail()))
+	public boolean dadosEstaoInvalidos(Aluno aluno) {
+		return (ValidaEmail.eUmEmailInvalido(aluno.getEmail())
+				|| ValidaDataUtil.eUmaDataInvalida(aluno.getDataNascimento())
+				|| ValidaCpf.cpfEInvalido(aluno.getCpf())
+				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getEmail())
 				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getNome())
 				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCpf())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getDataNascimento())) {
-			return false;
-		} else {
-			return true;
-		}
+				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getDataNascimento()));
 	}
 
 }
