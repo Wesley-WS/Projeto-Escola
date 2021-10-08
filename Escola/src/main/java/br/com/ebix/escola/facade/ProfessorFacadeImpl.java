@@ -15,7 +15,7 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 
 	@Override
 	public Professor get(Professor professor) {
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCod_professor())) {
+		if(validaCod(professor)) {
 			return null;
 		} else {
 			Optional<Professor> professorObtido = professorDao.get(professor);
@@ -36,9 +36,7 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 	@Override
 	public boolean add(Professor professor) {
 		// TODO Auto-generated method stub
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getNome()) ||
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCpf()) ||
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getDataNascimento())) {
+		if(validaPessoa(professor)) {
 			return false;
 		} else {
 			professorDao.add(professor);
@@ -49,11 +47,7 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 
 	@Override
 	public boolean update(Professor professor) {
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCod_professor()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getNome()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCpf()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getEmail()) || 
-				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getDataNascimento())) {
+		if(validaCod(professor) || validaPessoa(professor)) {
 			return false;
 		} else {
 			professorDao.update(professor);
@@ -63,7 +57,7 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 
 	@Override
 	public boolean delete(Professor professor) {
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCod_professor())) {
+		if(validaCod(professor)) {
 			return false;
 		} else {
 			professorDao.delete(professor);
@@ -72,6 +66,24 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 
 	}
 	
+	public boolean validaCod(Professor professor) {
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCod_professor())) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 	
+	public boolean validaPessoa(Professor professor) {
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCod_professor()) || 
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getNome()) || 
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCpf()) || 
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getEmail()) || 
+				ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getDataNascimento())) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 
 }

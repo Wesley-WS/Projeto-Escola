@@ -31,7 +31,7 @@
 				</div>
 				<div class="row p-8 bg-primary">
 					<div class="col text-center">
-						<h2>Nome aqui</h2>
+						<h2>${professor.nome}</h2>
 					</div>
 				</div>
 				<div class="row p-8">
