@@ -34,11 +34,11 @@
 							
 							<div>
 								<label>Nome</label><br />
-								<input type="text" name="materia.nome" />
+								<input type="text" name="materia.nome" minlength="50" required />
 							</div>
 							<div>
 								<label>Sigla</label><br />
-								<input type="text" name="materia.sigla" />
+								<input type="text" name="materia.sigla" minlength = "5" required />
 							</div>
 
 							<s:submit />
