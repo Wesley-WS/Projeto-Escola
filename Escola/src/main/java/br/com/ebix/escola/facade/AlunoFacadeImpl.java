@@ -55,7 +55,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public boolean update(Aluno aluno) {
-		if (validaDados(aluno)) {
+		if (validaCod(aluno) || validaDados(aluno)) {
 			return false;
 		} else {
 			alunoDao.update(aluno);
@@ -85,7 +85,6 @@ public class AlunoFacadeImpl implements AlunoFacade {
 	public boolean validaDados(Aluno aluno) {
 		if ((!ValidaEmail.eUmEmailValido(aluno.getEmail())
 				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getEmail()))
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno())
 				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getNome())
 				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCpf())
 				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getDataNascimento())) {
