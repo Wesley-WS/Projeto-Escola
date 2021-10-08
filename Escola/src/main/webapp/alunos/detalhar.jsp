@@ -50,7 +50,8 @@
 				<div class="row p-8">
 					<div class="col">
 						<h3>Data de nascimento</h3>
-						<p>${aluno.dataNascimento}</p>
+						<s:date name="aluno.dataNascimento.time" format="dd/MM/yyyy" var="dataNascimento"/>
+						<p>${dataNascimento}</p>
 					</div>
 				</div>
 				<div class="row p-8">
