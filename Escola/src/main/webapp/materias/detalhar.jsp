@@ -31,20 +31,20 @@
 				</div>
 				<div class="row p-8 bg-primary">
 					<div class="col text-center">
-						<h2>Nome da materia aqui</h2>
+						<h2>${materia.nome}</h2>
 					</div>
 				</div>
 				<div class="row p-8">
 					<div class="col">
 						<h3>Nome</h3>
-						<p>Analise e desenvolvimento de sistemas</p>
+						<p>${materia.nome}</p>
 					</div>
 					
 				</div>
 				<div class="row p-8">
 					<div class="col">
 						<h3>Sigla</h3>
-						<p>ADS</p>
+						<p>${materia.sigla}</p>
 					</div>
 				</div>
 			</div>

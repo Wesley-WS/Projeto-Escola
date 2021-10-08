@@ -26,7 +26,7 @@ public class MateriaDaoImpl extends ConnectionFactory implements MateriaDao {
 				materiaObtida = new Materia();
 				materiaObtida.setCod_materia(rs.getLong("cod_materia"));
 				materiaObtida.setNome(rs.getString("nome"));
-				materiaObtida.setNome(rs.getString("sigla"));
+				materiaObtida.setSigla(rs.getString("sigla"));
 			}
 			
 			rs.close();

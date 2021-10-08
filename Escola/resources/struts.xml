@@ -92,7 +92,7 @@
 		</action>
 		
 		<action name="detalhar" class="br.com.ebix.escola.action.MateriasAction" method="detalhar">
-			<result name="success" type="redirect">detalhar.jsp</result>
+			<result name="success">detalhar.jsp</result>
 		</action>
 		
 		<action name="deletar" class="br.com.ebix.escola.action.MateriasAction" method="deletar">
