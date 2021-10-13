@@ -24,36 +24,34 @@
 	<div class="app"> <!-- TODO: arrumar responsividade e o botão de adicionar -->
 		<s:include value="../components/sidebar.jspf"></s:include>
 		<div class="body-wrapper">
+			<div class="body-header">
+				<h2>Lista de professores</h2>
+			</div>
 			<div class="body">
-				<div class="row">
-					<div class="col">
-						<h2>Lista de professores</h2>
-					
-						<table class="table" border="1">
+				<div class="scroller scroller-base">
+					<table class="table" border="1">
+						<tr>
+							<th>Nome</th>
+							<th>CPF</th>
+							<th>Email</th>
+							<th colspan="2">Ações</th>
+						</tr>
+						<!-- O problema aqui é que a tabela de professores é muito grande, isso acaba atrapalhando a tabela e a página fica toda torta. -->
+						<s:iterator value="professores">
 							<tr>
-								<th>Nome</th>
-								<th>CPF</th>
-								<th>Email</th>
-								<th colspan="2">Ações</th>
+								<td><s:property value="nome" /></td>
+								<td><s:property value="cpf" /></td>
+								<td><s:property value="email" /></td>
+								<td colspan="2">
+									<a href="alterar?professor.cod_professor=${cod_professor}"> Atualizar</a>
+									<a href="detalhar?professor.cod_professor=${cod_professor}">Detalhar</a>
+									<a href="deletar?professor.cod_professor=${cod_professor}">Deletar</a>
+								</td>
 							</tr>
-				
-							<s:iterator value="professores">
-								<tr>
-									<td><s:property value="nome" /></td>
-									<td><s:property value="cpf" /></td>
-									<td><s:property value="email" /></td>
-									<td colspan="2">
-										<a href="alterar?professor.cod_professor=${cod_professor}"> Atualizar</a>
-										<a href="detalhar?professor.cod_professor=${cod_professor}">Detalhar</a>
-										<a href="deletar?professor.cod_professor=${cod_professor}" class="btn btn-danger"><i class="fas fa-trash"></i> Deletar</a>
-									</td>
-								</tr>
-							</s:iterator>
-						</table>
-						
-						<a href="iniciarCadastro" class="btn btn-danger"><i class="fas fa-plus"></i> Inserir Professor</a>
-					</div>
+						</s:iterator>
+					</table>
 				</div>
+				<a href="iniciarCadastro" class="btn btn-danger"><i class="fas fa-plus"></i> Inserir Professor</a>
 			</div>
 		</div>
 	</div>

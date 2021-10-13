@@ -18,33 +18,32 @@
 	<div class="app">
 		<s:include value="../components/sidebar.jspf"></s:include>
 		<div class="body-wrapper">
+			<div class="body-header">
+				<h2>Lista de matérias</h2>
+			</div>
 			<div class="body">
-				<div class="row">
-					<div class="col">
-						<h2>Lista de matérias</h2>
+				<div class="scroller scroller-base">
+					<table class="table" border="1">
+						<tr>
+							<th>Nome</th>
+							<th>Sigla</th>
+							<th colspan="2">Ações</th>
+						</tr>
 						
-						<table class="table" border="1">
+						<s:iterator value="materias">
 							<tr>
-								<th>Nome</th>
-								<th>Sigla</th>
-								<th colspan="2">Ações</th>
+								<td><s:property value="nome" /></td>
+								<td><s:property value="sigla" /></td>
+								<td colspan="2">
+									<a href="alterar?materia.cod_materia=${cod_materia}"> Atualizar</a>
+									<a href="detalhar?materia.cod_materia=${cod_materia}">Detalhar</a>
+									<a href="deletar?materia.cod_materia=${cod_materia}">Deletar</a>
+								</td>
 							</tr>
-							
-							<s:iterator value="materias">
-								<tr>
-									<td><s:property value="nome" /></td>
-									<td><s:property value="sigla" /></td>
-									<td colspan="2">
-										<a href="alterar?materia.cod_materia=${cod_materia}"> Atualizar</a>
-										<a href="detalhar?materia.cod_materia=${cod_materia}">Detalhar</a>
-										<a href="deletar?materia.cod_materia=${cod_materia}" class="btn btn-danger"><i class="fas fa-trash"></i> Deletar</a>
-									</td>
-								</tr>
-							</s:iterator>
-						</table>
-						<a href="iniciarCadastro" class="btn btn-danger"><i class="fas fa-plus"></i> Inserir tarefa</a>
-					</div>
+						</s:iterator>
+					</table>
 				</div>
+				<a href="iniciarCadastro" class="btn btn-danger"><i class="fas fa-plus"></i> Inserir tarefa</a>
 			</div>
 		</div>
 	</div>
