@@ -30,12 +30,30 @@
 						<h2>Cadastrar aluno</h2>
 						
 						<s:form action="cadastrar" method="post">
-							<s:textfield name="aluno.nome" label="Nome" />
-							<s:textfield name="aluno.cpf" label="Cpf" />
-							<s:textfield name="aluno.dataNascimento" label="Data de nascimento" />
-							<s:textfield name="aluno.email" label="Email" />
-							<s:textfield name="aluno.telefoneCelular" label="Telefone celular" />
-							<s:textfield name="aluno.telefoneResidencial" label="Telefone residencial" />
+							<div>
+								<label>Nome</label><br />
+								<input type="text" name="aluno.nome" maxlength="100" required/>
+							</div>
+							<div>
+								<label>Cpf</label><br />
+								<input type="text" name="aluno.cpf" maxlength="20" placeholder="xxx.xxx.xxx-xx" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" required/>
+							</div>
+							<div>
+								<label>Data de nascimento</label><br />
+								<input type="date" name="aluno.dataNascimento" min="1950-01-01" max="2021-10-08" required/>
+							</div>
+							<div>
+								<label>Email</label><br />
+								<input type="email" name="aluno.email" maxlength="100" placeholder="xxxxx@xxxx.com" required/>
+							</div>
+							<div>
+								<label>Telefone Celular</label><br />
+								<input type="tel" name="aluno.telefoneCelular" maxlength="20" placeholder="(xx)xxxxx-xxxx" pattern="\([0-9]{2}\)[0-9]{5}-[0-9]{4}"/>
+							</div>
+							<div>
+								<label>Telefone Residêncial</label><br />
+								<input type="tel" name="aluno.telefoneResidencial" maxlength="20" placeholder="xxxx-xxxx" pattern="\([0-9]{2}\)[0-9]{4}-[0-9]{4}"/>
+							</div>
 			
 							<s:submit />
 						</s:form>
