@@ -32,27 +32,27 @@
 						<s:form action="cadastrar" method="post">
 							<div>
 								<label>Nome</label><br />
-								<input type="text" name="professor.nome" />
+								<input type="text" name="professor.nome" maxlength="100" required/>
 							</div>
 							<div>
 								<label>Cpf</label><br />
-								<input type="text" name="professor.cpf" />
+								<input type="text" name="professor.cpf" maxlength="20" placeholder="xxx.xxx.xxx-xx" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" required/>
 							</div>
 							<div>
 								<label>Data de nascimento</label><br />
-								<input type="text" name="professor.dataNascimento" />
+								<input type="date" name="professor.dataNascimento" min="1950-01-01" max="2021-10-08" required/>
 							</div>
 							<div>
 								<label>Email</label><br />
-								<input type="email" name="professor.email" />
+								<input type="email" name="professor.email" maxlength="100" placeholder="xxxxx@xxxx.com" required/>
 							</div>
 							<div>
 								<label>Telefone Celular</label><br />
-								<input type="text" name="professor.telefoneCelular" />
+								<input type="tel" name="professor.telefoneCelular" maxlength="20" placeholder="(xx)xxxxx-xxxx" pattern="\([0-9]{2}\)[0-9]{5}-[0-9]{4}"/>
 							</div>
 							<div>
 								<label>Telefone Residêncial</label><br />
-								<input type="text" name="professor.telefoneResidencial" />
+								<input type="tel" name="professor.telefoneResidencial" maxlength="20" placeholder="xxxx-xxxx"/>
 							</div>
 							<s:submit />
 						</s:form>
