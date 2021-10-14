@@ -17,7 +17,14 @@
 		href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
 		integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
 		crossorigin="anonymous">
-	
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<script type="text/javascript" src="${context}/assets/js/app.js"></script>
+<script> $(document).ready(mascaraCPF())
+		$(document).ready(mascaraData())
+		$(document).ready(mascaraTelefoneCelular())
+		$(document).ready(mascaraTelefoneResidencial())
+</script>	
 	<title>Formulario - Atualizar aluno</title>
 </head>
 <body>
@@ -38,11 +45,11 @@
 							</div>
 							<div>
 								<label>Cpf</label><br />
-								<input type="text" name="aluno.cpf" />
+								<input id="CPF" type="text" name="aluno.cpf" />
 							</div>
 							<div>
 								<label>Data de nascimento</label><br />
-								<input type="text" name="aluno.dataNascimento" />
+								<input id="data" type="text" name="aluno.dataNascimento" />
 							</div>
 							<div>
 								<label>Email</label><br />
@@ -50,11 +57,11 @@
 							</div>
 							<div>
 								<label>Telefone Celular</label><br />
-								<input type="text" name="aluno.telefoneCelular" />
+								<input id="telcelular" type="text" name="aluno.telefoneCelular" />
 							</div>
 							<div>
 								<label>Telefone Residêncial</label><br />
-								<input type="text" name="aluno.telefoneResidencial" />
+								<input id="telresidencial" type="text" name="aluno.telefoneResidencial" />
 							</div>
 			
 							<s:submit />
