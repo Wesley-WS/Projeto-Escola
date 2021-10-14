@@ -40,7 +40,7 @@
 		</action>
 		<action name="alterar" class="br.com.ebix.escola.action.AlunosAction" method="alterar">
 			<result name="success" type="redirect">alunos</result>
-			<result name="error">formularioAlteracao.jsp</result>
+			<result name="error" type="redirect">iniciarAlteracao</result>
 		</action>
 		
 		<action name="deletar" class="br.com.ebix.escola.action.AlunosAction" method="deletar">
@@ -74,7 +74,7 @@
 		</action>
 		<action name="alterar" class="br.com.ebix.escola.action.ProfessoresAction" method="alterar">
 			<result name="success" type="redirect">professores</result>
-			<result name="error">formularioAlteracao.jsp</result>
+			<result name="error" type="redirect">iniciarAlteracao</result>
 		</action>
 		
 		<action name="deletar" class="br.com.ebix.escola.action.ProfessoresAction" method="deletar">
@@ -107,7 +107,7 @@
 		</action>
 		<action name="alterar" class="br.com.ebix.escola.action.MateriasAction" method="alterar">
 			<result name="success" type="redirect">listar</result>
-			<result name="error">formularioAlteracao.jsp</result>
+			<result name="error" type="redirect">iniciarAlteracao</result>
 		</action>
 		
 		<action name="deletar" class="br.com.ebix.escola.action.MateriasAction" method="deletar">
@@ -115,7 +115,6 @@
 			<result name="error">listar.jsp</result>
 			<!-- Pagina para erro de deleção? -->
 		</action>
-		
 		<action name="detalhar" class="br.com.ebix.escola.action.MateriasAction" method="detalhar">
 			<result name="success">detalhar.jsp</result>
 			<result name="error" type="redirect">materias</result>

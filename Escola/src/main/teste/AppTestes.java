@@ -9,7 +9,7 @@ import br.com.ebix.escola.utils.ValidaStringUtil;
 public class AppTestes {
 	public static void main(String[] args) {
 		Calendar calendar = Calendar.getInstance();
-		calendar.set(Calendar.YEAR, 1999);
+		calendar.set(Calendar.YEAR, 2030);
 		
 		Aluno aluno = new Aluno();
 		aluno.setCod_aluno(1l);
