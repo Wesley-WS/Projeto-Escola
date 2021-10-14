@@ -1,13 +1,11 @@
 package br.com.ebix.escola.facade;
 
-import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
 import br.com.ebix.escola.dao.AlunoDao;
 import br.com.ebix.escola.dao.AlunoDaoImpl;
 import br.com.ebix.escola.model.Aluno;
-import br.com.ebix.escola.model.Professor;
 import br.com.ebix.escola.utils.ValidaCpf;
 import br.com.ebix.escola.utils.ValidaDataUtil;
 import br.com.ebix.escola.utils.ValidaEmail;
@@ -22,20 +20,16 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public Aluno get(Aluno aluno) {
-		Optional<Aluno> alunoObtido = alunoDao.get(aluno);
-
-		if (alunoObtido.isPresent()) {
-			return alunoObtido.get();
+		if(codigoEstaInvalido(aluno)) {
+			return null;
 		} else {
-			Aluno alunoInexistente = new Aluno();
-			alunoInexistente.setCod_aluno(-1l);
-			alunoInexistente.setCpf("NA");
-			alunoInexistente.setDataNascimento(Calendar.getInstance());
-			alunoInexistente.setEmail("NA");
-			alunoInexistente.setNome("NA");
-			alunoInexistente.setTelefoneCelular("NA");
-			alunoInexistente.setTelefoneResidencial("NA");
-			return alunoInexistente;
+			Optional<Aluno> alunoObtido = alunoDao.get(aluno);
+			
+			if(alunoObtido.isPresent()) {
+				return alunoObtido.get();
+			} else {
+				return null;
+			}
 		}
 	}
 

@@ -2,8 +2,6 @@ package br.com.ebix.escola.action;
 
 import java.util.List;
 
-import org.apache.struts2.interceptor.validation.SkipValidation;
-
 import com.opensymphony.xwork2.ActionSupport;
 
 import br.com.ebix.escola.facade.AlunoFacade;
@@ -11,13 +9,12 @@ import br.com.ebix.escola.facade.AlunoFacadeImpl;
 import br.com.ebix.escola.model.Aluno;
 
 
-public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>*/ {
+public class AlunosAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	
 	// @Autowired
 	// private AlunoFacade alunoFacade;
 	private AlunoFacade alunoFacade = new AlunoFacadeImpl();
-	
 	private Aluno aluno = new Aluno();
 
 	private List<Aluno> alunos;
@@ -38,40 +35,41 @@ public class AlunosAction extends ActionSupport /*implements ModelDriven<Object>
 		this.alunos = alunos;
 	}
 
-	@SkipValidation
 	public String listar() {
 		alunos = alunoFacade.getAll();
-		return "success";
-	}
-	
-	public String cadastrar() {
-		if(alunoFacade.add(aluno)) {
-			// alunos = alunoFacade.getAll();
-			return "success";
-		} else {
-			return "input";
-		}
+		return SUCCESS;
 	}
 	
 	public String detalhar() {
 		aluno = alunoFacade.get(aluno);
-		return "success";
+		if(aluno != null) {
+			return SUCCESS;
+		} else {
+			return ERROR;
+		}
+	}
+	
+	public String cadastrar() {
+		if(alunoFacade.add(aluno)) {
+			return SUCCESS;
+		} else {
+			return ERROR;
+		}
 	}
 	
 	public String alterar() {
 		if(alunoFacade.update(aluno)) {
-			// alunos = alunoFacade.getAll();
-			return "success";
+			return SUCCESS;
 		} else {
-			return "input";
+			return ERROR;
 		}
 	}
 	
 	public String deletar() {
 		if(alunoFacade.delete(aluno)) {
-			return "success";
+			return SUCCESS;
 		} else {
-			return "error";
+			return ERROR;
 		}
 	}
 	

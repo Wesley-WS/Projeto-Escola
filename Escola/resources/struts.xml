@@ -25,25 +25,33 @@
 		<action name="listar" class="br.com.ebix.escola.action.AlunosAction" method="listar">
 			<result name="success">listar.jsp</result>
 		</action>
+		
 		<action name="iniciarCadastro">
 			<result name="success">formularioCadastro.jsp</result>
 		</action>
 		<action name="cadastrar" class="br.com.ebix.escola.action.AlunosAction" method="cadastrar">
 			<result name="success" type="redirect">alunos</result>
-			<result name="input">formularioCadastro.jsp</result>
+			<result name="error">formularioCadastro.jsp</result>
 		</action>
-		<action name="iniciarAlteracao">
+		
+		<action name="iniciarAlteracao" class="br.com.ebix.escola.action.AlunosAction" method="detalhar">
 			<result name="success">formularioAlteracao.jsp</result>
+			<result name="error" type="redirect">alunos</result>
 		</action>
 		<action name="alterar" class="br.com.ebix.escola.action.AlunosAction" method="alterar">
 			<result name="success" type="redirect">alunos</result>
-			<result name="input">formularioAlteracao.jsp</result>
+			<result name="error">formularioAlteracao.jsp</result>
 		</action>
+		
 		<action name="deletar" class="br.com.ebix.escola.action.AlunosAction" method="deletar">
 			<result name="success" type="redirect">alunos</result>
+			<result name="error">listar.jsp</result>
+			<!-- Pagina para erro de deleção? -->
 		</action>
 		<action name="detalhar" class="br.com.ebix.escola.action.AlunosAction" method="detalhar">
 			<result name="success">detalhar.jsp</result>
+			<result name="error" type="redirect">alunos</result>
+			<!-- Pagina de erro ou redirecionamento? -->
 		</action>
 	</package>
 	
@@ -51,54 +59,69 @@
 		<action name="listar" class="br.com.ebix.escola.action.ProfessoresAction" method="listar">
 			<result name="success">listar.jsp</result>
 		</action>
+		
 		<action name="iniciarCadastro">
 			<result name="success">formularioCadastro.jsp</result>
 		</action>
 		<action name="cadastrar" class="br.com.ebix.escola.action.ProfessoresAction" method="cadastrar">
 			<result name="success" type="redirect">professores</result>
-			<result name="input">formularioCadastro.jsp</result>
+			<result name="error">formularioCadastro.jsp</result>
 		</action>
 		
+		<action name="iniciarAlteracao" class="br.com.ebix.escola.action.ProfessoresAction" method="detalhar">
+			<result name="success">formularioAlteracao.jsp</result>
+			<result name="error" type="redirect">professores</result>
+		</action>
 		<action name="alterar" class="br.com.ebix.escola.action.ProfessoresAction" method="alterar">
 			<result name="success" type="redirect">professores</result>
-			<result name="input">formularioAlteracao.jsp</result>
+			<result name="error">formularioAlteracao.jsp</result>
 		</action>
+		
 		<action name="deletar" class="br.com.ebix.escola.action.ProfessoresAction" method="deletar">
 			<result name="success" type="redirect">professores</result>
+			<result name="error">listar.jsp</result>
+			<!-- Pagina para erro de deleção? -->
 		</action>
 		<action name="detalhar" class="br.com.ebix.escola.action.ProfessoresAction" method="detalhar">
 			<result name="success">detalhar.jsp</result>
+			<result name="error" type="redirect">professores</result>
+			<!-- Pagina de erro ou redirecionamento? -->
 		</action>
 	</package>
 	<package name="materias" extends="default" namespace="/materias">
-		<action name="iniciarCadastro" class="br.com.ebix.escola.action.MateriasAction">
-			<result name="success">formularioCadastro.jsp</result>
-		</action>
-		
-		<action name="iniciarAlteracao" class="br.com.ebix.escola.action.MateriasAction">
-			<result name="success">formularioAlteracao.jsp</result>
-		</action>
-		
 		<action name="listar" class="br.com.ebix.escola.action.MateriasAction" method="listar">
 			<result name="success">listar.jsp</result>
 		</action>
 		
+		<action name="iniciarCadastro" class="br.com.ebix.escola.action.MateriasAction">
+			<result name="success">formularioCadastro.jsp</result>
+		</action>
 		<action name="cadastrar" class="br.com.ebix.escola.action.MateriasAction" method="cadastrar">
 			<result name="success" type="redirect">listar</result>
-			<result name="input">formularioCadastro.jsp</result>
+			<result name="error">formularioCadastro.jsp</result>
 		</action>
 		
+		<action name="iniciarAlteracao" class="br.com.ebix.escola.action.MateriasAction">
+			<result name="success">formularioAlteracao.jsp</result>
+			<result name="error" type="redirect">materias</result>
+		</action>
 		<action name="alterar" class="br.com.ebix.escola.action.MateriasAction" method="alterar">
 			<result name="success" type="redirect">listar</result>
-			<result name="input">formularioAlteracao.jsp</result>
-		</action>
-		
-		<action name="detalhar" class="br.com.ebix.escola.action.MateriasAction" method="detalhar">
-			<result name="success">detalhar.jsp</result>
+			<result name="error">formularioAlteracao.jsp</result>
 		</action>
 		
 		<action name="deletar" class="br.com.ebix.escola.action.MateriasAction" method="deletar">
 			<result name="success" type="redirect">listar</result>
+			<result name="error">listar.jsp</result>
+			<!-- Pagina para erro de deleção? -->
 		</action>
+		
+		<action name="detalhar" class="br.com.ebix.escola.action.MateriasAction" method="detalhar">
+			<result name="success">detalhar.jsp</result>
+			<result name="error" type="redirect">materias</result>
+			<!-- Pagina de erro ou redirecionamento? -->
+		</action>
+		
+
 	</package>
 </struts>

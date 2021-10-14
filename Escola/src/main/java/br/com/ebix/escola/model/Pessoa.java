@@ -2,6 +2,7 @@ package br.com.ebix.escola.model;
 
 import java.util.Calendar;
 
+
 public abstract class Pessoa {
 	private String nome;
 	private String cpf;
@@ -53,9 +54,9 @@ public abstract class Pessoa {
 	public Calendar getDataNascimento() {
 		return dataNascimento;
 	}
-
+	
 	public void setDataNascimento(Calendar dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-
+	
 }
