@@ -2,26 +2,22 @@ $(document).ready(() => {
 	carregarMascaras();
 	
 	$("#formularioPessoa").submit(function() {
-		let { nome, cpf, telCelular, telResidencial, data } = obterCamposPessoa();
+		let { nome, cpf, data, email } = obterCamposPessoa();
 		let eValido = true;
 		
-		if(!nome) {
+		if(!nome.val()) {
 			// Faça aparecer uma mensagem de campo em branco
 			eValido = false;
 		}
-		if(!cpf) {
+		if(!cpf.val()) {
 			// Faça aparecer uma mensagem de campo em branco
 			eValido = false;
 		}
-		if(!telCelular) {
+		if(!data.val()) {
 			// Faça aparecer uma mensagem de campo em branco
 			eValido = false;
 		}
-		if(!telResidencial) {
-			// Faça aparecer uma mensagem de campo em branco
-			eValido = false;
-		}
-		if(!data) {
+		if(!email.val()) {
 			// Faça aparecer uma mensagem de campo em branco
 			eValido = false;
 		}
@@ -33,11 +29,11 @@ $(document).ready(() => {
 		let { nome, sigla } = obterCamposMateria();
 		let eValido = true;
 		
-		if(!nome) {
+		if(!nome.val()) {
 			// Faça aparecer uma mensagem de campo em branco
 			eValido = false;
 		}
-		if(!sigla) {
+		if(!sigla.val()) {
 			// Faça aparecer uma mensagem de campo em branco
 			eValido = false;
 		}
@@ -50,6 +46,7 @@ function obterCamposPessoa() {
 	return {
 		nome: $("#nome"),
 		cpf: $("#CPF"),
+		email: $("#email"),
 		telCelular: $("#telcelular"),
 		telResidencial: $("#telresidencial"),
 		data: $("#data")

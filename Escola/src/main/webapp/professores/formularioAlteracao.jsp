@@ -36,27 +36,27 @@
 							
 							<div>
 								<label>Nome</label><br />
-								<input type="text" name="professor.nome"  maxlength="100" required/>
+								<input id="nome" type="text" name="professor.nome" value="${professor.nome}" required/>
 							</div>
 							<div>
 								<label>Cpf</label><br />
-								<input id="CPF" type="text" name="professor.cpf" required/>
+								<input id="CPF" type="text" name="professor.cpf" value="${professor.cpf}" required/>
 							</div>
 							<div>
 								<label>Data de nascimento</label><br />
-								<input id="data" type="text" name="professor.dataNascimento" required/>
+								<input id="data" type="text" name="professor.dataNascimento" value="<s:date name="professor.dataNascimento" format="dd/MM/yyyy" />" required/>
 							</div>
 							<div>
 								<label>Email</label><br />
-								<input type="email" name="professor.email"  maxlength="100" required/>
+								<input id="email" type="email" name="professor.email" value="${professor.email}" required/>
 							</div>
 							<div>
 								<label>Telefone Celular</label><br />
-								<input id="telcelular" type="tel" name="professor.telefoneCelular" />
+								<input id="telcelular" type="tel" name="professor.telefoneCelular" value="${professor.telefoneCelular}"/>
 							</div>
 							<div>
 								<label>Telefone Residêncial</label><br />
-								<input id="telresidencial" type="tel" name="professor.telefoneResidencial"/>
+								<input id="telresidencial" type="tel" name="professor.telefoneResidencial" value="${professor.telefoneResidencial}" />
 							</div>
 			
 							<s:submit />

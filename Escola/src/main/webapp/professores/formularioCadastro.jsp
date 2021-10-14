@@ -34,7 +34,7 @@
 						<s:form action="cadastrar" method="post">
 							<div>
 								<label>Nome</label><br />
-								<input type="text" name="professor.nome" maxlength="100" required/>
+								<input id="nome" type="text" name="professor.nome" required/>
 							</div>
 							<div>
 								<label>Cpf</label><br />
@@ -46,7 +46,7 @@
 							</div>
 							<div>
 								<label>Email</label><br />
-								<input type="email" name="professor.email" maxlength="100" required/>
+								<input id="email" type="email" name="professor.email" required/>
 							</div>
 							<div>
 								<label>Telefone Celular</label><br />
