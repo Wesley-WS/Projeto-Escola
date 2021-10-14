@@ -31,7 +31,7 @@
 					<h2>Cadastrar aluno</h2>
 				</div>
 				<div class="body align-self-center">
-					<s:form action="cadastrar" method="post">
+					<s:form id="formularioPessoa" action="cadastrar" method="post">
 						<div class="mb-8">
 							<label>Nome</label><br />
 							<input type="text" name="aluno.nome" maxlength="100" required/>

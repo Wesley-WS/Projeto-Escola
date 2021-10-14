@@ -30,7 +30,7 @@
 				<div class="row">
 					<div class="col">
 						<h2>Atualizar professor</h2>
-						<s:form action="alterar" method="post">
+						<s:form id="formularioPessoa" action="alterar" method="post">
 							
 							<s:hidden name="professor.cod_professor" value="%{professor.cod_professor}" />
 							

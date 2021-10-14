@@ -31,7 +31,7 @@
 					<div class="col">
 						<h2>Atualizar aluno</h2>
 						
-						<s:form action="alterar" method="post">
+						<s:form id="formularioPessoa" action="alterar" method="post">
 							<s:hidden name="aluno.cod_aluno" value="%{aluno.cod_aluno}" />
 							
 							<div>
