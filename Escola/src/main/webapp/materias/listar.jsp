@@ -38,7 +38,7 @@
 								<td><s:property value="nome" /></td>
 								<td><s:property value="sigla" /></td>
 								<td colspan="2">
-									<a href="alterar?materia.cod_materia=${cod_materia}"> Atualizar</a>
+									<a href="iniciarAlteracao?materia.cod_materia=${cod_materia}"> Atualizar</a>
 									<a href="detalhar?materia.cod_materia=${cod_materia}">Detalhar</a>
 									<a href="#" onclick="toggleModal('deletar?materia.cod_materia=${cod_materia}')">Deletar</a>
 								</td>
