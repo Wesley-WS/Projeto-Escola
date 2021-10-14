@@ -50,22 +50,7 @@
 		</div>
 	</div>
 	<div id="modal" class="modal-content" style="display: none;">
-		<div class="modal-wrapper">
-			<div class="modal">
-				<div class="modal-header">
-					<h2>Deletar</h2>
-				</div>
-				<div class="modal-body">
-					<p>Você deseja deletar este item?</p>
-					
-					<div class="d-flex" style="column-gap: 8px;">
-						<a id="delete" href="#" class="btn btn-danger flex-sg-auto">Deletar</a>
-						<a href="#" class="btn btn-primary flex-sg-auto"
-							onclick="toggleModal()">Cancelar</a>
-					</div>
-				</div>
-			</div>
-		</div>
+		<s:include value="../components/modal.jspf"></s:include>
 	</div>
 </body>
 </html>
