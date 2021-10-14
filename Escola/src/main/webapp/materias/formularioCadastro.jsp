@@ -25,23 +25,22 @@
 		<s:include value="../components/sidebar.jspf"></s:include>
 		<div class="body-wrapper">
 			<div class="body">
-				<div class="row">
-					<div class="col">
-						<h2>Cadastrar matéria</h2>
-						
-						<s:form id="formularioMateria" action="cadastrar" method="post">
-							<div>
-								<label>Nome</label><br />
-								<input id="nome" type="text" name="materia.nome" />
-							</div>
-							<div>
-								<label>Sigla</label><br />
-								<input id="sigla" type="text" name="materia.sigla" />
-							</div>
+				<div class="body-header mb-8">
+					<h2>Cadastrar matéria</h2>
+				</div>
+				<div class="body align-self-center">
+					<s:form id="formularioMateria" action="cadastrar" method="post">
+						<div class="mb-8">
+							<label>Nome</label><br />
+							<input id="nome" type="text" name="materia.nome" />
+						</div>
+						<div class="mb-8">
+							<label>Sigla</label><br />
+							<input id="sigla" type="text" name="materia.sigla" />
+						</div>
 
-							<s:submit />
-						</s:form>
-					</div>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</s:form>
 				</div>
 			</div>
 		</div>
