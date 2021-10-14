@@ -34,11 +34,11 @@
 							
 							<div>
 								<label>Nome</label><br />
-								<input id="nome" type="text" name="materia.nome" />
+								<input id="nome" type="text" name="materia.nome" value="${materia.nome }"/>
 							</div>
 							<div>
 								<label>Sigla</label><br />
-								<input id="sigla" type="text" name="materia.sigla" />
+								<input id="sigla" type="text" name="materia.sigla" value="${materia.sigla }"/>
 							</div>
 
 							<s:submit />
