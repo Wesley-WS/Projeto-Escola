@@ -101,7 +101,7 @@
 			<result name="error">formularioCadastro.jsp</result>
 		</action>
 		
-		<action name="iniciarAlteracao" class="br.com.ebix.escola.action.MateriasAction">
+		<action name="iniciarAlteracao" class="br.com.ebix.escola.action.MateriasAction" method="detalhar">
 			<result name="success">formularioAlteracao.jsp</result>
 			<result name="error" type="redirect">materias</result>
 		</action>
