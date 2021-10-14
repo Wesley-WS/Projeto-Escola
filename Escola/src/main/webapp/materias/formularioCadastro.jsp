@@ -32,11 +32,11 @@
 						<s:form id="formularioMateria" action="cadastrar" method="post">
 							<div>
 								<label>Nome</label><br />
-								<input id="nome" type="text" name="materia.nome" maxlength="50" required />
+								<input id="nome" type="text" name="materia.nome" />
 							</div>
 							<div>
 								<label>Sigla</label><br />
-								<input id="sigla" type="text" name="materia.sigla" maxlength="5" required />
+								<input id="sigla" type="text" name="materia.sigla" />
 							</div>
 
 							<s:submit />
