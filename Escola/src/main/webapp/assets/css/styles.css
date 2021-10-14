@@ -257,6 +257,10 @@ form input{
     width: 3em;
 }
 
+.warning-message {
+    color: var(--light);
+}
+
 .icon {
     padding: 0px 8px;
 }

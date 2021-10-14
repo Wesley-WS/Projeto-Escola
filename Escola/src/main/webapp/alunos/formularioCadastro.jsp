@@ -35,18 +35,30 @@
 						<div class="mb-8">
 							<label>Nome</label><br />
 							<input id="nome" type="text" name="aluno.nome"/>
+							<div id="mensagem-nome">
+								<small class="warning-message">#</small>
+							</div>
 						</div>
 						<div class="mb-8">
 							<label>Cpf</label><br />
 							<input id="CPF" type="text" name="aluno.cpf"/>
+							<div id="mensagem-cpf">
+								<small class="warning-message">#</small>
+							</div>
 						</div>
 						<div class="mb-8">
 							<label>Data de nascimento</label><br />
 							<input id="dataNascimento" type="text" name="aluno.dataNascimento"/>
+							<div id="mensagem-dataNascimento">
+								<small class="warning-message">#</small>
+							</div>
 						</div>
 						<div class="mb-8">
 							<label>Email</label><br />
 							<input id="email" type="email" name="aluno.email" />
+							<div id="mensagem-email">
+								<small class="warning-message">#</small>
+							</div>
 						</div>
 						<div class="mb-8">
 							<label>Telefone Celular</label><br />
