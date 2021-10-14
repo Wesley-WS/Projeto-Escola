@@ -1,13 +1,70 @@
 $(document).ready(() => {
 	carregarMascaras();
 	
+	$("#formularioPessoa").submit(function() {
+		let { nome, cpf, telCelular, telResidencial, data } = obterCamposPessoa();
+		let eValido = true;
+		
+		if(!nome) {
+			// Faça aparecer uma mensagem de campo em branco
+			eValido = false;
+		}
+		if(!cpf) {
+			// Faça aparecer uma mensagem de campo em branco
+			eValido = false;
+		}
+		if(!telCelular) {
+			// Faça aparecer uma mensagem de campo em branco
+			eValido = false;
+		}
+		if(!telResidencial) {
+			// Faça aparecer uma mensagem de campo em branco
+			eValido = false;
+		}
+		if(!data) {
+			// Faça aparecer uma mensagem de campo em branco
+			eValido = false;
+		}
+		
+		return eValido;
+	});
+	
+	$("#formularioMateria").submit(function() {
+		let { nome, sigla } = obterCamposMateria();
+		let eValido = true;
+		
+		if(!nome) {
+			// Faça aparecer uma mensagem de campo em branco
+			eValido = false;
+		}
+		if(!sigla) {
+			// Faça aparecer uma mensagem de campo em branco
+			eValido = false;
+		}
+		
+		return eValido;
+	})
 })
 
+function obterCamposPessoa() {
+	return {
+		nome: $("#nome"),
+		cpf: $("#CPF"),
+		telCelular: $("#telcelular"),
+		telResidencial: $("#telresidencial"),
+		data: $("#data")
+	}
+}
+
+function obterCamposMateria() {
+	return {
+		nome: $("#nome"),
+		sigla: $("#sigla")
+	}
+}
+
 function carregarMascaras() {
-	let cpf = $("#CPF"),
-		telCelular = $("#telcelular"),
-		telResidencial = $("#telresidencial"),
-		data = $("#data");
+	let { cpf, telCelular, telResidencial, data } = obterCamposPessoa();
 		
 	cpf.mask('000.000.000-00', {reverse: true});
 	telCelular.mask('(00)00000-0000', {reverse: false});
