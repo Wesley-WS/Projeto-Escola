@@ -34,11 +34,11 @@
 							
 							<div>
 								<label>Nome</label><br />
-								<input type="text" name="materia.nome" maxlength="50" required />
+								<input id="nome" type="text" name="materia.nome" />
 							</div>
 							<div>
 								<label>Sigla</label><br />
-								<input type="text" name="materia.sigla" maxlength = "5" required />
+								<input id="sigla" type="text" name="materia.sigla" />
 							</div>
 
 							<s:submit />

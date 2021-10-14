@@ -36,7 +36,7 @@
 							
 							<div>
 								<label>Nome</label><br />
-								<input type="text" name="aluno.nome" />
+								<input id="nome" type="text" name="aluno.nome" />
 							</div>
 							<div>
 								<label>Cpf</label><br />
@@ -44,19 +44,19 @@
 							</div>
 							<div>
 								<label>Data de nascimento</label><br />
-								<input id="data" type="text" name="aluno.dataNascimento" />
+								<input id="dataNascimento" type="text" name="aluno.dataNascimento" />
 							</div>
 							<div>
 								<label>Email</label><br />
-								<input type="email" name="aluno.email" />
+								<input id="email" type="email" name="aluno.email" />
 							</div>
 							<div>
 								<label>Telefone Celular</label><br />
-								<input id="telcelular" type="text" name="aluno.telefoneCelular" />
+								<input id="telCelular" type="text" name="aluno.telefoneCelular" />
 							</div>
 							<div>
 								<label>Telefone Residêncial</label><br />
-								<input id="telresidencial" type="text" name="aluno.telefoneResidencial" />
+								<input id="telResidencial" type="text" name="aluno.telefoneResidencial" />
 							</div>
 			
 							<s:submit />

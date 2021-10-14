@@ -34,27 +34,27 @@
 					<s:form id="formularioPessoa" action="cadastrar" method="post">
 						<div class="mb-8">
 							<label>Nome</label><br />
-							<input type="text" name="aluno.nome" maxlength="100" required/>
+							<input id="nome" type="text" name="aluno.nome"/>
 						</div>
 						<div class="mb-8">
 							<label>Cpf</label><br />
-							<input id="CPF" type="text" name="aluno.cpf" required/>
+							<input id="CPF" type="text" name="aluno.cpf"/>
 						</div>
 						<div class="mb-8">
 							<label>Data de nascimento</label><br />
-							<input id="data" type="text" name="aluno.dataNascimento" required/>
+							<input id="dataNascimento" type="text" name="aluno.dataNascimento"/>
 						</div>
 						<div class="mb-8">
 							<label>Email</label><br />
-							<input type="email" name="aluno.email" maxlength="100" required/>
+							<input id="email" type="email" name="aluno.email" />
 						</div>
 						<div class="mb-8">
 							<label>Telefone Celular</label><br />
-							<input id="telcelular" type="tel" name="aluno.telefoneCelular"/>
+							<input id="telCelular" type="tel" name="aluno.telefoneCelular"/>
 						</div>
 						<div class="mb-8">
 							<label>Telefone Residêncial</label><br />
-							<input id="telresidencial" type="tel" name="aluno.telefoneResidencial"/>
+							<input id="telResidencial" type="tel" name="aluno.telefoneResidencial"/>
 						</div>
 		
 						<button type="submit" class="btn btn-primary">Submit</button>

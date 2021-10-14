@@ -42,7 +42,7 @@
 							</div>
 							<div>
 								<label>Data de nascimento</label><br />
-								<input id="data" type="text" name="professor.dataNascimento" required/>
+								<input id="dataNascimento" type="text" name="professor.dataNascimento" required/>
 							</div>
 							<div>
 								<label>Email</label><br />
@@ -50,11 +50,11 @@
 							</div>
 							<div>
 								<label>Telefone Celular</label><br />
-								<input id="telcelular" type="tel" name="professor.telefoneCelular" />
+								<input id="telCelular" type="tel" name="professor.telefoneCelular" />
 							</div>
 							<div>
 								<label>Telefone Residêncial</label><br />
-								<input id="telresidencial" type="tel" name="professor.telefoneResidencial"/>
+								<input id="telResidencial" type="tel" name="professor.telefoneResidencial"/>
 							</div>
 							<s:submit />
 						</s:form>
