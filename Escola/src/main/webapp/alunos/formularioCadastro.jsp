@@ -27,39 +27,38 @@
 		<s:include value="../components/sidebar.jspf"></s:include>
 		<div class="body-wrapper">
 			<div class="body">
-				<div class="row">
-					<div class="col">
-						<h2>Cadastrar aluno</h2>
-						
-						<s:form action="cadastrar" method="post">
-							<div>
-								<label>Nome</label><br />
-								<input type="text" name="aluno.nome" maxlength="100" required/>
-							</div>
-							<div>
-								<label>Cpf</label><br />
-								<input id="CPF" type="text" name="aluno.cpf" required/>
-							</div>
-							<div>
-								<label>Data de nascimento</label><br />
-								<input id="data" type="text" name="aluno.dataNascimento" required/>
-							</div>
-							<div>
-								<label>Email</label><br />
-								<input type="email" name="aluno.email" maxlength="100" required/>
-							</div>
-							<div>
-								<label>Telefone Celular</label><br />
-								<input id="telcelular" type="tel" name="aluno.telefoneCelular"/>
-							</div>
-							<div>
-								<label>Telefone Residêncial</label><br />
-								<input id="telresidencial" type="tel" name="aluno.telefoneResidencial"/>
-							</div>
-			
-							<s:submit />
-						</s:form>
-					</div>
+				<div class="body-header mb-8">
+					<h2>Cadastrar aluno</h2>
+				</div>
+				<div class="body align-self-center">
+					<s:form action="cadastrar" method="post">
+						<div class="mb-8">
+							<label>Nome</label><br />
+							<input type="text" name="aluno.nome" maxlength="100" required/>
+						</div>
+						<div class="mb-8">
+							<label>Cpf</label><br />
+							<input id="CPF" type="text" name="aluno.cpf" required/>
+						</div>
+						<div class="mb-8">
+							<label>Data de nascimento</label><br />
+							<input id="data" type="text" name="aluno.dataNascimento" required/>
+						</div>
+						<div class="mb-8">
+							<label>Email</label><br />
+							<input type="email" name="aluno.email" maxlength="100" required/>
+						</div>
+						<div class="mb-8">
+							<label>Telefone Celular</label><br />
+							<input id="telcelular" type="tel" name="aluno.telefoneCelular"/>
+						</div>
+						<div class="mb-8">
+							<label>Telefone Residêncial</label><br />
+							<input id="telresidencial" type="tel" name="aluno.telefoneResidencial"/>
+						</div>
+		
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</s:form>
 				</div>
 			</div>
 		</div>
