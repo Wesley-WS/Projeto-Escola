@@ -70,3 +70,23 @@ function telefoneResidencialEInvalido(telefoneResidencial) {
 		return false;
 	}
 }
+
+function mascaraCPF() { 
+    var $cpf = $("#CPF");
+    $cpf.mask('000.000.000-00', {reverse: true});
+}
+
+function mascaraTelefoneCelular() { 
+    var $telcelular = $("#telcelular");
+    $telcelular.mask('(00)00000-0000', {reverse: false});
+}
+
+function mascaraTelefoneResidencial() { 
+    var $telresidencial = $("#telresidencial");
+    $telresidencial.mask('(00)0000-0000', {reverse: false});
+}
+
+function mascaraData() { 
+    var $data = $("#data");
+    $data.mask('00/00/0000', {reverse: true});
+}

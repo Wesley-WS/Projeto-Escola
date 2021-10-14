@@ -17,7 +17,14 @@
 		href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
 		integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
 		crossorigin="anonymous">
-	
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<script type="text/javascript" src="${context}/assets/js/app.js"></script>
+<script> $(document).ready(mascaraCPF())
+		$(document).ready(mascaraData())
+		$(document).ready(mascaraTelefoneCelular())
+		$(document).ready(mascaraTelefoneResidencial())
+</script>
 	<title>Formulario - Cadastrar aluno</title>
 </head>
 <body>
@@ -36,23 +43,23 @@
 							</div>
 							<div>
 								<label>Cpf</label><br />
-								<input type="text" name="aluno.cpf" maxlength="20" placeholder="xxx.xxx.xxx-xx" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" required/>
+								<input id="CPF" type="text" name="aluno.cpf" required/>
 							</div>
 							<div>
 								<label>Data de nascimento</label><br />
-								<input type="date" name="aluno.dataNascimento" min="1950-01-01" max="2021-10-08" required/>
+								<input id="data" type="text" name="aluno.dataNascimento" required/>
 							</div>
 							<div>
 								<label>Email</label><br />
-								<input type="email" name="aluno.email" maxlength="100" placeholder="xxxxx@xxxx.com" required/>
+								<input type="email" name="aluno.email" maxlength="100" required/>
 							</div>
 							<div>
 								<label>Telefone Celular</label><br />
-								<input type="tel" name="aluno.telefoneCelular" maxlength="20" placeholder="(xx)xxxxx-xxxx" pattern="\([0-9]{2}\)[0-9]{5}-[0-9]{4}"/>
+								<input id="telcelular" type="tel" name="aluno.telefoneCelular"/>
 							</div>
 							<div>
 								<label>Telefone Residêncial</label><br />
-								<input type="tel" name="aluno.telefoneResidencial" maxlength="20" placeholder="xxxx-xxxx" pattern="\([0-9]{2}\)[0-9]{4}-[0-9]{4}"/>
+								<input id="telresidencial" type="tel" name="aluno.telefoneResidencial"/>
 							</div>
 			
 							<s:submit />
