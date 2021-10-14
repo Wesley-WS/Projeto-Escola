@@ -46,7 +46,7 @@
 									<td><s:property value="cpf" /></td>
 									<td><s:property value="email" /></td>
 									<td colspan="2">
-									<a href="alterar?aluno.cod_aluno=${cod_aluno}">Atualizar</a>
+									<a href="iniciarAlteracao?aluno.cod_aluno=${cod_aluno}">Atualizar</a>
 									<a href="detalhar?aluno.cod_aluno=${cod_aluno}">Detalhar</a>
 									<a onclick="toggleModal('deletar?aluno.cod_aluno=${cod_aluno}')" href="#">Deletar</a></td>
 								</tr>
