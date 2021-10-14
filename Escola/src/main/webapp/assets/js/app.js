@@ -1,4 +1,23 @@
-function validarCadastro() {
+$(document).ready(() => {
+	carregarMascaras();
+	
+})
+
+function carregarMascaras() {
+	let cpf = $("#CPF"),
+		telCelular = $("#telcelular"),
+		telResidencial = $("#telresidencial"),
+		data = $("#data");
+		
+	cpf.mask('000.000.000-00', {reverse: true});
+	telCelular.mask('(00)00000-0000', {reverse: false});
+	telResidencial.mask('(00)0000-0000', {reverse: false});
+	data.mask('00/00/0000', {reverse: true});
+}
+
+
+
+/*function validarCadastro() {
 	const nome = $("#nome").val(),
 		cpf = $("#cpf").val(),
 		dataNascimento = $("#dataNascimento").val(),
@@ -51,7 +70,6 @@ function emailEInvalido(email) {
 }
 
 function telefoneCelularEInvalido(telefoneCelular) {
-	console.log(telefoneCelular);
 	if(telefoneCelular) {
 		console.log('a cel')
 		return !/\([0-9]{2}\)[0-9]{5}-[0-9]{4}/.test(telefoneCelular);
@@ -62,31 +80,9 @@ function telefoneCelularEInvalido(telefoneCelular) {
 }
 
 function telefoneResidencialEInvalido(telefoneResidencial) {
-	console.log(telefoneResidencial)
 	if(telefoneResidencial) {
 		return !/\([0-9]{2}\)[0-9]{4}-[0-9]{4}/.test(telefoneResidencial);
 	} else {
-		console.log('ok res')
 		return false;
 	}
-}
-
-function mascaraCPF() { 
-    var $cpf = $("#CPF");
-    $cpf.mask('000.000.000-00', {reverse: true});
-}
-
-function mascaraTelefoneCelular() { 
-    var $telcelular = $("#telcelular");
-    $telcelular.mask('(00)00000-0000', {reverse: false});
-}
-
-function mascaraTelefoneResidencial() { 
-    var $telresidencial = $("#telresidencial");
-    $telresidencial.mask('(00)0000-0000', {reverse: false});
-}
-
-function mascaraData() { 
-    var $data = $("#data");
-    $data.mask('00/00/0000', {reverse: true});
-}
+}*/
