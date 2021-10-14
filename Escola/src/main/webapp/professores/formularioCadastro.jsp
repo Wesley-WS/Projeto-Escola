@@ -40,7 +40,7 @@
 							</div>
 							<div>
 								<label>Data de nascimento</label><br />
-								<input type="date" name="professor.dataNascimento" min="1950-01-01" max="2021-10-08" required/>
+								<input type="text" name="professor.dataNascimento" required/>
 							</div>
 							<div>
 								<label>Email</label><br />
@@ -52,7 +52,7 @@
 							</div>
 							<div>
 								<label>Telefone Residêncial</label><br />
-								<input type="tel" name="professor.telefoneResidencial" maxlength="20" placeholder="xxxx-xxxx"/>
+								<input type="tel" name="professor.telefoneResidencial" maxlength="20" placeholder="xxxx-xxxx" pattern="\([0-9]{2}\)[0-9]{4}-[0-9]{4}"/>
 							</div>
 							<s:submit />
 						</s:form>
@@ -61,5 +61,6 @@
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>
