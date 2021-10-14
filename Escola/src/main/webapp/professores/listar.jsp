@@ -10,22 +10,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="${context}/assets/css/styles.css">
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-	integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-	crossorigin="anonymous">
-	
-<title>Professores</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="${context}/assets/css/styles.css">
+	<link rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+		integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+		crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="../assets/js/modal.js"></script>
+	<title>Professores</title>
 </head>
 <body>
-	<div class="app"> <!-- TODO: arrumar responsividade e o botão de adicionar -->
+	<div class="app">
 		<s:include value="../components/sidebar.jspf"></s:include>
 		<div class="body-wrapper">
 			<div class="body-header">
 				<h2>Lista de professores</h2>
+				<a href="iniciarCadastro" class="btn btn-primary"><i class="fas fa-plus"></i> Inserir Professor</a>
 			</div>
 			<div class="body">
 				<div class="scroller scroller-base">
@@ -45,13 +47,30 @@
 								<td colspan="2">
 									<a href="iniciarAlteracao?professor.cod_professor=${cod_professor}"> Atualizar</a>
 									<a href="detalhar?professor.cod_professor=${cod_professor}">Detalhar</a>
-									<a href="deletar?professor.cod_professor=${cod_professor}">Deletar</a>
+									<a href="#" onclick="toggleModal('deletar?professor.cod_professor=${cod_professor}')">Deletar</a>
 								</td>
 							</tr>
 						</s:iterator>
 					</table>
 				</div>
-				<a href="iniciarCadastro" class="btn btn-danger"><i class="fas fa-plus"></i> Inserir Professor</a>
+			</div>
+		</div>
+	</div>
+	<div id="modal" class="modal-content" style="display: none;">
+		<div class="modal-wrapper">
+			<div class="modal">
+				<div class="modal-header">
+					<h2>Deletar</h2>
+				</div>
+				<div class="modal-body">
+					<p>Você deseja deletar este item?</p>
+					
+					<div class="d-flex" style="column-gap: 8px;">
+						<a id="delete" href="#" class="btn btn-danger flex-sg-auto">Deletar</a>
+						<a href="#" class="btn btn-primary flex-sg-auto"
+							onclick="toggleModal()">Cancelar</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
