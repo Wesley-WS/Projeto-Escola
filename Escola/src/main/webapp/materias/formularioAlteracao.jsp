@@ -29,7 +29,7 @@
 					<div class="col">
 						<h2>Atualizar matéria</h2>
 						
-						<s:form action="alterar" method="post">
+						<s:form id="formularioMateria" action="alterar" method="post">
 							<s:hidden name="materia.cod_materia" value="%{materia.cod_materia}" />
 							
 							<div>

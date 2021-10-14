@@ -31,7 +31,7 @@
 					<div class="col">
 						<h2>Cadastrar professor</h2>
 						
-						<s:form action="cadastrar" method="post">
+						<s:form id="formularioPessoa" action="cadastrar" method="post">
 							<div>
 								<label>Nome</label><br />
 								<input id="nome" type="text" name="professor.nome" required/>

@@ -29,7 +29,7 @@
 					<div class="col">
 						<h2>Cadastrar matéria</h2>
 						
-						<s:form action="cadastrar" method="post">
+						<s:form id="formularioMateria" action="cadastrar" method="post">
 							<div>
 								<label>Nome</label><br />
 								<input type="text" name="materia.nome" maxlength="50" required />
