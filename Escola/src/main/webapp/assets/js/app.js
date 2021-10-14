@@ -9,6 +9,10 @@ $(document).ready(() => {
 			// Faça aparecer uma mensagem de campo em branco
 			console.log("nome branco");
 			eValido = false;
+		} else if(nome.val().length > 100) {
+			
+			console.log("nome longo acima de 100");
+			eValido = false;
 		}
 		if(!cpf.val()) {
 			// Faça aparecer uma mensagem de campo em branco
@@ -23,6 +27,9 @@ $(document).ready(() => {
 		if(!email.val()) {
 			// Faça aparecer uma mensagem de campo em branco
 			console.log("email branco");
+			eValido = false;
+		} else if(nome.val().length > 100) {
+			console.log("email longo acima de 100");
 			eValido = false;
 		}
 		
@@ -74,7 +81,6 @@ function carregarMascaras() {
 	telResidencial.mask('(00)0000-0000', {reverse: false});
 	dataNascimento.mask('00/00/0000', {reverse: true});
 }
-
 
 
 /*function validarCadastro() {
