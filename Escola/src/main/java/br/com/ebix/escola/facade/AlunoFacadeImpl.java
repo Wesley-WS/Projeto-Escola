@@ -10,6 +10,7 @@ import br.com.ebix.escola.utils.ValidaCpf;
 import br.com.ebix.escola.utils.ValidaDataUtil;
 import br.com.ebix.escola.utils.ValidaEmail;
 import br.com.ebix.escola.utils.ValidaStringUtil;
+import br.com.ebix.escola.utils.ValidaTelefoneUtil;
 
 public class AlunoFacadeImpl implements AlunoFacade {
 
@@ -40,7 +41,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public boolean add(Aluno aluno) {
-		if (dadosEstaoInvalidos(aluno)) {
+		if (dadosEstaoInvalidos(aluno) || telefoneEstaInvalido(aluno)) {
 			return false;
 		} else {
 			alunoDao.add(aluno);
@@ -51,7 +52,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public boolean update(Aluno aluno) {
-		if (codigoEstaInvalido(aluno) || dadosEstaoInvalidos(aluno)) {
+		if (codigoEstaInvalido(aluno) || dadosEstaoInvalidos(aluno) || telefoneEstaInvalido(aluno)) {
 			return false;
 		} else {
 			alunoDao.update(aluno);
@@ -72,6 +73,16 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	public boolean codigoEstaInvalido(Aluno aluno) {
 		return (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno()));
+	}
+	
+	public boolean telefoneEstaInvalido(Aluno aluno) {
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getTelefoneCelular())
+				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getTelefoneCelular())) {
+			return false;
+		} else {
+			return (ValidaTelefoneUtil.eUmNumeroDeCelularInvalido(aluno.getTelefoneCelular())
+					|| ValidaTelefoneUtil.eUmNumeroResidencialInvalido(aluno.getTelefoneResidencial()));
+		}
 	}
 
 	public boolean dadosEstaoInvalidos(Aluno aluno) {

@@ -7,30 +7,21 @@ $(document).ready(() => {
 		let eValido = true;
 		
 		if(!nome.val()) {
-			// Faça aparecer uma mensagem de campo em branco
-			//console.log("nome branco");
 			showMessage("Campo em branco", mensagemNome);
 			eValido = false;
 		} else if(nome.val().length > 100) {
 			showMessage("Minimo de 100 characters", mensagemNome);
-			//console.log("nome longo acima de 100");
 			eValido = false;
 		}
 		if(!cpf.val()) {
-			// Faça aparecer uma mensagem de campo em branco
 			showMessage("Cpf em branco", mensagemCpf);
-			//console.log("cpf branco");
 			eValido = false;
 		}
 		if(!dataNascimento.val()) {
-			// Faça aparecer uma mensagem de campo em branco
-			//console.log("data de nascimento branco");
 			showMessage("Data de nascimento em branco", mensagemDataNascimento);
 			eValido = false;
 		}
 		if(!email.val()) {
-			// Faça aparecer uma mensagem de campo em branco
-			//console.log("email branco");
 			showMessage("Email em branco", mensagemEmail);
 			eValido = false;
 		} else if(email.val().length > 100) {
@@ -47,14 +38,10 @@ $(document).ready(() => {
 		let eValido = true;
 		
 		if(!nome.val()) {
-			// Faça aparecer uma mensagem de campo em branco
-			//console.log("nome branco");
 			showMessage("Nome em branco", mensagemNome);
 			eValido = false;
 		}
 		if(!sigla.val()) {
-			// Faça aparecer uma mensagem de campo em branco
-			//console.log("sigla branco");
 			showMessage("Sigla em branco", mensagemSigla);
 			eValido = false;
 		}else if (sigla.val().length > 5){
