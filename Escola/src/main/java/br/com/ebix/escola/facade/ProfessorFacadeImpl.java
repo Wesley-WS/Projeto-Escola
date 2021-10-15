@@ -6,11 +6,13 @@ import java.util.Optional;
 
 import br.com.ebix.escola.dao.ProfessorDao;
 import br.com.ebix.escola.dao.ProfessorDaoImpl;
+import br.com.ebix.escola.model.Aluno;
 import br.com.ebix.escola.model.Professor;
 import br.com.ebix.escola.utils.ValidaCpf;
 import br.com.ebix.escola.utils.ValidaDataUtil;
 import br.com.ebix.escola.utils.ValidaEmail;
 import br.com.ebix.escola.utils.ValidaStringUtil;
+import br.com.ebix.escola.utils.ValidaTelefoneUtil;
 
 
 public class ProfessorFacadeImpl implements ProfessorFacade {
@@ -38,7 +40,7 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 
 	@Override
 	public boolean add(Professor professor) {
-		if(dadosEstaoInvalidos(professor) || CpfJaExiste(professor)) {
+		if(dadosEstaoInvalidos(professor) || telefoneEstaInvalido(professor) || CpfJaExiste(professor)) {
 			return false;
 		} else {
 			professorDao.add(professor);
@@ -49,7 +51,7 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 
 	@Override
 	public boolean update(Professor professor) {
-		if(codigoEstaInvalido(professor) || dadosEstaoInvalidos(professor)) {
+		if(codigoEstaInvalido(professor) || dadosEstaoInvalidos(professor) || telefoneEstaInvalido(professor)) {
 			return false;
 		} else {
 			professorDao.update(professor);
@@ -70,6 +72,16 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 	
 	public boolean codigoEstaInvalido(Professor professor) {
 		return ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCod_professor());
+	}
+	
+	public boolean telefoneEstaInvalido(Professor professor) {
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getTelefoneCelular())
+				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getTelefoneCelular())) {
+			return false;
+		} else {
+			return (ValidaTelefoneUtil.eUmNumeroDeCelularInvalido(professor.getTelefoneCelular())
+					|| ValidaTelefoneUtil.eUmNumeroResidencialInvalido(professor.getTelefoneResidencial()));
+		}
 	}
 	
 	public boolean dadosEstaoInvalidos(Professor professor) {
