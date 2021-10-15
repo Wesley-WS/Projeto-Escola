@@ -77,7 +77,7 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 	}
 	
 	public boolean naoEstaEmIdadeParaLecionar(Professor professor) {
-		return (professor.obterIdade() <= 22);
+		return (professor.obterIdade() < 22);
 	}
 	
 	public boolean codigoEstaInvalido(Professor professor) {
