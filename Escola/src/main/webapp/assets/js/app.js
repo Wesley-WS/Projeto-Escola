@@ -2,34 +2,39 @@ $(document).ready(() => {
 	carregarMascaras();
 	
 	$("#formularioPessoa").submit(function() {
+		let { mensagemNome, mensagemCpf, mensagemDataNascimento, mensagemEmail } = obterMensagemPessoa();
 		let { nome, cpf, dataNascimento, email } = obterCamposPessoa();
 		let eValido = true;
 		
 		if(!nome.val()) {
 			// Faça aparecer uma mensagem de campo em branco
-			console.log("nome branco");
+			//console.log("nome branco");
+			showMessage("Campo em branco", mensagemNome);
 			eValido = false;
 		} else if(nome.val().length > 100) {
-			
-			console.log("nome longo acima de 100");
+			showMessage("Minimo de 100 characters", mensagemNome);
+			//console.log("nome longo acima de 100");
 			eValido = false;
 		}
 		if(!cpf.val()) {
 			// Faça aparecer uma mensagem de campo em branco
-			console.log("cpf branco");
+			showMessage("Cpf em branco", mensagemCpf);
+			//console.log("cpf branco");
 			eValido = false;
 		}
 		if(!dataNascimento.val()) {
 			// Faça aparecer uma mensagem de campo em branco
-			console.log("data de nascimento branco");
+			//console.log("data de nascimento branco");
+			showMessage("Data de nascimento em branco", mensagemDataNascimento);
 			eValido = false;
 		}
 		if(!email.val()) {
 			// Faça aparecer uma mensagem de campo em branco
-			console.log("email branco");
+			//console.log("email branco");
+			showMessage("Email em branco", mensagemEmail);
 			eValido = false;
-		} else if(nome.val().length > 100) {
-			console.log("email longo acima de 100");
+		} else if(email.val().length > 100) {
+			showMessage("Minimo de 100 characters", mensagemEmail);
 			eValido = false;
 		}
 		
@@ -38,16 +43,22 @@ $(document).ready(() => {
 	
 	$("#formularioMateria").submit(function() {
 		let { nome, sigla } = obterCamposMateria();
+		let { mensagemNome, mensagemSigla } = obterMensagemMateria();
 		let eValido = true;
 		
 		if(!nome.val()) {
 			// Faça aparecer uma mensagem de campo em branco
-			console.log("nome branco");
+			//console.log("nome branco");
+			showMessage("Nome em branco", mensagemNome);
 			eValido = false;
 		}
 		if(!sigla.val()) {
 			// Faça aparecer uma mensagem de campo em branco
-			console.log("sigla branco");
+			//console.log("sigla branco");
+			showMessage("Sigla em branco", mensagemSigla);
+			eValido = false;
+		}else if (sigla.val().length > 5){
+			showMessage("Minimo de 5 characters", mensagemSigla);
 			eValido = false;
 		}
 		
@@ -66,10 +77,26 @@ function obterCamposPessoa() {
 	}
 }
 
+function obterMensagemPessoa() {
+	return {
+		mensagemNome: $('#mensagem-nome'),
+		mensagemCpf: $('#mensagem-cpf'),
+		mensagemDataNascimento: $('#mensagem-dataNascimento'),
+		mensagemEmail: $('#mensagem-email')
+	}
+}
+
 function obterCamposMateria() {
 	return {
 		nome: $("#nome"),
 		sigla: $("#sigla")
+	}
+}
+
+function obterMensagemMateria(){
+	return {
+		mensagemNome: $('#mensagem-nome'),
+		mensagemSigla: $('#mensagem-sigla'),
 	}
 }
 
@@ -82,6 +109,13 @@ function carregarMascaras() {
 	dataNascimento.mask('00/00/0000', {reverse: true});
 }
 
+function showMessage(mensagem, elem){
+	elem.show();
+	elem.html(`<small class='warning-message'>${mensagem}</small>`);
+	setTimeout(function() {
+	    elem.fadeOut('slow');
+	}, 5000);
+}
 
 /*function validarCadastro() {
 	const nome = $("#nome").val(),

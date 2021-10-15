@@ -17,6 +17,9 @@
 	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
 	integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
 	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+<script type="text/javascript" src="${context}/assets/js/app.js"></script>
 
 <title>Formulario - Cadastrar matéria</title>
 </head>
@@ -33,10 +36,16 @@
 						<div class="mb-8">
 							<label>Nome</label><br />
 							<input id="nome" type="text" name="materia.nome" />
+							<div id="mensagem-nome" style="display: none;">
+								<small class="warning-message">#</small>
+							</div>
 						</div>
 						<div class="mb-8">
 							<label>Sigla</label><br />
 							<input id="sigla" type="text" name="materia.sigla" />
+							<div id="mensagem-sigla" style="display: none;">
+								<small class="warning-message">#</small>
+							</div>
 						</div>
 
 						<button type="submit" class="btn btn-primary">Submit</button>

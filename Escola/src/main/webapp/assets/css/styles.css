@@ -175,6 +175,10 @@ body {
     flex-direction: column;
 }
 
+form {
+	padding: 8px;
+}
+
 form input{
 	background-color: var(--input-color);
 	border: none;
@@ -258,7 +262,7 @@ form input{
 }
 
 .warning-message {
-    color: var(--light);
+    color: var(--primary-color);
 }
 
 .icon {

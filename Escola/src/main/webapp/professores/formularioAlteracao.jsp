@@ -36,19 +36,31 @@
 							
 							<div>
 								<label>Nome</label><br />
-								<input id="nome" type="text" name="professor.nome" value="${professor.nome}" required/>
+								<input id="nome" type="text" name="professor.nome" value="${professor.nome}"/>
+								<div id="mensagem-nome" style="display: none;">
+									<small class="warning-message">#</small>
+								</div>
 							</div>
 							<div>
 								<label>Cpf</label><br />
-								<input id="CPF" type="text" name="professor.cpf" value="${professor.cpf}" required/>
+								<input id="CPF" type="text" name="professor.cpf" value="${professor.cpf}"/>
+								<div id="mensagem-cpf" style="display: none;">
+									<small class="warning-message">#</small>
+								</div>
 							</div>
 							<div>
 								<label>Data de nascimento</label><br />
-								<input id="dataNascimento" type="text" name="professor.dataNascimento" value="<s:date name="professor.dataNascimento" format="dd/MM/yyyy" />" required/>
+								<input id="dataNascimento" type="text" name="professor.dataNascimento" value="<s:date name="professor.dataNascimento" format="dd/MM/yyyy" />"/>
+								<div id="mensagem-dataNascimento" style="display: none;">
+									<small class="warning-message">#</small>
+								</div>
 							</div>
 							<div>
 								<label>Email</label><br />
-								<input id="email" type="email" name="professor.email" value="${professor.email}" required/>
+								<input id="email" type="email" name="professor.email" value="${professor.email}"/>
+								<div id="mensagem-email" style="display: none;">
+									<small class="warning-message">#</small>
+								</div>
 							</div>
 							<div>
 								<label>Telefone Celular</label><br />

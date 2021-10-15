@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1">
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="${context}/assets/css/styles.css">
 	<link rel="stylesheet"
@@ -35,28 +35,28 @@
 						<div class="mb-8">
 							<label>Nome</label><br />
 							<input id="nome" type="text" name="aluno.nome"/>
-							<div id="mensagem-nome">
+							<div id="mensagem-nome" style="display: none;">
 								<small class="warning-message">#</small>
 							</div>
 						</div>
 						<div class="mb-8">
 							<label>Cpf</label><br />
 							<input id="CPF" type="text" name="aluno.cpf"/>
-							<div id="mensagem-cpf">
+							<div id="mensagem-cpf" style="display: none;">
 								<small class="warning-message">#</small>
 							</div>
 						</div>
 						<div class="mb-8">
 							<label>Data de nascimento</label><br />
 							<input id="dataNascimento" type="text" name="aluno.dataNascimento"/>
-							<div id="mensagem-dataNascimento">
+							<div id="mensagem-dataNascimento" style="display: none;">
 								<small class="warning-message">#</small>
 							</div>
 						</div>
 						<div class="mb-8">
 							<label>Email</label><br />
 							<input id="email" type="email" name="aluno.email" />
-							<div id="mensagem-email">
+							<div id="mensagem-email" style="display: none;">
 								<small class="warning-message">#</small>
 							</div>
 						</div>
