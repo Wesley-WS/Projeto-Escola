@@ -6,7 +6,6 @@ import java.util.Optional;
 
 import br.com.ebix.escola.dao.ProfessorDao;
 import br.com.ebix.escola.dao.ProfessorDaoImpl;
-import br.com.ebix.escola.model.Aluno;
 import br.com.ebix.escola.model.Professor;
 import br.com.ebix.escola.utils.ValidaCpf;
 import br.com.ebix.escola.utils.ValidaDataUtil;

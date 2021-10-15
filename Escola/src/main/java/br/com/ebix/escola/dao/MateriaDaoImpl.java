@@ -1,6 +1,5 @@
 package br.com.ebix.escola.dao;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,10 +14,10 @@ public class MateriaDaoImpl extends ConnectionFactory implements MateriaDao {
 	@Override
 	public Optional<Materia> get(Materia materia) {
 		Materia materiaObtida = null;
-		try (Connection conn = getConnection()) {
+		try {
 			String sql = "SELECT * FROM escola.materias WHERE cod_materia=?";
 			
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setLong(1, materia.getCod_materia());
 			ResultSet rs = ps.executeQuery();
 			
@@ -31,7 +30,6 @@ public class MateriaDaoImpl extends ConnectionFactory implements MateriaDao {
 			
 			rs.close();
 			ps.close();
-			conn.close();
 			
 			return Optional.ofNullable(materiaObtida);
 		}catch(SQLException e) {
@@ -43,10 +41,10 @@ public class MateriaDaoImpl extends ConnectionFactory implements MateriaDao {
 	@Override
 	public List<Materia> getAll() {
 		List<Materia> materias = new ArrayList<Materia>();
-		try (Connection conn = getConnection()){
+		try {
 			String sql = "SELECT * FROM escola.materias";
 			
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
@@ -60,7 +58,6 @@ public class MateriaDaoImpl extends ConnectionFactory implements MateriaDao {
 			
 			rs.close();
 			ps.close();
-			conn.close();
 			
 			return materias;
 		}catch(SQLException e) {
@@ -71,15 +68,14 @@ public class MateriaDaoImpl extends ConnectionFactory implements MateriaDao {
 
 	@Override
 	public void add(Materia materia) {
-		try (Connection conn = getConnection()) {
+		try {
 			String sql = "INSERT INTO escola.materias (nome, sigla) VALUES(?, ?)";
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, materia.getNome());
 			ps.setString(2, materia.getSigla());
 			
 			ps.execute();
 			ps.close();
-			conn.close();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -87,16 +83,15 @@ public class MateriaDaoImpl extends ConnectionFactory implements MateriaDao {
 
 	@Override
 	public void update(Materia materia) {
-		try (Connection conn = getConnection()) {
+		try {
 			String sql = "UPDATE escola.materias SET nome=?, sigla=? WHERE cod_materia=?";
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, materia.getNome());
 			ps.setString(2, materia.getSigla());
 			ps.setLong(3, materia.getCod_materia());
 			
 			ps.execute();
 			ps.close();
-			conn.close();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -104,14 +99,13 @@ public class MateriaDaoImpl extends ConnectionFactory implements MateriaDao {
 
 	@Override
 	public void delete(Materia materia) {
-		try (Connection conn = getConnection()) {
+		try {
 			String sql = "DELETE FROM escola.materias WHERE cod_materia=?";
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setLong(1, materia.getCod_materia());
 			
 			ps.execute();
 			ps.close();
-			conn.close();
 			
 		}catch(SQLException e) {
 			e.printStackTrace();
