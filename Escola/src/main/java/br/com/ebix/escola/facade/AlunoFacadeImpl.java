@@ -42,7 +42,10 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public boolean add(Aluno aluno) {
-		if (dadosEstaoInvalidos(aluno) || telefoneEstaInvalido(aluno) || CpfJaExiste(aluno)) {
+		if (dadosEstaoInvalidos(aluno) 
+				|| naoEstaEmIdadeEscolar(aluno) 
+				|| telefoneEstaInvalido(aluno) 
+				|| CpfJaExiste(aluno)) {
 			return false;
 		} else {
 			alunoDao.add(aluno);
@@ -53,7 +56,10 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public boolean update(Aluno aluno) {
-		if (codigoEstaInvalido(aluno) || dadosEstaoInvalidos(aluno) || telefoneEstaInvalido(aluno)) {
+		if (codigoEstaInvalido(aluno) 
+				|| naoEstaEmIdadeEscolar(aluno) 
+				|| dadosEstaoInvalidos(aluno) 
+				|| telefoneEstaInvalido(aluno)) {
 			return false;
 		} else {
 			alunoDao.update(aluno);
@@ -72,6 +78,10 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	}
 
+	public boolean naoEstaEmIdadeEscolar(Aluno aluno) {
+		return (aluno.obterIdade() <= 4);
+	}
+	
 	public boolean codigoEstaInvalido(Aluno aluno) {
 		return (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno()));
 	}

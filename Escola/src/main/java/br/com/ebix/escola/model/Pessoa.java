@@ -2,7 +2,6 @@ package br.com.ebix.escola.model;
 
 import java.util.Calendar;
 
-
 public abstract class Pessoa {
 	private String nome;
 	private String cpf;
@@ -11,6 +10,18 @@ public abstract class Pessoa {
 	private String telefoneResidencial;
 	private Calendar dataNascimento;
 
+	public int obterIdade() {
+		Calendar agora = Calendar.getInstance();
+		
+		int idade = agora.get(Calendar.YEAR) - dataNascimento.get(Calendar.YEAR);
+		if (dataNascimento.get(Calendar.MONTH) > agora.get(Calendar.MONTH)
+				|| (dataNascimento.get(Calendar.MONTH) == agora.get(Calendar.MONTH)
+						&& dataNascimento.get(Calendar.DATE) > agora.get(Calendar.DATE))) {
+			idade--;
+		}
+		return idade;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
