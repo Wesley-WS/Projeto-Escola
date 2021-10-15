@@ -39,7 +39,10 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 
 	@Override
 	public boolean add(Professor professor) {
-		if(dadosEstaoInvalidos(professor) || telefoneEstaInvalido(professor) || CpfJaExiste(professor)) {
+		if(dadosEstaoInvalidos(professor)
+				|| naoEstaEmIdadeParaLecionar(professor)
+				|| telefoneEstaInvalido(professor) 
+				|| CpfJaExiste(professor)) {
 			return false;
 		} else {
 			professorDao.add(professor);
@@ -50,7 +53,11 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 
 	@Override
 	public boolean update(Professor professor) {
-		if(codigoEstaInvalido(professor) || dadosEstaoInvalidos(professor) || telefoneEstaInvalido(professor) || updateCpfJaExiste(professor)) {
+		if(codigoEstaInvalido(professor) 
+				|| naoEstaEmIdadeParaLecionar(professor)
+				|| dadosEstaoInvalidos(professor) 
+				|| telefoneEstaInvalido(professor) 
+				|| updateCpfJaExiste(professor)) {
 			return false;
 		} else {
 			professorDao.update(professor);
@@ -67,6 +74,10 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 			return true;
 		}
 
+	}
+	
+	public boolean naoEstaEmIdadeParaLecionar(Professor professor) {
+		return (professor.obterIdade() <= 22);
 	}
 	
 	public boolean codigoEstaInvalido(Professor professor) {
