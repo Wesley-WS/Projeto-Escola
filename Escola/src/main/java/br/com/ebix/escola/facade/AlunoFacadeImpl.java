@@ -6,6 +6,7 @@ import java.util.Optional;
 import br.com.ebix.escola.dao.AlunoDao;
 import br.com.ebix.escola.dao.AlunoDaoImpl;
 import br.com.ebix.escola.model.Aluno;
+import br.com.ebix.escola.model.Professor;
 import br.com.ebix.escola.utils.ValidaCpf;
 import br.com.ebix.escola.utils.ValidaDataUtil;
 import br.com.ebix.escola.utils.ValidaEmail;
@@ -41,7 +42,7 @@ public class AlunoFacadeImpl implements AlunoFacade {
 
 	@Override
 	public boolean add(Aluno aluno) {
-		if (dadosEstaoInvalidos(aluno) || telefoneEstaInvalido(aluno)) {
+		if (dadosEstaoInvalidos(aluno) || telefoneEstaInvalido(aluno) || CpfJaExiste(aluno)) {
 			return false;
 		} else {
 			alunoDao.add(aluno);
@@ -94,5 +95,8 @@ public class AlunoFacadeImpl implements AlunoFacade {
 				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCpf())
 				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getDataNascimento()));
 	}
-
+	
+	public boolean CpfJaExiste(Aluno aluno) {
+		return alunoDao.cpfCadastrado(aluno);
+	}
 }

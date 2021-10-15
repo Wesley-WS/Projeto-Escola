@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 import br.com.ebix.escola.model.Aluno;
+import br.com.ebix.escola.model.Professor;
 import br.com.ebix.escola.utils.ConverteDataUtil;
 
 public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
@@ -138,6 +139,25 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 			conn.close();
 		}catch(SQLException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public boolean cpfCadastrado(Aluno aluno) {
+		try {
+			String sql = "SELECT * FROM escola.alunos WHERE cpf=?";
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, aluno.getCpf());
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				return true;
+			}else {
+				return false;
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return true;
 		}
 	}
 }

@@ -11,4 +11,5 @@ public interface AlunoDao {
 	void add(Aluno aluno);
 	void update(Aluno aluno);
 	void delete(Aluno aluno);
+	boolean cpfCadastrado(Aluno aluno);
 }
