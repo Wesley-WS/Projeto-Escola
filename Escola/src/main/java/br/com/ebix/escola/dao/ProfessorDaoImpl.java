@@ -16,10 +16,10 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 	
 	public Optional<Professor> get(Professor professor) {
 		Professor professorObtido = null;
-		try (Connection conn = getConnection()) {
+		try {
 			String sql = "SELECT * FROM escola.professores WHERE cod_professor=?";
 
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setLong(1, professor.getCod_professor());
 			ResultSet rs = ps.executeQuery();
 			
@@ -38,7 +38,6 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 			}
 			rs.close();
 			ps.close();
-			conn.close();
 			
 			return Optional.ofNullable(professorObtido);
 		} catch (SQLException e) {
@@ -136,4 +135,25 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 			e.printStackTrace();
 		}
 	}
+	
+	
+	public boolean cadastrado(Professor professor) {
+		try {
+			String sql = "SELECT * FROM escola.professores WHERE cpf=?";
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setString(1, professor.getCpf());
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				return true;
+			}else {
+				return false;
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return true;
+		}
+	}
+	
 }

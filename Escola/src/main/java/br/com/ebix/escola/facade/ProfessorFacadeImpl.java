@@ -38,7 +38,7 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 
 	@Override
 	public boolean add(Professor professor) {
-		if(dadosEstaoInvalidos(professor)) {
+		if(dadosEstaoInvalidos(professor) || CpfJaExiste(professor)) {
 			return false;
 		} else {
 			professorDao.add(professor);
@@ -82,4 +82,23 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getDataNascimento()));
 	}
 
+	public boolean CpfJaExiste(Professor professor) {
+		return professorDao.cadastrado(professor);
+	}
+	
+	public boolean updateCpfJaExiste(Professor professor) {
+		String cpfDigitado = professor.getCpf();
+		Optional<Professor> professorObtido = professorDao.get(professor);
+		if(!professorObtido.isPresent()) {
+			return false;
+		}
+		System.out.println(cpfDigitado);
+		System.out.println(professorObtido.get().getCpf());
+		if(cpfDigitado == professorObtido.get().getCpf()) {
+			return false;
+		}else {
+			return professorDao.cadastrado(professor);
+		}
+		
+	}
 }
