@@ -137,7 +137,7 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 	}
 	
 	
-	public boolean cadastrado(Professor professor) {
+	public boolean cpfCadastrado(Professor professor) {
 		try {
 			String sql = "SELECT * FROM escola.professores WHERE cpf=?";
 			PreparedStatement ps = getConnection().prepareStatement(sql);

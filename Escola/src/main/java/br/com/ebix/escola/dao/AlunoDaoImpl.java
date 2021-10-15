@@ -17,10 +17,10 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 	@Override
 	public Optional<Aluno> get(Aluno aluno) {
 		Aluno alunoObtido = null;
-		try (Connection conn = getConnection()) {
+		try {
 			String sql = "SELECT * FROM escola.alunos WHERE cod_aluno=?";
 
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setLong(1, aluno.getCod_aluno());
 			ResultSet rs = ps.executeQuery();
 			
@@ -40,7 +40,6 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 			
 			rs.close();
 			ps.close();
-			conn.close();
 			return Optional.ofNullable(alunoObtido);
 		} catch (SQLException e) {
 			e.printStackTrace();

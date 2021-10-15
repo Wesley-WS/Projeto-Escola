@@ -51,7 +51,7 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 
 	@Override
 	public boolean update(Professor professor) {
-		if(codigoEstaInvalido(professor) || dadosEstaoInvalidos(professor) || telefoneEstaInvalido(professor)) {
+		if(codigoEstaInvalido(professor) || dadosEstaoInvalidos(professor) || telefoneEstaInvalido(professor) || updateCpfJaExiste(professor)) {
 			return false;
 		} else {
 			professorDao.update(professor);
@@ -95,7 +95,7 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 	}
 
 	public boolean CpfJaExiste(Professor professor) {
-		return professorDao.cadastrado(professor);
+		return professorDao.cpfCadastrado(professor);
 	}
 	
 	public boolean updateCpfJaExiste(Professor professor) {
@@ -104,12 +104,10 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 		if(!professorObtido.isPresent()) {
 			return false;
 		}
-		System.out.println(cpfDigitado);
-		System.out.println(professorObtido.get().getCpf());
-		if(cpfDigitado == professorObtido.get().getCpf()) {
+		if(cpfDigitado.equals(professorObtido.get().getCpf())) {
 			return false;
 		}else {
-			return professorDao.cadastrado(professor);
+			return professorDao.cpfCadastrado(professor);
 		}
 		
 	}

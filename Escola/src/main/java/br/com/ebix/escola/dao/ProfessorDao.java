@@ -11,5 +11,5 @@ public interface ProfessorDao {
 	void add(Professor professor);
 	void update(Professor professor);
 	void delete(Professor professor);
-	boolean cadastrado(Professor professor);
+	boolean cpfCadastrado(Professor professor);
 }

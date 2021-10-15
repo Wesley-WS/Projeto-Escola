@@ -59,7 +59,8 @@ public class AlunoFacadeImpl implements AlunoFacade {
 		if (codigoEstaInvalido(aluno) 
 				|| naoEstaEmIdadeEscolar(aluno) 
 				|| dadosEstaoInvalidos(aluno) 
-				|| telefoneEstaInvalido(aluno)) {
+				|| telefoneEstaInvalido(aluno)
+				|| updateCpfJaExiste(aluno)) {
 			return false;
 		} else {
 			alunoDao.update(aluno);
@@ -108,5 +109,19 @@ public class AlunoFacadeImpl implements AlunoFacade {
 	
 	public boolean CpfJaExiste(Aluno aluno) {
 		return alunoDao.cpfCadastrado(aluno);
+	}
+	
+	public boolean updateCpfJaExiste(Aluno aluno) {
+		String cpfDigitado = aluno.getCpf();
+		Optional<Aluno> alunoObtido = alunoDao.get(aluno);
+		if(!alunoObtido.isPresent()) {
+			return false;
+		}
+		if(cpfDigitado.equals(alunoObtido.get().getCpf())) {
+			return false;
+		}else {
+			return alunoDao.cpfCadastrado(aluno);
+		}
+		
 	}
 }
