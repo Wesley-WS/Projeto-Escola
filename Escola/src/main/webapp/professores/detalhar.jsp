@@ -22,48 +22,20 @@
 		<s:include value="../components/sidebar.jspf"></s:include>
 		<div class="body-wrapper">
 			<div class="body">
-				<div class="row p-8 bg-primary">
-					<div class="col items-center">
-						<div class="perfil-circle">
+				<div class="row p-8">
+					<div class="col flex-dir-row">
+						<div class="logo">
 							<i class="fas fa-glasses"></i>
 						</div>
-					</div>
-				</div>
-				<div class="row p-8 bg-primary">
-					<div class="col text-center">
-						<h2>${professor.nome}</h2>
-					</div>
-				</div>
-				<div class="row p-8">
-					<div class="col">
-						<h3>Cpf</h3>
-						<p>${professor.cpf}</p>
-					</div>
-					
-				</div>
-				<div class="row p-8">
-					<div class="col">
-						<h3>Email</h3>
-						<p>${professor.email}</p>
-					</div>
-				</div>
-				<div class="row p-8">
-					<div class="col">
-						<h3>Data de nascimento</h3>
-						<s:date name="professor.dataNascimento.time" format="dd/MM/yyyy" var="dataNascimento"/>
-						<p>${dataNascimento}</p>
-					</div>
-				</div>
-				<div class="row p-8">
-					<div class="col">
-						<h3>Telefone celular</h3>
-						<p>${professor.telefoneCelular}</p>
-					</div>
-				</div>
-				<div class="row p-8">
-					<div class="col">
-						<h3>Telefone residencial</h3>
-						<p>${professor.telefoneResidencial}</p>
+						<div class="d-flex flex-dir-col">
+							<s:date name="professor.dataNascimento.time" format="dd/MM/yyyy" var="dataNascimento"/>
+							<h2>Nome: ${professor.nome}</h2>
+							<small>Cpf: ${professor.cpf}</small>
+							<small>Email: ${professor.email}</small>
+							<small>Data de nascimento: ${dataNascimento}</small>
+							<small>Telefone celular: ${professor.telefoneCelular}</small>
+							<small>Telefone residencial: ${professor.telefoneResidencial}</small>
+						</div>
 					</div>
 				</div>
 			</div>

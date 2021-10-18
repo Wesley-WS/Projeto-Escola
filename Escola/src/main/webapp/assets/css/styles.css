@@ -241,6 +241,14 @@ form input{
 	display: flex;
 }
 
+.flex-dir-row {
+	flex-direction: row;
+}
+
+.flex-dir-col {
+	flex-direction: column;
+}
+
 .d-none {
 	display: none;
 }
@@ -249,10 +257,9 @@ form input{
 	padding: 8px;
 }
 
-.perfil-circle {
+.logo {
     align-items: center;
     background-color: var(--light);
-    border-radius: 50%;
     color: var(--dark);
     display: flex;
     font-size: xxx-large;

@@ -22,29 +22,16 @@
 		<s:include value="../components/sidebar.jspf"></s:include>
 		<div class="body-wrapper">
 			<div class="body">
-				<div class="row p-8 bg-primary">
-					<div class="col items-center">
-						<div class="perfil-circle">
+				<div class="row p-8">
+					<div class="col flex-dir-row">
+						<div class="logo">
 							<i class="fas fa-chalkboard"></i>
 						</div>
-					</div>
-				</div>
-				<div class="row p-8 bg-primary">
-					<div class="col text-center">
-						<h2>${materia.nome}</h2>
-					</div>
-				</div>
-				<div class="row p-8">
-					<div class="col">
-						<h3>Nome</h3>
-						<p>${materia.nome}</p>
-					</div>
-					
-				</div>
-				<div class="row p-8">
-					<div class="col">
-						<h3>Sigla</h3>
-						<p>${materia.sigla}</p>
+						<div class="d-flex flex-dir-col">
+							<h2>Nome: ${materia.nome}</h2>
+							<small>Sigla: ${materia.sigla}</small>
+							
+						</div>
 					</div>
 				</div>
 			</div>
