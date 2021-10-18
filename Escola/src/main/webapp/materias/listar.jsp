@@ -26,7 +26,7 @@
 			</div>
 			<div class="body">
 				<div class="scroller scroller-base">
-					<table class="table" border="1">
+					<table class="table">
 						<tr>
 							<th>Nome</th>
 							<th>Sigla</th>

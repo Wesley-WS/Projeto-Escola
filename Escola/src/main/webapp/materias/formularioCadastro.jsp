@@ -28,7 +28,7 @@
 		<s:include value="../components/sidebar.jspf"></s:include>
 		<div class="body-wrapper">
 			<div class="body">
-				<div class="body-header mb-8">
+				<div class="body-header">
 					<h2>Cadastrar matéria</h2>
 				</div>
 				<div class="body align-self-center">

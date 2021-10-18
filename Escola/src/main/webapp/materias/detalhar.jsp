@@ -21,19 +21,18 @@
 	<div class="app">
 		<s:include value="../components/sidebar.jspf"></s:include>
 		<div class="body-wrapper">
-			<div class="body">
-				<div class="row p-8">
-					<div class="col flex-dir-row">
-						<div class="logo">
-							<i class="fas fa-chalkboard"></i>
-						</div>
-						<div class="d-flex flex-dir-col">
-							<h2>Nome: ${materia.nome}</h2>
-							<small>Sigla: ${materia.sigla}</small>
-							
-						</div>
-					</div>
+			<div class="body-header flex-dir-row">
+				<div class="logo">
+					<i class="fas fa-chalkboard"></i>
 				</div>
+				<div class="d-flex flex-dir-col">
+					<h2>Nome: ${materia.nome}</h2>
+					<small>Sigla: ${materia.sigla}</small>
+					
+				</div>
+			</div>
+			<div class="body">
+				<div class="scroller scroller-base"></div>
 			</div>
 		</div>
 	</div>

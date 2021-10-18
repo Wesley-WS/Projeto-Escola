@@ -26,55 +26,52 @@
 	<div class="app">
 		<s:include value="../components/sidebar.jspf"></s:include>
 		<div class="body-wrapper">
-			<div class="body">
-				<div class="row">
-					<div class="col">
-						<h2>Atualizar professor</h2>
-						<s:form id="formularioPessoa" action="alterar" method="post">
-							
-							<s:hidden name="professor.cod_professor" value="%{professor.cod_professor}" />
-							
-							<div>
-								<label>Nome</label><br />
-								<input id="nome" type="text" name="professor.nome" value="${professor.nome}"/>
-								<div id="mensagem-nome" style="display: none;">
-									<small class="warning-message">#</small>
-								</div>
-							</div>
-							<div>
-								<label>Cpf</label><br />
-								<input id="CPF" type="text" name="professor.cpf" value="${professor.cpf}"/>
-								<div id="mensagem-cpf" style="display: none;">
-									<small class="warning-message">#</small>
-								</div>
-							</div>
-							<div>
-								<label>Data de nascimento</label><br />
-								<input id="dataNascimento" type="text" name="professor.dataNascimento" value="<s:date name="professor.dataNascimento" format="dd/MM/yyyy" />"/>
-								<div id="mensagem-dataNascimento" style="display: none;">
-									<small class="warning-message">#</small>
-								</div>
-							</div>
-							<div>
-								<label>Email</label><br />
-								<input id="email" type="email" name="professor.email" value="${professor.email}"/>
-								<div id="mensagem-email" style="display: none;">
-									<small class="warning-message">#</small>
-								</div>
-							</div>
-							<div>
-								<label>Telefone Celular</label><br />
-								<input id="telCelular" type="tel" name="professor.telefoneCelular" value="${professor.telefoneCelular}"/>
-							</div>
-							<div>
-								<label>Telefone Residêncial</label><br />
-								<input id="telResidencial" type="tel" name="professor.telefoneResidencial" value="${professor.telefoneResidencial}" />
-							</div>
-			
-							<s:submit />
-						</s:form>
+			<div class="body-header">
+				<h2>Atualizar professor</h2>
+			</div>
+			<div class="body align-self-center">
+				<s:form id="formularioPessoa" action="alterar" method="post">
+					<s:hidden name="professor.cod_professor" value="%{professor.cod_professor}" />
+					
+					<div class="mb-8">
+						<label>Nome</label><br />
+						<input id="nome" type="text" name="professor.nome" value="${professor.nome}"/>
+						<div id="mensagem-nome" style="display: none;">
+							<small class="warning-message">#</small>
+						</div>
 					</div>
-				</div>
+					<div class="mb-8">
+						<label>Cpf</label><br />
+						<input id="CPF" type="text" name="professor.cpf" value="${professor.cpf}"/>
+						<div id="mensagem-cpf" style="display: none;">
+							<small class="warning-message">#</small>
+						</div>
+					</div>
+					<div class="mb-8">
+						<label>Data de nascimento</label><br />
+						<input id="dataNascimento" type="text" name="professor.dataNascimento" value="<s:date name="professor.dataNascimento" format="dd/MM/yyyy" />"/>
+						<div id="mensagem-dataNascimento" style="display: none;">
+							<small class="warning-message">#</small>
+						</div>
+					</div>
+					<div class="mb-8">
+						<label>Email</label><br />
+						<input id="email" type="email" name="professor.email" value="${professor.email}"/>
+						<div id="mensagem-email" style="display: none;">
+							<small class="warning-message">#</small>
+						</div>
+					</div>
+					<div class="mb-8">
+						<label>Telefone Celular</label><br />
+						<input id="telCelular" type="tel" name="professor.telefoneCelular" value="${professor.telefoneCelular}"/>
+					</div>
+					<div class="mb-8">
+						<label>Telefone Residêncial</label><br />
+						<input id="telResidencial" type="tel" name="professor.telefoneResidencial" value="${professor.telefoneResidencial}" />
+					</div>
+	
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</s:form>
 			</div>
 		</div>
 	</div>

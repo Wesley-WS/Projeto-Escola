@@ -21,22 +21,21 @@
 	<div class="app">
 		<s:include value="../components/sidebar.jspf"></s:include>
 		<div class="body-wrapper">
-			<div class="body">
-				<div class="row p-8">
-					<div class="col flex-dir-row">
-						<div class="logo">
-							<i class="fas fa-user-graduate"></i>
-						</div>
-						<div class="d-flex flex-dir-col">
-							<s:date name="aluno.dataNascimento.time" format="dd/MM/yyyy" var="dataNascimento"/>
-							<h2>Nome: ${aluno.nome}</h2>
-							<small>Email: ${aluno.email}</small>
-							<small>Data de nascimento: ${dataNascimento}</small>
-							<small>Telefone celular: ${aluno.telefoneCelular}</small>
-							<small>Telefone residencial: ${aluno.telefoneResidencial}</small>
-						</div>
-					</div>
+			<div class="body-header flex-dir-row">
+				<div class="logo">
+					<i class="fas fa-user-graduate"></i>
 				</div>
+				<div class="d-flex flex-dir-col">
+					<s:date name="aluno.dataNascimento.time" format="dd/MM/yyyy" var="dataNascimento"/>
+					<h2>Nome: ${aluno.nome}</h2>
+					<small>Email: ${aluno.email}</small>
+					<small>Data de nascimento: ${dataNascimento}</small>
+					<small>Telefone celular: ${aluno.telefoneCelular}</small>
+					<small>Telefone residencial: ${aluno.telefoneResidencial}</small>
+				</div>
+			</div>
+			<div class="body">
+				<div class="scroller scroller-base"></div>
 			</div>
 		</div>
 	</div>

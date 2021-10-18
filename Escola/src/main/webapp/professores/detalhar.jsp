@@ -21,23 +21,22 @@
 	<div class="app">
 		<s:include value="../components/sidebar.jspf"></s:include>
 		<div class="body-wrapper">
-			<div class="body">
-				<div class="row p-8">
-					<div class="col flex-dir-row">
-						<div class="logo">
-							<i class="fas fa-glasses"></i>
-						</div>
-						<div class="d-flex flex-dir-col">
-							<s:date name="professor.dataNascimento.time" format="dd/MM/yyyy" var="dataNascimento"/>
-							<h2>Nome: ${professor.nome}</h2>
-							<small>Cpf: ${professor.cpf}</small>
-							<small>Email: ${professor.email}</small>
-							<small>Data de nascimento: ${dataNascimento}</small>
-							<small>Telefone celular: ${professor.telefoneCelular}</small>
-							<small>Telefone residencial: ${professor.telefoneResidencial}</small>
-						</div>
-					</div>
+			<div class="body-header flex-dir-row">
+				<div class="logo">
+					<i class="fas fa-glasses"></i>
 				</div>
+				<div class="d-flex flex-dir-col">
+					<s:date name="professor.dataNascimento.time" format="dd/MM/yyyy" var="dataNascimento"/>
+					<h2>Nome: ${professor.nome}</h2>
+					<small>Cpf: ${professor.cpf}</small>
+					<small>Email: ${professor.email}</small>
+					<small>Data de nascimento: ${dataNascimento}</small>
+					<small>Telefone celular: ${professor.telefoneCelular}</small>
+					<small>Telefone residencial: ${professor.telefoneResidencial}</small>
+				</div>
+			</div>
+			<div class="body">
+				<div class="scroller scroller-base"></div>
 			</div>
 		</div>
 	</div>
