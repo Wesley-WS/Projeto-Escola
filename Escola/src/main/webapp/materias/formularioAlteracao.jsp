@@ -49,7 +49,7 @@
 						</div>
 					</div>
 
-					<s:submit />
+					<button type="submit" class="btn btn-primary">Submit</button>
 				</s:form>
 			</div>
 		</div>
