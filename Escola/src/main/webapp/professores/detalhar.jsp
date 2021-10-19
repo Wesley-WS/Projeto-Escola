@@ -36,7 +36,91 @@
 				</div>
 			</div>
 			<div class="body">
-				<div class="scroller scroller-base"></div>
+				<div class="scroller scroller-base">
+					<div class="d-flex card-group p-visual">
+						<div class="card">
+							<div class="card-header">
+								<h3>Nome da matéria</h3>
+							</div>
+							<div class="card-body">
+								Algo aqui?
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header">
+								<h3>Nome da matéria</h3>
+							</div>
+							<div class="card-body">
+								Algo aqui?
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header">
+								<h3>Nome da matéria</h3>
+							</div>
+							<div class="card-body">
+								Algo aqui?
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header">
+								<h3>Nome da matéria</h3>
+							</div>
+							<div class="card-body">
+								Algo aqui?
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header">
+								<h3>Nome da matéria</h3>
+							</div>
+							<div class="card-body">
+								Algo aqui?
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header">
+								<h3>Nome da matéria</h3>
+							</div>
+							<div class="card-body">
+								Algo aqui?
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header">
+								<h3>Nome da matéria</h3>
+							</div>
+							<div class="card-body">
+								Algo aqui?
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header">
+								<h3>Nome da matéria</h3>
+							</div>
+							<div class="card-body">
+								Algo aqui?
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header">
+								<h3>Nome da matéria</h3>
+							</div>
+							<div class="card-body">
+								Algo aqui?
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header">
+								<h3>Nome da matéria</h3>
+							</div>
+							<div class="card-body">
+								Algo aqui?
+							</div>
+						</div>
+					</div>
+				
+				</div>
 			</div>
 		</div>
 	</div>

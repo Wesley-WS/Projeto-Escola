@@ -23,6 +23,10 @@
 			</div>
 			<div class="body">
 				<div class="scroller scroller-base">
+					<div class="text-center">
+						<img class="align-self-center" style="width: 50%;"
+							src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Apache_Struts_2_logo.svg/512px-Apache_Struts_2_logo.svg.png" />
+					</div>
 					<p>Isso aqui é um paragrafo, coloquei para não ficar vazio</p>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 						Maecenas a turpis nec mauris placerat pellentesque. Sed nec

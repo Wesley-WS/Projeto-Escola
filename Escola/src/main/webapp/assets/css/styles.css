@@ -75,6 +75,7 @@ body {
 
 .table td {
 	padding: 8px;
+	word-break: break-word;
 }
 
 /*
@@ -200,6 +201,17 @@ form input{
     -webkit-box-sizing: border-box;
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
+}
+
+.card-group {
+	flex-direction: column;
+	gap: 8px 0px;
+}
+
+.card-group.p-visual .card:nth-child(even){background-color: #D9ECF2;}
+
+.card {
+	padding: 8px;
 }
 
 .bg-primary {
