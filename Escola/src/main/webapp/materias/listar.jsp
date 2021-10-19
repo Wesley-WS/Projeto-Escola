@@ -32,7 +32,6 @@
 							<th>Sigla</th>
 							<th colspan="2">Ações</th>
 						</tr>
-						
 						<s:iterator value="materias">
 							<tr>
 								<td><s:property value="nome" /></td>

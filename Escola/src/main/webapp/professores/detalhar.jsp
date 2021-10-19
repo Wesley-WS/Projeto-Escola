@@ -21,105 +21,114 @@
 	<div class="app">
 		<s:include value="../components/sidebar.jspf"></s:include>
 		<div class="body-wrapper">
-			<div class="body-header flex-dir-row">
+			<div class="body-header items-center">
 				<div class="logo">
 					<i class="fas fa-glasses"></i>
 				</div>
-				<div class="d-flex flex-dir-col">
-					<s:date name="professor.dataNascimento.time" format="dd/MM/yyyy" var="dataNascimento"/>
-					<h2>Nome: ${professor.nome}</h2>
-					<small>Cpf: ${professor.cpf}</small>
-					<small>Email: ${professor.email}</small>
-					<small>Data de nascimento: ${dataNascimento}</small>
-					<small>Telefone celular: ${professor.telefoneCelular}</small>
-					<small>Telefone residencial: ${professor.telefoneResidencial}</small>
-				</div>
 			</div>
 			<div class="body">
-				<div class="scroller scroller-base">
-					<div class="d-flex card-group p-visual">
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
+				<div class="body-content">
+					<div class="fit-flex-container">
+						<div class="d-flex flex-dir-col p-8">
+							<s:date name="professor.dataNascimento.time" format="dd/MM/yyyy" var="dataNascimento"/>
+							<h2>Nome: ${professor.nome}</h2>
+							<p>Cpf: ${professor.cpf}</p>
+							<p>Email: ${professor.email}</p>
+							<p>Data de nascimento: ${dataNascimento}</p>
+							<p>Telefone celular: ${professor.telefoneCelular}</p>
+							<p>Telefone residencial: ${professor.telefoneResidencial}</p>
 						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
+					</div>
+					<div class="body-wrapper">
+						<div>
+							<h3>Matérias</h3>
 						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
+						
+						<div class="scroller scroller-base">
+							<div class="d-flex card-group p-visual">
+								<div class="card">
+									<div class="card-header">
+										<h3>Nome da matéria</h3>
+									</div>
+									<div class="card-body">
+										Algo aqui?
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<h3>Nome da matéria</h3>
+									</div>
+									<div class="card-body">
+										Algo aqui?
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<h3>Nome da matéria</h3>
+									</div>
+									<div class="card-body">
+										Algo aqui?
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<h3>Nome da matéria</h3>
+									</div>
+									<div class="card-body">
+										Algo aqui?
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<h3>Nome da matéria</h3>
+									</div>
+									<div class="card-body">
+										Algo aqui?
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<h3>Nome da matéria</h3>
+									</div>
+									<div class="card-body">
+										Algo aqui?
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<h3>Nome da matéria</h3>
+									</div>
+									<div class="card-body">
+										Algo aqui?
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<h3>Nome da matéria</h3>
+									</div>
+									<div class="card-body">
+										Algo aqui?
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<h3>Nome da matéria</h3>
+									</div>
+									<div class="card-body">
+										Algo aqui?
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-header">
+										<h3>Nome da matéria</h3>
+									</div>
+									<div class="card-body">
+										Algo aqui?
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-				
 				</div>
 			</div>
 		</div>

@@ -48,6 +48,7 @@
 									<td colspan="2">
 									<a href="iniciarAlteracao?aluno.cod_aluno=${cod_aluno}">Atualizar</a>
 									<a href="detalhar?aluno.cod_aluno=${cod_aluno}">Detalhar</a>
+									<a href="inscreverse?aluno.cod_aluno=${cod_aluno}">Inscrever-se</a>
 									<a onclick="toggleModal('deletar?aluno.cod_aluno=${cod_aluno}')" href="#">Deletar</a></td>
 								</tr>
 							</s:iterator>

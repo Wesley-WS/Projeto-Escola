@@ -47,6 +47,7 @@
 								<td colspan="2">
 									<a href="iniciarAlteracao?professor.cod_professor=${cod_professor}"> Atualizar</a>
 									<a href="detalhar?professor.cod_professor=${cod_professor}">Detalhar</a>
+									<a href="lecionar?aluno.cod_aluno=${cod_aluno}">Lecionar</a>
 									<a href="#" onclick="toggleModal('deletar?professor.cod_professor=${cod_professor}')">Deletar</a>
 								</td>
 							</tr>

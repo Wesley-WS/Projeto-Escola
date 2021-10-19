@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 :root {
     --dark: #222831;
@@ -11,7 +12,10 @@
 body {
 	background-color: var(--light);
 	padding: 0px;
+	/*font-family: 'Roboto', sans-serif;*/
 	font-family: 'Nunito', sans-serif;
+	font-size: 1em;
+	line-height: 1.375em;;
 	margin: 0px;
 }
 
@@ -43,6 +47,16 @@ body {
     flex-direction: column;
     flex: 1 1 auto;
     min-height: 0;
+}
+
+.body-content {
+	display: flex;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.detail-wrapper {
+	flex: 1 1 auto;
 }
 
 .row {
@@ -93,7 +107,7 @@ body {
     flex-direction: column;
 }
 
-.sidebar-menu-wrapper {
+.fit-flex-container {
     flex: 1 1 auto;
 }
 
@@ -202,6 +216,16 @@ form input{
     -webkit-box-flex: 1;
     -ms-flex: 1 1 auto;
 }
+
+.scroller::-webkit-scrollbar {
+	height: 4px;
+	width: 4px;
+}
+.scroller::-webkit-scrollbar-thumb {
+    background-color: var(--dark);
+    border-radius: 4px;
+}
+
 
 .card-group {
 	flex-direction: column;

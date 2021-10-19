@@ -27,96 +27,12 @@
 				</div>
 				<div class="d-flex flex-dir-col">
 					<h2>Nome: ${materia.nome}</h2>
-					<small>Sigla: ${materia.sigla}</small>
-					
+					<p>Sigla: ${materia.sigla}</p>
+					<p>Professor: </p>
 				</div>
 			</div>
 			<div class="body">
-				<div class="scroller scroller-base">
-					<div class="d-flex card-group p-visual">
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-						<div class="card">
-							<div class="card-header">
-								<h3>Nome da matéria</h3>
-							</div>
-							<div class="card-body">
-								Algo aqui?
-							</div>
-						</div>
-					</div>
-				
-				</div>
+				<div class="scroller scroller-base"></div>
 			</div>
 		</div>
 	</div>

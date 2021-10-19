@@ -7,7 +7,7 @@
             <div class="sidebar-welcome sidebar-button">Bem vindo(a)</div>
         </div>
 
-        <div class="sidebar-menu-wrapper">
+        <div class="fit-flex-container">
             <a href="/Escola/home" class="sidebar-item">
                 <div class="icon"><i class="fas fa-home"></i></div>
                 <div class="sidebar-button">Home</div>
