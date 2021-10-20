@@ -2,6 +2,7 @@ package br.com.ebix.escola.model;
 
 public class Materia {
 	private long cod_materia;
+	private long cod_professor;
 	private String nome;
 	private String sigla;
 	
@@ -13,6 +14,14 @@ public class Materia {
 		super();
 		this.nome = nome;
 		this.sigla = sigla;
+	}
+	
+	public long getCod_professor() {
+		return cod_professor;
+	}
+
+	public void setCod_professor(long cod_professor) {
+		this.cod_professor = cod_professor;
 	}
 
 	public long getCod_materia() {

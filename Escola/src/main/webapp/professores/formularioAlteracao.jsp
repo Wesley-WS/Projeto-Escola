@@ -36,38 +36,32 @@
 					<div class="mb-8">
 						<label>Nome</label><br />
 						<input id="nome" type="text" name="professor.nome" value="${professor.nome}"/>
-						<div id="mensagem-nome" style="display: none;">
-							<small class="warning-message">#</small>
-						</div>
+						<s:fielderror fieldName="nome" />
 					</div>
 					<div class="mb-8">
 						<label>Cpf</label><br />
-						<input id="CPF" type="text" name="professor.cpf" value="${professor.cpf}"/>
-						<div id="mensagem-cpf" style="display: none;">
-							<small class="warning-message">#</small>
-						</div>
+						<input id="cpf" type="text" name="professor.cpf" value="${professor.cpf}"/>
+						<s:fielderror fieldName="cpf" />
 					</div>
 					<div class="mb-8">
 						<label>Data de nascimento</label><br />
 						<input id="dataNascimento" type="text" name="professor.dataNascimento" value="<s:date name="professor.dataNascimento" format="dd/MM/yyyy" />"/>
-						<div id="mensagem-dataNascimento" style="display: none;">
-							<small class="warning-message">#</small>
-						</div>
+						<s:fielderror fieldName="dataNascimento" />
 					</div>
 					<div class="mb-8">
 						<label>Email</label><br />
 						<input id="email" type="email" name="professor.email" value="${professor.email}"/>
-						<div id="mensagem-email" style="display: none;">
-							<small class="warning-message">#</small>
-						</div>
+						<s:fielderror fieldName="email" />
 					</div>
 					<div class="mb-8">
 						<label>Telefone Celular</label><br />
 						<input id="telCelular" type="tel" name="professor.telefoneCelular" value="${professor.telefoneCelular}"/>
+						<s:fielderror fieldName="telefoneCelular" />
 					</div>
 					<div class="mb-8">
 						<label>Telefone Residêncial</label><br />
 						<input id="telResidencial" type="tel" name="professor.telefoneResidencial" value="${professor.telefoneResidencial}" />
+						<s:fielderror fieldName="telefoneResidencial" />
 					</div>
 	
 					<button type="submit" class="btn btn-primary">Submit</button>

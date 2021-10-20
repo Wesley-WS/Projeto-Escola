@@ -1,10 +1,12 @@
 package br.com.ebix.escola.facade;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import br.com.ebix.escola.dao.AlunoDao;
 import br.com.ebix.escola.dao.AlunoDaoImpl;
+import br.com.ebix.escola.enums.AcoesValidacao;
 import br.com.ebix.escola.model.Aluno;
 import br.com.ebix.escola.utils.ValidaCpf;
 import br.com.ebix.escola.utils.ValidaDataUtil;
@@ -40,41 +42,44 @@ public class AlunoFacadeImpl implements AlunoFacade {
 	}
 
 	@Override
-	public boolean add(Aluno aluno) {
-		if (dadosEstaoInvalidos(aluno) 
-				|| naoEstaEmIdadeEscolar(aluno) 
-				|| telefoneEstaInvalido(aluno) 
-				|| CpfJaExiste(aluno)) {
-			return false;
-		} else {
+	public List<AcoesValidacao> add(Aluno aluno) {
+		List<AcoesValidacao> acoes = dadosEstaoInvalidos(aluno);
+		if(cpfJaExiste(aluno)) {
+			acoes.add(AcoesValidacao.CPFEXISTENTE);
+		}
+		
+		if(acoes.size() == 0) {
 			alunoDao.add(aluno);
-			return true;
 		}
+		return acoes;
 
 	}
 
 	@Override
-	public boolean update(Aluno aluno) {
-		if (codigoEstaInvalido(aluno) 
-				|| naoEstaEmIdadeEscolar(aluno) 
-				|| dadosEstaoInvalidos(aluno) 
-				|| telefoneEstaInvalido(aluno)
-				|| updateCpfJaExiste(aluno)) {
-			return false;
-		} else {
+	public List<AcoesValidacao> update(Aluno aluno) {
+		List<AcoesValidacao> acoes = dadosEstaoInvalidos(aluno);
+		if(codigoEstaInvalido(aluno)) {
+			acoes.add(AcoesValidacao.CODIGOINVALIDO);
+		}
+		if(updateCpfJaExiste(aluno)) {
+			acoes.add(AcoesValidacao.CPFEXISTENTE);
+		}
+		
+		if(acoes.size() == 0) {
 			alunoDao.update(aluno);
-			return true;
 		}
+		return acoes;
 	}
 
 	@Override
-	public boolean delete(Aluno aluno) {
+	public AcoesValidacao delete(Aluno aluno) {
+		AcoesValidacao acao = null;
 		if (codigoEstaInvalido(aluno)) {
-			return false;
+			acao = AcoesValidacao.CODIGOINVALIDO;
 		} else {
 			alunoDao.delete(aluno);
-			return true;
 		}
+		return acao;
 
 	}
 
@@ -85,28 +90,57 @@ public class AlunoFacadeImpl implements AlunoFacade {
 	public boolean codigoEstaInvalido(Aluno aluno) {
 		return (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno()));
 	}
-	
-	public boolean telefoneEstaInvalido(Aluno aluno) {
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getTelefoneCelular())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getTelefoneCelular())) {
-			return false;
-		} else {
-			return (ValidaTelefoneUtil.eUmNumeroDeCelularInvalido(aluno.getTelefoneCelular())
-					|| ValidaTelefoneUtil.eUmNumeroResidencialInvalido(aluno.getTelefoneResidencial()));
-		}
-	}
 
-	public boolean dadosEstaoInvalidos(Aluno aluno) {
-		return (ValidaEmail.eUmEmailInvalido(aluno.getEmail())
-				|| ValidaDataUtil.eUmaDataInvalida(aluno.getDataNascimento())
-				|| ValidaCpf.cpfEInvalido(aluno.getCpf())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getEmail())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getNome())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCpf())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getDataNascimento()));
+	public List<AcoesValidacao> dadosEstaoInvalidos(Aluno aluno) {
+		List<AcoesValidacao> campos = new ArrayList<AcoesValidacao>();
+		
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getNome())) {
+			campos.add(AcoesValidacao.NOMEEMBRANCO);
+		} else {
+			if(aluno.getNome().length() > 100) {
+				campos.add(AcoesValidacao.NOMEMINIMOCHAREXCEDIDO);
+			}
+		}
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCpf())) {
+			campos.add(AcoesValidacao.CPFEMBRANCO);
+		} else {
+			if(ValidaCpf.cpfEInvalido(aluno.getCpf())) {
+				campos.add(AcoesValidacao.CPFINVALIDO);
+			}
+		}
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getEmail())) {
+			campos.add(AcoesValidacao.EMAILEMBRANCO);
+		} else {
+			if (ValidaEmail.eUmEmailInvalido(aluno.getEmail())) {
+				campos.add(AcoesValidacao.EMAILINVALIDO);
+			}
+		}
+		if(!ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getTelefoneCelular())) {
+			if(ValidaTelefoneUtil.eUmNumeroDeCelularInvalido(aluno.getTelefoneCelular())) {
+				campos.add(AcoesValidacao.TELEFONECELULARINVALIDO);
+			}
+		}
+		if(!ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getTelefoneResidencial())) {
+			if(ValidaTelefoneUtil.eUmNumeroResidencialInvalido(aluno.getTelefoneResidencial())) {
+				campos.add(AcoesValidacao.TELEFONERESIDENCIALINVALIDO);
+			}
+		}
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getDataNascimento())) {
+			campos.add(AcoesValidacao.DATANASCIMENTOEMBRANCO);
+		} else {
+			if(ValidaDataUtil.eUmaDataInvalida(aluno.getDataNascimento())) {
+				campos.add(AcoesValidacao.DATANASCIMENTOINVALIDA);
+			} else {
+				if(naoEstaEmIdadeEscolar(aluno)) {
+					campos.add(AcoesValidacao.DATANASCIMENTOINVALIDAALUNO);
+				}
+			}
+		}
+		
+		return campos;
 	}
 	
-	public boolean CpfJaExiste(Aluno aluno) {
+	public boolean cpfJaExiste(Aluno aluno) {
 		return alunoDao.cpfCadastrado(aluno);
 	}
 	

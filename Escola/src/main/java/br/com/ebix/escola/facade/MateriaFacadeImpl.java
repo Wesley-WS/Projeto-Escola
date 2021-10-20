@@ -1,10 +1,12 @@
 package br.com.ebix.escola.facade;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import br.com.ebix.escola.dao.MateriaDao;
 import br.com.ebix.escola.dao.MateriaDaoImpl;
+import br.com.ebix.escola.enums.AcoesValidacao;
 import br.com.ebix.escola.model.Materia;
 import br.com.ebix.escola.utils.ValidaStringUtil;
 
@@ -13,7 +15,7 @@ public class MateriaFacadeImpl implements MateriaFacade {
 
 	@Override
 	public Materia get(Materia materia) {
-		if (validaCod(materia)) {
+		if (codigoEstaInvalido(materia)) {
 			return null;
 		} else {
 			Optional<Materia> materiaObtida = materiaDao.get(materia);
@@ -32,51 +34,58 @@ public class MateriaFacadeImpl implements MateriaFacade {
 	}
 
 	@Override
-	public boolean add(Materia materia) {
-		if (validaMateria(materia)) {
-			return false;
-		} else {
+	public List<AcoesValidacao> add(Materia materia) {
+		List<AcoesValidacao> acoes = dadosEstaoInvalidos(materia);
+		if(acoes.size() == 0) {
 			materiaDao.add(materia);
-			return true;
 		}
+		
+		return acoes;
 	}
 
 	@Override
-	public boolean update(Materia materia) {
-		if (validaCod(materia) || validaMateria(materia)) {
-			return false;
-		} else {
+	public List<AcoesValidacao> update(Materia materia) {
+		List<AcoesValidacao> acoes = dadosEstaoInvalidos(materia);
+		if(codigoEstaInvalido(materia)) {
+			acoes.add(AcoesValidacao.CODIGOINVALIDO);
+		}
+		
+		if(acoes.size() == 0) {
 			materiaDao.update(materia);
-			return true;
 		}
+		
+		return acoes;
 	}
 
 	@Override
-	public boolean delete(Materia materia) {
-		if (validaCod(materia)) {
-			return false;
+	public AcoesValidacao delete(Materia materia) {
+		AcoesValidacao acao = null;
+		if(codigoEstaInvalido(materia)) {
+			acao = AcoesValidacao.CODIGOINVALIDO;
 		} else {
 			materiaDao.delete(materia);
-			return true;
 		}
+		return acao;
 
 	}
 
-	public boolean validaCod(Materia materia) {
-		if (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getCod_materia())) {
-			return true;
-		} else {
-			return false;
-		}
+	public boolean codigoEstaInvalido(Materia materia) {
+		return (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getCod_materia()));
 	}
 
-	public boolean validaMateria(Materia materia) {
-		if (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getCod_materia())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getNome())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getSigla())) {
-			return true;
-		} else {
-			return false;
+	public List<AcoesValidacao> dadosEstaoInvalidos(Materia materia) {
+		List<AcoesValidacao> acoes = new ArrayList<AcoesValidacao>();
+		
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getNome())) {
+			acoes.add(AcoesValidacao.NOMEEMBRANCO);
 		}
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getSigla())) {
+			acoes.add(AcoesValidacao.SIGLAEMBRANCO);
+		} else {
+			if(materia.getSigla().length() > 5) {
+				acoes.add(AcoesValidacao.SIGLAMINIMOCHAREXCEDIDO);
+			}
+		}
+		return acoes;
 	}
 }

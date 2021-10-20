@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import br.com.ebix.escola.enums.AcoesValidacao;
 import br.com.ebix.escola.facade.AlunoFacade;
 import br.com.ebix.escola.facade.AlunoFacadeImpl;
 import br.com.ebix.escola.model.Aluno;
@@ -50,26 +51,36 @@ public class AlunosAction extends ActionSupport {
 	}
 	
 	public String cadastrar() {
-		if(alunoFacade.add(aluno)) {
-			return SUCCESS;
+		List<AcoesValidacao> acoes = alunoFacade.add(aluno);
+		if(acoes.size() > 0) {
+			for (AcoesValidacao acao : acoes) {
+				addFieldError(acao.getCampo(), acao.getMensagem());
+			}
+			return INPUT;
 		} else {
-			return ERROR;
+			return SUCCESS;
 		}
 	}
 	
 	public String alterar() {
-		if(alunoFacade.update(aluno)) {
-			return SUCCESS;
+		List<AcoesValidacao> acoes = alunoFacade.update(aluno);
+		if(acoes.size() > 0) {
+			for (AcoesValidacao acao : acoes) {
+				addFieldError(acao.getCampo(), acao.getMensagem());
+			}
+			return INPUT;
 		} else {
-			return ERROR;
+			return SUCCESS;
 		}
 	}
 	
 	public String deletar() {
-		if(alunoFacade.delete(aluno)) {
+		AcoesValidacao acao = alunoFacade.delete(aluno);
+		if(acao == null) {
 			return SUCCESS;
 		} else {
-			return ERROR;
+			addFieldError(acao.getCampo(), acao.getMensagem());
+			return INPUT;
 		}
 	}
 	

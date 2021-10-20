@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import br.com.ebix.escola.enums.AcoesValidacao;
 import br.com.ebix.escola.facade.MateriaFacade;
 import br.com.ebix.escola.facade.MateriaFacadeImpl;
 import br.com.ebix.escola.model.Materia;
@@ -47,26 +48,36 @@ public class MateriasAction extends ActionSupport {
 	}
 	
 	public String cadastrar() {
-		if (materiaFacade.add(materia)) {
-			return SUCCESS;
+		List<AcoesValidacao> acoes = materiaFacade.add(materia);
+		if(acoes.size() > 0) {
+			for (AcoesValidacao acao : acoes) {
+				addFieldError(acao.getCampo(), acao.getMensagem());
+			}
+			return INPUT;
 		} else {
-			return ERROR;
+			return SUCCESS;
 		}
 	}
 
 	public String alterar() {
-		if (materiaFacade.update(materia)) {
-			return SUCCESS;
+		List<AcoesValidacao> acoes = materiaFacade.update(materia);
+		if(acoes.size() > 0) {
+			for (AcoesValidacao acao : acoes) {
+				addFieldError(acao.getCampo(), acao.getMensagem());
+			}
+			return INPUT;
 		} else {
-			return ERROR;
+			return SUCCESS;
 		}
 	}
 
 	public String deletar() {
-		if (materiaFacade.delete(materia)) {
+		AcoesValidacao acao = materiaFacade.delete(materia);
+		if(acao == null) {
 			return SUCCESS;
 		} else {
-			return ERROR;
+			addFieldError(acao.getCampo(), acao.getMensagem());
+			return INPUT;
 		}
 	}
 

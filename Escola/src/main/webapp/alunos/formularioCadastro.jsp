@@ -34,39 +34,33 @@
 					<s:form id="formularioPessoa" action="cadastrar" method="post">
 						<div class="mb-8">
 							<label>Nome</label><br />
-							<input id="nome" type="text" name="aluno.nome"/>
-							<div id="mensagem-nome" style="display: none;">
-								<small class="warning-message">#</small>
-							</div>
+							<input id="nome" type="text" name="aluno.nome" value="${aluno.nome}"/>
+							<s:fielderror fieldName="nome" />
 						</div>
 						<div class="mb-8">
 							<label>Cpf</label><br />
-							<input id="CPF" type="text" name="aluno.cpf"/>
-							<div id="mensagem-cpf" style="display: none;">
-								<small class="warning-message">#</small>
-							</div>
+							<input id="CPF" type="text" name="aluno.cpf" value="${aluno.cpf}"/>
+							<s:fielderror fieldName="cpf" />
 						</div>
 						<div class="mb-8">
 							<label>Data de nascimento</label><br />
-							<input id="dataNascimento" type="text" name="aluno.dataNascimento"/>
-							<div id="mensagem-dataNascimento" style="display: none;">
-								<small class="warning-message">#</small>
-							</div>
+							<input id="dataNascimento" type="text" name="aluno.dataNascimento" value="<s:date name="aluno.dataNascimento" format="dd/MM/yyyy" />"/>
+							<s:fielderror fieldName="dataNascimento" />
 						</div>
 						<div class="mb-8">
 							<label>Email</label><br />
-							<input id="email" type="email" name="aluno.email" />
-							<div id="mensagem-email" style="display: none;">
-								<small class="warning-message">#</small>
-							</div>
+							<input id="email" type="email" name="aluno.email" value="${aluno.email}"/>
+							<s:fielderror fieldName="email" />
 						</div>
 						<div class="mb-8">
 							<label>Telefone Celular</label><br />
-							<input id="telCelular" type="tel" name="aluno.telefoneCelular"/>
+							<input id="telCelular" type="tel" name="aluno.telefoneCelular" value="${aluno.telefoneCelular}"/>
+							<s:fielderror fieldName="telefoneCelular" />
 						</div>
 						<div class="mb-8">
 							<label>Telefone Residêncial</label><br />
-							<input id="telResidencial" type="tel" name="aluno.telefoneResidencial"/>
+							<input id="telResidencial" type="tel" name="aluno.telefoneResidencial" value="${aluno.telefoneResidencial}"/>
+							<s:fielderror fieldName="telefoneResidencial" />
 						</div>
 		
 						<button type="submit" class="btn btn-primary">Submit</button>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import br.com.ebix.escola.enums.AcoesValidacao;
 import br.com.ebix.escola.facade.ProfessorFacade;
 import br.com.ebix.escola.facade.ProfessorFacadeImpl;
 import br.com.ebix.escola.model.Professor;
@@ -47,26 +48,35 @@ public class ProfessoresAction extends ActionSupport {
 	}
 	
 	public String cadastrar() {		
-		if(professorFacade.add(professor)) {
-			return SUCCESS;
+		List<AcoesValidacao> acoes = professorFacade.add(professor);
+		if (acoes.size() > 0) {
+			for (AcoesValidacao acao : acoes) {
+				addFieldError(acao.getCampo(), acao.getMensagem());
+			}
+			return INPUT;
 		} else {
-			return ERROR;
+			return SUCCESS;
 		}
 	}
 	
 	public String alterar() {
-		if(professorFacade.update(professor)) {
-			return SUCCESS;
+		List<AcoesValidacao> acoes = professorFacade.update(professor);
+		if (acoes.size() > 0) {
+			for (AcoesValidacao acao : acoes) {
+				addFieldError(acao.getCampo(), acao.getMensagem());
+			}
+			return INPUT;
 		} else {
-			return ERROR;
+			return SUCCESS;
 		}
 	}
 	
 	public String deletar() {
-		if(professorFacade.delete(professor)) {
+		AcoesValidacao acao = professorFacade.delete(professor);
+		if(acao == null) {
 			return SUCCESS;
 		} else {
-			return ERROR;
+			return INPUT;
 		}
 	}
 	

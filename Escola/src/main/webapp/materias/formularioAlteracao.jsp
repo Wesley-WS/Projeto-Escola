@@ -36,17 +36,13 @@
 					
 					<div class="mb-8">
 						<label>Nome</label><br />
-						<input id="nome" type="text" name="materia.nome" value="${materia.nome }"/>
-						<div id="mensagem-nome" style="display: none;">
-							<small class="warning-message">#</small>
-						</div>
+						<input id="nome" type="text" name="materia.nome" value="${materia.nome}"/>
+						<s:fielderror fieldName="nome" />
 					</div>
 					<div class="mb-8">
 						<label>Sigla</label><br />
-						<input id="sigla" type="text" name="materia.sigla" value="${materia.sigla }"/>
-						<div id="mensagem-sigla" style="display: none;">
-							<small class="warning-message">#</small>
-						</div>
+						<input id="sigla" type="text" name="materia.sigla" value="${materia.sigla}"/>
+						<s:fielderror fieldName="sigla" />
 					</div>
 
 					<button type="submit" class="btn btn-primary">Submit</button>

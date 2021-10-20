@@ -1,11 +1,13 @@
 package br.com.ebix.escola.facade;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import br.com.ebix.escola.dao.ProfessorDao;
 import br.com.ebix.escola.dao.ProfessorDaoImpl;
+import br.com.ebix.escola.enums.AcoesValidacao;
 import br.com.ebix.escola.model.Professor;
 import br.com.ebix.escola.utils.ValidaCpf;
 import br.com.ebix.escola.utils.ValidaDataUtil;
@@ -38,42 +40,43 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 	}
 
 	@Override
-	public boolean add(Professor professor) {
-		if(dadosEstaoInvalidos(professor)
-				|| naoEstaEmIdadeParaLecionar(professor)
-				|| telefoneEstaInvalido(professor) 
-				|| CpfJaExiste(professor)) {
-			return false;
-		} else {
+	public List<AcoesValidacao> add(Professor professor) {
+		List<AcoesValidacao> acoes = dadosEstaoInvalidos(professor);
+		if(cpfJaExiste(professor)) {
+			acoes.add(AcoesValidacao.CPFEXISTENTE);
+		}
+		
+		if(acoes.size() == 0) {
 			professorDao.add(professor);
-			return true;
 		}
-
+		return acoes;
 	}
 
 	@Override
-	public boolean update(Professor professor) {
-		if(codigoEstaInvalido(professor) 
-				|| naoEstaEmIdadeParaLecionar(professor)
-				|| dadosEstaoInvalidos(professor) 
-				|| telefoneEstaInvalido(professor) 
-				|| updateCpfJaExiste(professor)) {
-			return false;
-		} else {
-			professorDao.update(professor);
-			return true;
-		}
-	}
-
-	@Override
-	public boolean delete(Professor professor) {
+	public List<AcoesValidacao> update(Professor professor) {
+		List<AcoesValidacao> acoes = dadosEstaoInvalidos(professor);
 		if(codigoEstaInvalido(professor)) {
-			return false;
+			acoes.add(AcoesValidacao.CODIGOINVALIDO);
+		}
+		if(updateCpfJaExiste(professor)) {
+			acoes.add(AcoesValidacao.CPFEXISTENTE);
+		}
+		
+		if(acoes.size() == 0) {
+			professorDao.update(professor);
+		}
+		return acoes;
+	}
+
+	@Override
+	public AcoesValidacao delete(Professor professor) {
+		AcoesValidacao acao = null;
+		if(codigoEstaInvalido(professor)) {
+			acao = AcoesValidacao.CODIGOINVALIDO;
 		} else {
 			professorDao.delete(professor);
-			return true;
 		}
-
+		return acao;
 	}
 	
 	public boolean naoEstaEmIdadeParaLecionar(Professor professor) {
@@ -84,27 +87,56 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 		return ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCod_professor());
 	}
 	
-	public boolean telefoneEstaInvalido(Professor professor) {
-		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getTelefoneCelular())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getTelefoneCelular())) {
-			return false;
+	public List<AcoesValidacao> dadosEstaoInvalidos(Professor professor) {
+		List<AcoesValidacao> campos = new ArrayList<AcoesValidacao>();
+		
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getNome())) {
+			campos.add(AcoesValidacao.NOMEEMBRANCO);
 		} else {
-			return (ValidaTelefoneUtil.eUmNumeroDeCelularInvalido(professor.getTelefoneCelular())
-					|| ValidaTelefoneUtil.eUmNumeroResidencialInvalido(professor.getTelefoneResidencial()));
+			if(professor.getNome().length() > 100) {
+				campos.add(AcoesValidacao.NOMEMINIMOCHAREXCEDIDO);
+			}
 		}
-	}
-	
-	public boolean dadosEstaoInvalidos(Professor professor) {
-		return (ValidaEmail.eUmEmailInvalido(professor.getEmail())
-				|| ValidaDataUtil.eUmaDataInvalida(professor.getDataNascimento())
-				|| ValidaCpf.cpfEInvalido(professor.getCpf())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getEmail())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getNome())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCpf())
-				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getDataNascimento()));
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor)) {
+			campos.add(AcoesValidacao.CPFEMBRANCO);
+		} else {
+			if(ValidaCpf.cpfEInvalido(professor.getCpf())) {
+				campos.add(AcoesValidacao.CPFINVALIDO);
+			}
+		}
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getEmail())) {
+			campos.add(AcoesValidacao.EMAILEMBRANCO);
+		} else {
+			if (ValidaEmail.eUmEmailInvalido(professor.getEmail())) {
+				campos.add(AcoesValidacao.EMAILINVALIDO);
+			}
+		}
+		if(!ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getTelefoneCelular())) {
+			if(ValidaTelefoneUtil.eUmNumeroDeCelularInvalido(professor.getTelefoneCelular())) {
+				campos.add(AcoesValidacao.TELEFONECELULARINVALIDO);
+			}
+		}
+		if(!ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getTelefoneResidencial())) {
+			if(ValidaTelefoneUtil.eUmNumeroResidencialInvalido(professor.getTelefoneResidencial())) {
+				campos.add(AcoesValidacao.TELEFONERESIDENCIALINVALIDO);
+			}
+		}
+		if(ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getDataNascimento())) {
+			campos.add(AcoesValidacao.DATANASCIMENTOEMBRANCO);
+		} else {
+			if(ValidaDataUtil.eUmaDataInvalida(professor.getDataNascimento())) {
+				campos.add(AcoesValidacao.DATANASCIMENTOINVALIDA);
+			} else {
+				if(naoEstaEmIdadeParaLecionar(professor)) {
+					campos.add(AcoesValidacao.DATANASCIMENTOINVALIDAALUNO);
+				}
+			}
+		}
+		
+		return campos;
 	}
 
-	public boolean CpfJaExiste(Professor professor) {
+	public boolean cpfJaExiste(Professor professor) {
 		return professorDao.cpfCadastrado(professor);
 	}
 	
