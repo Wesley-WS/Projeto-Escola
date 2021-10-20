@@ -8,6 +8,7 @@ import br.com.ebix.escola.dao.AlunoDao;
 import br.com.ebix.escola.dao.AlunoDaoImpl;
 import br.com.ebix.escola.enums.AcoesValidacao;
 import br.com.ebix.escola.model.Aluno;
+import br.com.ebix.escola.model.Materia;
 import br.com.ebix.escola.utils.ValidaCpf;
 import br.com.ebix.escola.utils.ValidaDataUtil;
 import br.com.ebix.escola.utils.ValidaEmail;
@@ -39,6 +40,22 @@ public class AlunoFacadeImpl implements AlunoFacade {
 	@Override
 	public List<Aluno> getAll() {
 		return alunoDao.getAll();
+	}
+	
+	public List<Materia> getAllMateriasByCodAluno(Aluno aluno){
+		List<Long> cod_materias = alunoDao.getAllCodMatByCod(aluno);
+		List<Materia> materias = new ArrayList<Materia>();
+		
+		if(cod_materias.size() > 0) {
+			for(Long cod_materia : cod_materias) {
+				materias.add(alunoDao.getAllMatByCod(cod_materia));
+			}
+			
+			return materias;
+		} else {
+			return materias;
+		}
+		
 	}
 
 	@Override

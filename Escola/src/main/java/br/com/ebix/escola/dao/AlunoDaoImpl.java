@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 import br.com.ebix.escola.model.Aluno;
+import br.com.ebix.escola.model.Materia;
 import br.com.ebix.escola.model.Professor;
 import br.com.ebix.escola.utils.ConverteDataUtil;
 
@@ -79,6 +80,51 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return alunos;
+		}
+	}
+	
+	@Override
+	public List<Long> getAllCodMatByCod(Aluno aluno){
+		List<Long> cod_materias = new ArrayList<Long>();
+		try {
+			String sql = "SELECT * FROM escola.relalunomat WHERE cod_aluno=?";
+			
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setLong(1, aluno.getCod_aluno());
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				cod_materias.add(rs.getLong("cod_materia"));
+			}
+			
+			return cod_materias;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			return cod_materias;
+		}
+	}
+	
+	public Materia getAllMatByCod(Long cod_materia){
+		Materia materia = new Materia();
+		
+		try {
+			String sql = "SELECT * FROM escola.materias WHERE cod_materia=?";
+			
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setLong(1, cod_materia);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				materia.setCod_materia(rs.getLong("cod_materia"));
+				materia.setNome(rs.getString("nome"));
+				materia.setSigla(rs.getString("sigla"));
+			}
+			
+			return materia;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			return materia;
 		}
 	}
 
