@@ -60,6 +60,14 @@
 			<result name="success">listar.jsp</result>
 		</action>
 		
+		<action name="iniciarAssociacao" class="br.com.ebix.escola.action.ProfessoresAction" method="listarMateriasDisponiveis">
+			<result name="success">formularioAssociacao.jsp</result>
+		</action>
+		<action name="associar" class="br.com.ebix.escola.action.ProfessoresAction" method="associar">
+			<result name="success" type="redirect">professores</result>
+			<result name="input">formularioAssociacao.jsp</result>
+		</action>
+		
 		<action name="iniciarCadastro">
 			<result name="success">formularioCadastro.jsp</result>
 		</action>

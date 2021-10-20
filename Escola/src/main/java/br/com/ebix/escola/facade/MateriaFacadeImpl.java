@@ -34,6 +34,11 @@ public class MateriaFacadeImpl implements MateriaFacade {
 	}
 
 	@Override
+	public List<Materia> getAllAvaiable() {
+		return materiaDao.getAllAvaiable();
+	}
+	
+	@Override
 	public List<AcoesValidacao> add(Materia materia) {
 		List<AcoesValidacao> acoes = dadosEstaoInvalidos(materia);
 		if(acoes.size() == 0) {
@@ -88,4 +93,5 @@ public class MateriaFacadeImpl implements MateriaFacade {
 		}
 		return acoes;
 	}
+
 }

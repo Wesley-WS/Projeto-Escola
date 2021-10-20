@@ -1,8 +1,6 @@
 package br.com.ebix.escola.facade;
 
 import java.util.List;
-import java.util.Optional;
-
 import br.com.ebix.escola.enums.AcoesValidacao;
 import br.com.ebix.escola.model.Professor;
 

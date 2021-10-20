@@ -1,6 +1,5 @@
 package br.com.ebix.escola.dao;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,6 +8,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.ebix.escola.model.Materia;
 import br.com.ebix.escola.model.Professor;
 import br.com.ebix.escola.utils.ConverteDataUtil;
 
@@ -46,13 +46,42 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 		}
 	}
 	
+
+	@Override
+	public List<Materia> getAllMateriasByCod(Professor professor) {
+		List<Materia> materias = new ArrayList<Materia>();
+		try {
+			String sql = "SELECT * FROM escola.materias WHERE cod_professor=?";
+			
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setLong(1, professor.getCod_professor());
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				Materia materia = new Materia();
+				materia.setCod_materia(rs.getLong("cod_materia"));
+				materia.setCod_professor(rs.getLong("cod_professor"));
+				materia.setNome(rs.getString("nome"));
+				materia.setSigla(rs.getString("sigla"));
+				materias.add(materia);
+			}
+			rs.close();
+			ps.close();
+			
+			return materias;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return materias;
+		}
+	}
+	
 	@Override
 	public List<Professor> getAll() {
 		List<Professor> professores = new ArrayList<Professor>();
-		try(Connection conn = getConnection()) {
+		try {
 			String sql = "SELECT * FROM escola.professores ";
 			
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			
 			while (rs.next()) {
@@ -71,7 +100,6 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 			}
 			rs.close();
 			ps.close();
-			conn.close();
 			
 			return professores;
 		} catch (SQLException e) {
@@ -155,5 +183,6 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 			return true;
 		}
 	}
+
 	
 }

@@ -30,7 +30,7 @@
 				<h2>Atualizar professor</h2>
 			</div>
 			<div class="body align-self-center">
-				<s:form id="formularioPessoa" action="alterar" method="post">
+				<s:form action="alterar" method="post">
 					<s:hidden name="professor.cod_professor" value="%{professor.cod_professor}" />
 					
 					<div class="mb-8">

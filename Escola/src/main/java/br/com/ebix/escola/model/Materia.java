@@ -1,8 +1,8 @@
 package br.com.ebix.escola.model;
 
 public class Materia {
-	private long cod_materia;
-	private long cod_professor;
+	private Long cod_materia;
+	private Long cod_professor;
 	private String nome;
 	private String sigla;
 	
@@ -20,7 +20,7 @@ public class Materia {
 		return cod_professor;
 	}
 
-	public void setCod_professor(long cod_professor) {
+	public void setCod_professor(Long cod_professor) {
 		this.cod_professor = cod_professor;
 	}
 
@@ -28,7 +28,7 @@ public class Materia {
 		return cod_materia;
 	}
 
-	public void setCod_materia(long cod_materia) {
+	public void setCod_materia(Long cod_materia) {
 		this.cod_materia = cod_materia;
 	}
 
