@@ -1,5 +1,6 @@
 package br.com.ebix.escola.action;
 
+import java.text.ParseException;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -23,6 +24,8 @@ public class ProfessoresAction extends ActionSupport {
 
 	private List<Professor> professores;
 	private List<Materia> materias;
+	
+	private String[] materiasSelecionadas;
 
 	public String listar() {
 		professores = professorFacade.getAll();
@@ -44,10 +47,17 @@ public class ProfessoresAction extends ActionSupport {
 	}
 
 	public String associar() {
-		// System.out.println(materia.toString());
-//		for (Materia materia : materiasSelecionadas) {
-//			System.out.println(materia);
-//		}
+		for (String cod_materia : materiasSelecionadas) {
+			Long cod_materiaLong = Long.parseLong(cod_materia);
+			
+			Materia materia = new Materia();
+			materia.setCod_materia(cod_materiaLong);
+	
+			Materia materiaObtida = materiaFacade.get(materia);
+			materiaObtida.setCod_materia(cod_materiaLong);
+			materiaObtida.setCod_professor(professor.getCod_professor());
+			materiaFacade.update(materiaObtida);
+		}
 		return SUCCESS;
 	}
 
@@ -115,5 +125,12 @@ public class ProfessoresAction extends ActionSupport {
 	public void setMaterias(List<Materia> materias) {
 		this.materias = materias;
 	}
+	
+	public String[] getMateriasSelecionadas() {
+		return materiasSelecionadas;
+	}
 
+	public void setMateriasSelecionadas(String[] materiasSelecionadas) {
+		this.materiasSelecionadas = materiasSelecionadas;
+	}
 }

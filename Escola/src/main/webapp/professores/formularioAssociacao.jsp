@@ -10,14 +10,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Associação aqui.</title>
 </head>
 <body>
 	<h1>Associe aqui</h1>
 	<s:form action="associar" method="post">
-		<s:checkboxlist list="%{materias}" name="materiasSelecionadas" value="%{cod_materia}"/>
+		<s:hidden name="professor.cod_professor" value="%{professor.cod_professor}" />
 		
+		<s:iterator value="materias">
+			<s:checkbox name="materiasSelecionadas" id="%{cod_materia}" fieldValue="%{cod_materia}" label="%{nome}"></s:checkbox>
+		</s:iterator>
 		<s:submit value="submit" name="submit" />
 	</s:form>
 </body>

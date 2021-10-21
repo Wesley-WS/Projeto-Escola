@@ -47,7 +47,7 @@ public class MateriaFacadeImpl implements MateriaFacade {
 		
 		return acoes;
 	}
-
+	
 	@Override
 	public List<AcoesValidacao> update(Materia materia) {
 		List<AcoesValidacao> acoes = dadosEstaoInvalidos(materia);
