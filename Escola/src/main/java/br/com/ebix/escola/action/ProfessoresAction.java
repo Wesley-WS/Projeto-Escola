@@ -1,6 +1,5 @@
 package br.com.ebix.escola.action;
 
-import java.text.ParseException;
 import java.util.List;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -40,6 +39,7 @@ public class ProfessoresAction extends ActionSupport {
 	public String detalhar() {
 		professor = professorFacade.get(professor);
 		if (professor != null) {
+			materias = professorFacade.getAllMaterias(professor);
 			return SUCCESS;
 		} else {
 			return ERROR;

@@ -46,86 +46,16 @@
 						
 						<div class="scroller scroller-base">
 							<div class="d-flex card-group p-visual">
-								<div class="card">
-									<div class="card-header">
-										<h3>Nome da matéria</h3>
+								<s:iterator value="materias">
+									<div class="card">
+										<div class="card-header">
+											<h3>${nome}</h3>
+										</div>
+										<div class="card-body">
+											<p>Sigla: ${sigla}</p>
+										</div>
 									</div>
-									<div class="card-body">
-										Algo aqui?
-									</div>
-								</div>
-								<div class="card">
-									<div class="card-header">
-										<h3>Nome da matéria</h3>
-									</div>
-									<div class="card-body">
-										Algo aqui?
-									</div>
-								</div>
-								<div class="card">
-									<div class="card-header">
-										<h3>Nome da matéria</h3>
-									</div>
-									<div class="card-body">
-										Algo aqui?
-									</div>
-								</div>
-								<div class="card">
-									<div class="card-header">
-										<h3>Nome da matéria</h3>
-									</div>
-									<div class="card-body">
-										Algo aqui?
-									</div>
-								</div>
-								<div class="card">
-									<div class="card-header">
-										<h3>Nome da matéria</h3>
-									</div>
-									<div class="card-body">
-										Algo aqui?
-									</div>
-								</div>
-								<div class="card">
-									<div class="card-header">
-										<h3>Nome da matéria</h3>
-									</div>
-									<div class="card-body">
-										Algo aqui?
-									</div>
-								</div>
-								<div class="card">
-									<div class="card-header">
-										<h3>Nome da matéria</h3>
-									</div>
-									<div class="card-body">
-										Algo aqui?
-									</div>
-								</div>
-								<div class="card">
-									<div class="card-header">
-										<h3>Nome da matéria</h3>
-									</div>
-									<div class="card-body">
-										Algo aqui?
-									</div>
-								</div>
-								<div class="card">
-									<div class="card-header">
-										<h3>Nome da matéria</h3>
-									</div>
-									<div class="card-body">
-										Algo aqui?
-									</div>
-								</div>
-								<div class="card">
-									<div class="card-header">
-										<h3>Nome da matéria</h3>
-									</div>
-									<div class="card-body">
-										Algo aqui?
-									</div>
-								</div>
+								</s:iterator>
 							</div>
 						</div>
 					</div>

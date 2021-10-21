@@ -8,8 +8,8 @@ import br.com.ebix.escola.model.Professor;
 
 public interface ProfessorDao {
 	List<Professor> getAll();
-	List<Materia> getAllMateriasByCod(Professor professor);
 	Optional<Professor> get(Professor professor);
+	List<Materia> getAllMaterias(Professor professor);
 	void add(Professor professor);
 	void update(Professor professor);
 	void delete(Professor professor);

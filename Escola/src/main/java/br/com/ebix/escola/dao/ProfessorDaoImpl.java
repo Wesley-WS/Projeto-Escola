@@ -48,7 +48,7 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 	
 
 	@Override
-	public List<Materia> getAllMateriasByCod(Professor professor) {
+	public List<Materia> getAllMaterias(Professor professor) {
 		List<Materia> materias = new ArrayList<Materia>();
 		try {
 			String sql = "SELECT * FROM escola.materias WHERE cod_professor=?";
