@@ -8,7 +8,6 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
-import br.com.ebix.escola.model.Materia;
 import br.com.ebix.escola.model.Professor;
 import br.com.ebix.escola.utils.ConverteDataUtil;
 
@@ -43,35 +42,6 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return Optional.ofNullable(professorObtido);
-		}
-	}
-	
-
-	@Override
-	public List<Materia> getAllMaterias(Professor professor) {
-		List<Materia> materias = new ArrayList<Materia>();
-		try {
-			String sql = "SELECT * FROM escola.materias WHERE cod_professor=?";
-			
-			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setLong(1, professor.getCod_professor());
-			ResultSet rs = ps.executeQuery();
-			
-			while(rs.next()) {
-				Materia materia = new Materia();
-				materia.setCod_materia(rs.getLong("cod_materia"));
-				materia.setCod_professor(rs.getLong("cod_professor"));
-				materia.setNome(rs.getString("nome"));
-				materia.setSigla(rs.getString("sigla"));
-				materias.add(materia);
-			}
-			rs.close();
-			ps.close();
-			
-			return materias;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return materias;
 		}
 	}
 	

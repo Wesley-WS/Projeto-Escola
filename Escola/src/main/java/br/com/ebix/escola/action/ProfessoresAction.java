@@ -5,10 +5,10 @@ import java.util.List;
 import com.opensymphony.xwork2.ActionSupport;
 
 import br.com.ebix.escola.enums.AcoesValidacao;
-import br.com.ebix.escola.facade.MateriaFacade;
-import br.com.ebix.escola.facade.MateriaFacadeImpl;
 import br.com.ebix.escola.facade.ProfessorFacade;
 import br.com.ebix.escola.facade.ProfessorFacadeImpl;
+import br.com.ebix.escola.facade.ProfessorMateriaFacade;
+import br.com.ebix.escola.facade.ProfessorMateriaFacadeImpl;
 import br.com.ebix.escola.model.Materia;
 import br.com.ebix.escola.model.Professor;
 
@@ -16,7 +16,9 @@ public class ProfessoresAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 
 	private ProfessorFacade professorFacade = new ProfessorFacadeImpl();
-	private MateriaFacade materiaFacade = new MateriaFacadeImpl();
+	private ProfessorMateriaFacade professorMateriaFacade = new ProfessorMateriaFacadeImpl();
+	
+	// private MateriaFacade materiaFacade = new MateriaFacadeImpl();
 
 	private Professor professor = new Professor();
 	private Materia materia = new Materia();
@@ -32,14 +34,14 @@ public class ProfessoresAction extends ActionSupport {
 	}
 
 	public String listarMateriasDisponiveis() {
-		materias = materiaFacade.getAllAvaiable();
+		materias = professorMateriaFacade.getAllAvaiable();
 		return SUCCESS;
 	}
 
 	public String detalhar() {
 		professor = professorFacade.get(professor);
 		if (professor != null) {
-			materias = professorFacade.getAllMaterias(professor);
+			materias = professorMateriaFacade.getAllMateriasFromProfessor(professor);
 			return SUCCESS;
 		} else {
 			return ERROR;
@@ -48,15 +50,9 @@ public class ProfessoresAction extends ActionSupport {
 
 	public String associar() {
 		for (String cod_materia : materiasSelecionadas) {
-			Long cod_materiaLong = Long.parseLong(cod_materia);
-			
 			Materia materia = new Materia();
-			materia.setCod_materia(cod_materiaLong);
-	
-			Materia materiaObtida = materiaFacade.get(materia);
-			materiaObtida.setCod_materia(cod_materiaLong);
-			materiaObtida.setCod_professor(professor.getCod_professor());
-			materiaFacade.update(materiaObtida);
+			materia.setCod_materia(Long.parseLong(cod_materia));
+			professorMateriaFacade.associate(professor, materia);
 		}
 		return SUCCESS;
 	}

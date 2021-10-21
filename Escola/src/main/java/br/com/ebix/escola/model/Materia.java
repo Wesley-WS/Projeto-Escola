@@ -24,7 +24,7 @@ public class Materia {
 		this.cod_professor = cod_professor;
 	}
 
-	public long getCod_materia() {
+	public Long getCod_materia() {
 		return cod_materia;
 	}
 
