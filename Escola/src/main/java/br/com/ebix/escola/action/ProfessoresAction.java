@@ -17,8 +17,6 @@ public class ProfessoresAction extends ActionSupport {
 
 	private ProfessorFacade professorFacade = new ProfessorFacadeImpl();
 	private ProfessorMateriaFacade professorMateriaFacade = new ProfessorMateriaFacadeImpl();
-	
-	// private MateriaFacade materiaFacade = new MateriaFacadeImpl();
 
 	private Professor professor = new Professor();
 	private Materia materia = new Materia();
