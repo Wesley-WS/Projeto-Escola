@@ -14,12 +14,13 @@ import br.com.ebix.escola.utils.ValidaDataUtil;
 import br.com.ebix.escola.utils.ValidaEmail;
 import br.com.ebix.escola.utils.ValidaStringUtil;
 import br.com.ebix.escola.utils.ValidaTelefoneUtil;
+import net.sf.jasperreports.engine.util.BreakIteratorSplitCharacter;
 
 public class AlunoFacadeImpl implements AlunoFacade {
 
 	// @Autowired
 	// private AlunoDao alunoDao;
-
+	private MateriaFacade materiaFacade = new MateriaFacadeImpl();
 	private AlunoDao alunoDao = new AlunoDaoImpl();
 
 	@Override
@@ -44,16 +45,21 @@ public class AlunoFacadeImpl implements AlunoFacade {
 	
 	public List<Materia> getAllMateriasByCodAluno(Aluno aluno){
 		List<Long> cod_materias = alunoDao.getAllCodMatByCod(aluno);
-		List<Materia> materias = new ArrayList<Materia>();
+		List<Materia> materiasAll = new ArrayList<Materia>();
+		materiasAll = materiaFacade.getAll();
 		
 		if(cod_materias.size() > 0) {
 			for(Long cod_materia : cod_materias) {
-				materias.add(alunoDao.getAllMatByCod(cod_materia));
+				for(Materia materia : materiasAll) {
+					if(materia.getCod_materia()==cod_materia) {
+						materiasAll.remove(materia);
+						break;
+					}
+				}
 			}
-			
-			return materias;
+			return materiasAll;
 		} else {
-			return materias;
+			return materiasAll;
 		}
 		
 	}
