@@ -10,8 +10,6 @@ import br.com.ebix.escola.facade.AlunoFacade;
 import br.com.ebix.escola.facade.AlunoFacadeImpl;
 import br.com.ebix.escola.facade.AlunoMateriaFacade;
 import br.com.ebix.escola.facade.AlunoMateriaFacadeImpl;
-import br.com.ebix.escola.facade.MateriaFacade;
-import br.com.ebix.escola.facade.MateriaFacadeImpl;
 import br.com.ebix.escola.model.Aluno;
 import br.com.ebix.escola.model.Materia;
 
@@ -111,15 +109,19 @@ public class AlunosAction extends ActionSupport {
 	}
 	
 	public String associar() {
-		if(materiasSelecionadas != null) {
-			for(String cod_materia : materiasSelecionadas) {
-				Materia materia = new Materia();
-				materia.setCod_materia(Long.parseLong(cod_materia));
-				
-				alunoMateriaFacade.associar(aluno, materia);
+		try {
+			if(materiasSelecionadas != null) {
+				for(String cod_materia : materiasSelecionadas) {
+					Materia materia = new Materia();
+					materia.setCod_materia(Long.parseLong(cod_materia));
+					
+					alunoMateriaFacade.associar(aluno, materia);
+				}
 			}
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+			return ERROR;
 		}
-		
 		return SUCCESS;
 	}
 	
