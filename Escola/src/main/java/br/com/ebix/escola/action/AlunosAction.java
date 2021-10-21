@@ -62,8 +62,6 @@ public class AlunosAction extends ActionSupport {
 	
 	public String listarMaterias() {
 		materias = alunoFacade.getAllMateriasByCodAluno(aluno);
-		System.out.println(aluno.getCod_aluno());
-		System.out.println(materias);
 		
 		if(materias != null) {
 			return SUCCESS;
