@@ -105,28 +105,7 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 		}
 	}
 	
-	public Materia getAllMatByCod(Long cod_materia){
-		Materia materia = new Materia();
-		
-		try {
-			String sql = "SELECT * FROM escola.materias WHERE cod_materia=?";
-			
-			PreparedStatement ps = getConnection().prepareStatement(sql);
-			ps.setLong(1, cod_materia);
-			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
-				materia.setCod_materia(rs.getLong("cod_materia"));
-				materia.setNome(rs.getString("nome"));
-				materia.setSigla(rs.getString("sigla"));
-			}
-			
-			return materia;
-		} catch (SQLException e) {
-			e.printStackTrace();
-			
-			return materia;
-		}
-	}
+	
 
 	@Override
 	public void add(Aluno aluno) {
