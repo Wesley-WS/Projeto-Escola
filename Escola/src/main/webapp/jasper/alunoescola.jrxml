@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AlunoEscola" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ccc7cecf-1653-42ba-afa4-416d7373f55a">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Mysql Escola"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * 
+FROM escola.alunos]]>
+	</queryString>
+	<field name="cod_aluno" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="cod_aluno"/>
+		<property name="com.jaspersoft.studio.field.label" value="cod_aluno"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alunos"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alunos"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cpf"/>
+		<property name="com.jaspersoft.studio.field.label" value="cpf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alunos"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dataNascimento" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="dataNascimento"/>
+		<property name="com.jaspersoft.studio.field.label" value="dataNascimento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alunos"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email"/>
+		<property name="com.jaspersoft.studio.field.label" value="email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alunos"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefone_celular" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="telefone_celular"/>
+		<property name="com.jaspersoft.studio.field.label" value="telefone_celular"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alunos"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefone_residencial" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="telefone_residencial"/>
+		<property name="com.jaspersoft.studio.field.label" value="telefone_residencial"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="alunos"/>
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="54" uuid="651bb868-0aa3-461f-85a3-6b4d4d27143f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatorio de Alunos da Escola]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="10" width="550" height="30" uuid="ba46c100-70a4-4afd-8a7c-fdd9db66e249">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="848c1718-7c41-4860-ba4d-03da559720a5"/>
+				</reportElement>
+				<text><![CDATA[cod_aluno]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="550" height="30" uuid="597592a4-ee1e-4a85-a777-a146819ec15e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="848c1718-7c41-4860-ba4d-03da559720a5"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cod_aluno}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

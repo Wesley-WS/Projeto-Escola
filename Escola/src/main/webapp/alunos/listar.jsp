@@ -49,7 +49,8 @@
 									<a href="iniciarAlteracao?aluno.cod_aluno=${cod_aluno}">Atualizar</a>
 									<a href="detalhar?aluno.cod_aluno=${cod_aluno}">Detalhar</a>
 									<a href="iniciarAssociacao?aluno.cod_aluno=${cod_aluno}">Associar</a>
-									<a onclick="toggleModal('deletar?aluno.cod_aluno=${cod_aluno}')" href="#">Deletar</a></td>
+									<a onclick="toggleModal('deletar?aluno.cod_aluno=${cod_aluno}')" href="#">Deletar</a>
+									<a href="relatorios">Relatorio</a></td>
 								</tr>
 							</s:iterator>
 						</table>

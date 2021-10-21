@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
+
 <struts>
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="false" />
@@ -18,6 +19,9 @@
 		</action>
 		<action name="materias">
 			<result type="redirect">/materias/listar</result>
+		</action>
+		<action name="relatorios">
+			<result type="redirect">/relatorios/myJasperTest</result>
 		</action>
 	</package>
 	
@@ -63,6 +67,16 @@
 			<result name="error" type="redirect">alunos</result>
 			<!-- Pagina de erro ou redirecionamento? -->
 		</action>
+	</package>
+	
+	<package name="relatorios" namespace="/relatorios" extends="jasperreports-default">
+		<action name="myJasperTest" class="br.com.ebix.escola.action.JasperAction" >
+			<result name="success" type="jasper">
+	            <param name="location">/jasper/AlunoEscola(teste).jasper</param>
+	            <param name="dataSource">myList</param>
+	            <param name="format">PDF</param>
+        	</result>
+    	</action>		
 	</package>
 	
 	<package name="professores" extends="default" namespace="/professores">
@@ -139,6 +153,5 @@
 			<!-- Pagina de erro ou redirecionamento? -->
 		</action>
 		
-
 	</package>
 </struts>
