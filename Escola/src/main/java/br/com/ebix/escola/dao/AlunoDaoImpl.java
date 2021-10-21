@@ -96,7 +96,6 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 			while(rs.next()) {
 				cod_materias.add(rs.getLong("cod_materia"));
 			}
-			
 			return cod_materias;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -149,7 +148,7 @@ public class AlunoDaoImpl extends ConnectionFactory implements AlunoDao {
 			e.printStackTrace();
 		}
 	}
-
+	
 	@Override
 	public void delete(Aluno aluno) {
 		try (Connection conn = getConnection()) {

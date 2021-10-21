@@ -8,6 +8,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import br.com.ebix.escola.enums.AcoesValidacao;
 import br.com.ebix.escola.facade.AlunoFacade;
 import br.com.ebix.escola.facade.AlunoFacadeImpl;
+import br.com.ebix.escola.facade.AlunoMateriaFacade;
+import br.com.ebix.escola.facade.AlunoMateriaFacadeImpl;
+import br.com.ebix.escola.facade.MateriaFacade;
+import br.com.ebix.escola.facade.MateriaFacadeImpl;
 import br.com.ebix.escola.model.Aluno;
 import br.com.ebix.escola.model.Materia;
 
@@ -17,11 +21,15 @@ public class AlunosAction extends ActionSupport {
 	// @Autowired
 	// private AlunoFacade alunoFacade;
 	private AlunoFacade alunoFacade = new AlunoFacadeImpl();
+	private AlunoMateriaFacade alunoMateriaFacade = new AlunoMateriaFacadeImpl();
+	
 	private Aluno aluno = new Aluno();
 	
 	private List<Materia> materias;
 	private List<Aluno> alunos;
 
+	private String[] materiasSelecionadas;
+	
 	public Aluno getAluno() {
 		return aluno;
 	}
@@ -33,7 +41,7 @@ public class AlunosAction extends ActionSupport {
 	public List<Aluno> getAlunos() {
 		return alunos;
 	}
-
+	
 	public List<Materia> getMaterias() {
 		return materias;
 	}
@@ -46,6 +54,14 @@ public class AlunosAction extends ActionSupport {
 		this.alunos = alunos;
 	}
 
+	public String[] getMateriasSelecionadas() {
+		return materiasSelecionadas;
+	}
+
+	public void setMateriasSelecionadas(String[] materiasSelecionadas) {
+		this.materiasSelecionadas = materiasSelecionadas;
+	}
+	
 	public String listar() {
 		alunos = alunoFacade.getAll();
 		return SUCCESS;
@@ -92,6 +108,19 @@ public class AlunosAction extends ActionSupport {
 		} else {
 			return SUCCESS;
 		}
+	}
+	
+	public String associar() {
+		if(materiasSelecionadas != null) {
+			for(String cod_materia : materiasSelecionadas) {
+				Materia materia = new Materia();
+				materia.setCod_materia(Long.parseLong(cod_materia));
+				
+				alunoMateriaFacade.associar(aluno, materia);
+			}
+		}
+		
+		return SUCCESS;
 	}
 	
 	public String deletar() {
