@@ -8,7 +8,6 @@ import java.util.Optional;
 import br.com.ebix.escola.dao.ProfessorDao;
 import br.com.ebix.escola.dao.ProfessorDaoImpl;
 import br.com.ebix.escola.enums.AcoesValidacao;
-import br.com.ebix.escola.model.Materia;
 import br.com.ebix.escola.model.Professor;
 import br.com.ebix.escola.utils.ValidaCpf;
 import br.com.ebix.escola.utils.ValidaDataUtil;
@@ -33,11 +32,6 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 				return null;
 			}
 		}
-	}
-
-	@Override
-	public List<Materia> getAllMaterias(Professor professor) {
-		return professorDao.getAllMaterias(professor);
 	}
 	
 	@Override

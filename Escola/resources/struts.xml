@@ -50,7 +50,6 @@
 		
 		<action name="associar" class="br.com.ebix.escola.action.AlunosAction" method="associar">
 			<result name="success" type="redirect">alunos</result>
-			<result name="error">formularioAssociacao.jsp</result>
 		</action>
 		
 		<action name="deletar" class="br.com.ebix.escola.action.AlunosAction" method="deletar">
@@ -75,7 +74,6 @@
 		</action>
 		<action name="associar" class="br.com.ebix.escola.action.ProfessoresAction" method="associar">
 			<result name="success" type="redirect">professores</result>
-			<result name="input">formularioAssociacao.jsp</result>
 		</action>
 		
 		<action name="iniciarCadastro">
