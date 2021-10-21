@@ -17,6 +17,7 @@
 		integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
 		crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
 	<title>Associar aluno a matéria</title>
 </head>
 <body>
@@ -25,13 +26,20 @@
 		<div class="body-wrapper">
 			<div class="body-header mb-8">
 				<h2>Associar aluno a matéria</h2>
+				<p>Associe um aluno a uma matéria</p>
 			</div>
 			<div class="body">
 				<div class="scroller scroller-base">
 					<s:form action="associar" method="post">
-						<s:checkboxlist name="materia" list="materias" listValue="nome"/>
-						<button class="btn btn-primary">Submit</button>
+						<s:hidden name="aluno.cod_aluno" value="%{aluno.cod_aluno}" />
+						
+						<s:iterator value="materias">
+							<s:checkbox name="materiasSelecionadas" id="%{cod_materia}" fieldValue="%{cod_materia}" label="%{nome}"></s:checkbox>
+						</s:iterator>
+						
+						<s:submit value="Submit" name="submit"/>
 					</s:form>
+					
 				</div>
 			</div>
 		</div>
