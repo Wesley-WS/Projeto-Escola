@@ -68,7 +68,7 @@ public class AlunosAction extends ActionSupport {
 	public String detalhar() {
 		aluno = alunoFacade.get(aluno);
 		if(aluno != null) {
-			materias = alunoFacade.getAllMateriasByCodAlunoHaving(aluno);
+			materias = alunoMateriaFacade.getAllMateriasByCodAlunoHaving(aluno);
 			return SUCCESS;
 		} else {
 			return ERROR;
@@ -76,7 +76,7 @@ public class AlunosAction extends ActionSupport {
 	}
 	
 	public String listarMaterias() {
-		materias = alunoFacade.getAllMateriasByCodAluno(aluno);
+		materias = alunoMateriaFacade.getAllMateriasByCodAluno(aluno);
 		
 		if(materias != null) {
 			return SUCCESS;

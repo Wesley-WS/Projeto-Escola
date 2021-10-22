@@ -27,6 +27,26 @@ public class AlunoMateriaDaoImpl  extends ConnectionFactory implements AlunoMate
 		}
 	}
 	
+	@Override
+	public List<Long> getAllCodMatByCod(Aluno aluno){
+		List<Long> cod_materias = new ArrayList<Long>();
+		try {
+			String sql = "SELECT * FROM escola.relalunomat WHERE cod_aluno=?";
+			
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setLong(1, aluno.getCod_aluno());
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				cod_materias.add(rs.getLong("cod_materia"));
+			}
+			return cod_materias;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+			return cod_materias;
+		}
+	}
 //	public List<AlunoMateria> selecionaMateriasAluno(long codigo) {
 //		List<AlunoMateria> relacoes = new ArrayList<AlunoMateria>();
 //		try {

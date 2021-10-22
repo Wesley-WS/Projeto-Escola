@@ -9,4 +9,6 @@ import br.com.ebix.escola.model.Materia;
 public interface AlunoMateriaDao {
 //	List<AlunoMateria> selecionaMateriasAluno(long codigo);
 	void associar(Aluno aluno, Materia materia);
+
+	List<Long> getAllCodMatByCod(Aluno aluno);
 }
