@@ -16,7 +16,7 @@ public class Materia {
 		this.sigla = sigla;
 	}
 	
-	public long getCod_professor() {
+	public Long getCod_professor() {
 		return cod_professor;
 	}
 
