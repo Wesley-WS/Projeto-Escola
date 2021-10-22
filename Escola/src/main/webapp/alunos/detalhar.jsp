@@ -53,7 +53,6 @@
 											<h3>${nome}</h3>
 										</div>
 										<div class="card-body">Sigla: ${sigla}</div>
-										<div class="card-body">Professor: ${professor.nome}</div>
 									</div>
 								</s:iterator>
 							</div>
