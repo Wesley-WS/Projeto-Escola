@@ -4,16 +4,7 @@
 <%@	taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
-<%@ page import="net.sf.jasperreports.engine.JasperCompileManager"%>
-<%
-try {
-    JasperCompileManager.compileReportToFile(
-            "../jasper/alunoescola.jrxml",
-            "../jasper/AlunoEscola(teste).jasper");
-} catch (Exception e) {
-    e.printStackTrace();
-}
-%>
+
 
 <c:set var="context" value="${pageContext.request.contextPath}" />
 
