@@ -20,11 +20,11 @@ public class JasperAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = 8704084135816754792L;
 	private List<Aluno> myList;
-	private String location = "alunoescola.jasper";
+	private String location = "teste.jasper";
 	
     public String execute() throws Exception {
     	
-    	ServletContext context = ServletActionContext.getServletContext();
+    	//ServletContext context = ServletActionContext.getServletContext();
     	
         // Create some imaginary persons.
     	Aluno p1 = new Aluno();
@@ -43,17 +43,17 @@ public class JasperAction extends ActionSupport{
         myList.add(p2);
         myList.add(p3);
         myList.add(p4);
-        
+        /*
         String jrxmlPath = "alunoescola.jrxml";
         String jasperPath = context.getRealPath("") + File.separator + location;
         System.out.println(context.getRealPath(""));
         System.out.println(getClass().getResource( "/jasper/alunoescola.jrxml" ));
         // Normally we would provide a pre-compiled .jrxml file
-        // or check to make sure we don't compile on every request.
+        // or check to make sure we don't compile on every request.*/
         try {
-            JasperCompileManager.compileReportToFile(jrxmlPath, jasperPath);/*
-                    "jasper/alunoescola(teste).jrxml",
-                    "../src/main/webapp/jasper/AlunoEscola(teste).jasper");*/
+            JasperCompileManager.compileReportToFile(
+                    "webapp/jasper/teste.jrxml",
+                    "webapp/jasper/teste.jasper");
         } catch (Exception e) {
             e.printStackTrace();
             return ERROR;
