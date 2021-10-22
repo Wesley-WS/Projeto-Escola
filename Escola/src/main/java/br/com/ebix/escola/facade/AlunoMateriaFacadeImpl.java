@@ -14,6 +14,7 @@ public class AlunoMateriaFacadeImpl implements AlunoMateriaFacade{
 	@Override
 	public void associar(Aluno aluno, Materia materia) {
 		if(!codigoEInvalido(aluno, materia)) {
+			
 			Materia materiaObtida = materiaFacade.get(materia);
 			
 			if(materiaObtida != null) {

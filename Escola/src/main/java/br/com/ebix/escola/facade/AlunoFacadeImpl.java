@@ -63,6 +63,27 @@ public class AlunoFacadeImpl implements AlunoFacade {
 		}
 		
 	}
+	
+	public List<Materia> getAllMateriasByCodAlunoHaving(Aluno aluno){
+		List<Long> cod_materias = alunoDao.getAllCodMatByCod(aluno);
+		List<Materia> materiasAll = new ArrayList<Materia>();
+		materiasAll = materiaFacade.getAll();
+		List<Materia> materiasAssociadas = new ArrayList<Materia>();
+		if(cod_materias.size() > 0) {
+			for(Long cod_materia : cod_materias) {
+				for(Materia materia : materiasAll) {
+					if(materia.getCod_materia()==cod_materia) {
+						materiasAssociadas.add(materia);
+						break;
+					}
+				}
+			}
+			return materiasAssociadas;
+		} else {
+			return materiasAssociadas;
+		}
+		
+	}
 
 	@Override
 	public List<AcoesValidacao> add(Aluno aluno) {

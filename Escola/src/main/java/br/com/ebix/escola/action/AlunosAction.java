@@ -68,6 +68,7 @@ public class AlunosAction extends ActionSupport {
 	public String detalhar() {
 		aluno = alunoFacade.get(aluno);
 		if(aluno != null) {
+			materias = alunoFacade.getAllMateriasByCodAlunoHaving(aluno);
 			return SUCCESS;
 		} else {
 			return ERROR;

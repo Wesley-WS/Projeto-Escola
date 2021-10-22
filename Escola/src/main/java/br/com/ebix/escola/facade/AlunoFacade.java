@@ -14,4 +14,5 @@ public interface AlunoFacade {
 	List<AcoesValidacao> add(Aluno aluno);
 	List<AcoesValidacao> update(Aluno aluno);
 	AcoesValidacao delete(Aluno aluno);
+	List<Materia> getAllMateriasByCodAlunoHaving(Aluno aluno);
 }
