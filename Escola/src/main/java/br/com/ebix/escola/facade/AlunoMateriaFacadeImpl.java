@@ -3,8 +3,6 @@ package br.com.ebix.escola.facade;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.ebix.escola.dao.AlunoDao;
-import br.com.ebix.escola.dao.AlunoDaoImpl;
 import br.com.ebix.escola.dao.AlunoMateriaDao;
 import br.com.ebix.escola.dao.AlunoMateriaDaoImpl;
 import br.com.ebix.escola.model.Aluno;
@@ -15,6 +13,7 @@ public class AlunoMateriaFacadeImpl implements AlunoMateriaFacade{
 	
 	private AlunoMateriaDao alunoMateriaDao = new AlunoMateriaDaoImpl();
 	private MateriaFacade materiaFacade = new MateriaFacadeImpl();
+	
 	@Override
 	public void associar(Aluno aluno, Materia materia) {
 		if(!codigoEInvalido(aluno, materia)) {
@@ -67,7 +66,6 @@ public class AlunoMateriaFacadeImpl implements AlunoMateriaFacade{
 		} else {
 			return materiasAssociadas;
 		}
-		
 	}
 	
 	public boolean codigoEInvalido(Aluno aluno, Materia materia) {

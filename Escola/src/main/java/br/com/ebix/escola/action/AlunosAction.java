@@ -12,6 +12,7 @@ import br.com.ebix.escola.facade.AlunoMateriaFacade;
 import br.com.ebix.escola.facade.AlunoMateriaFacadeImpl;
 import br.com.ebix.escola.model.Aluno;
 import br.com.ebix.escola.model.Materia;
+import br.com.ebix.escola.model.Professor;
 
 
 public class AlunosAction extends ActionSupport {
