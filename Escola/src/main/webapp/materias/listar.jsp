@@ -24,7 +24,7 @@
 				<h2>Lista de matérias</h2>
 				<div class="d-flex gap-8">
 					<a href="iniciarCadastro" class="btn btn-primary fit-flex-container"><i class="fas fa-plus"></i> Inserir materia</a>
-					<a href="iniciarCadastro" class="btn btn-primary fit-flex-container">
+					<a href="relatorios" class="btn btn-primary fit-flex-container">
 						<i class="fas fa-file-word"></i> Gerar relatório
 					</a>
 				</div>
