@@ -27,7 +27,12 @@
 		<div class="body-wrapper">
 			<div class="body-header">
 				<h2>Lista de professores</h2>
-				<a href="iniciarCadastro" class="btn btn-primary"><i class="fas fa-plus"></i> Inserir Professor</a>
+				<div class="d-flex gap-8">
+					<a href="iniciarCadastro" class="btn btn-primary fit-flex-container"><i class="fas fa-plus"></i> Inserir Professor</a>
+					<a href="iniciarCadastro" class="btn btn-primary fit-flex-container">
+						<i class="fas fa-file-word"></i> Gerar relatório
+					</a>
+				</div>
 			</div>
 			<div class="body">
 				<div class="scroller scroller-base">

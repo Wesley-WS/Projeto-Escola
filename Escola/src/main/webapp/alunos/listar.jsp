@@ -27,8 +27,12 @@
 			<div class="body-wrapper">
 				<div class="body-header">
 					<h2>Lista de alunos</h2>
-					<a href="iniciarCadastro" class="btn btn-primary"><i
+					<div class="d-flex gap-8">
+						<a href="iniciarCadastro" class="btn btn-primary fit-flex-container gap-8"><i
 						class="fas fa-plus"></i> Inserir aluno</a>
+						<a href="iniciarCadastro" class="btn btn-primary fit-flex-container"><i
+						class="fas fa-file-word"></i> Gerar relatório</a>
+					</div>
 				</div>
 				<div class="body">
 					<div class="scroller scroller-base">
@@ -46,11 +50,11 @@
 									<td><s:property value="cpf" /></td>
 									<td><s:property value="email" /></td>
 									<td colspan="2">
-									<a href="iniciarAlteracao?aluno.cod_aluno=${cod_aluno}">Atualizar</a>
-									<a href="detalhar?aluno.cod_aluno=${cod_aluno}">Detalhar</a>
-									<a href="iniciarAssociacao?aluno.cod_aluno=${cod_aluno}">Associar</a>
-									<a onclick="toggleModal('deletar?aluno.cod_aluno=${cod_aluno}')" href="#">Deletar</a>
-									<a href="relatorios">Relatorio</a></td>
+										<a href="iniciarAlteracao?aluno.cod_aluno=${cod_aluno}">Atualizar</a>
+										<a href="detalhar?aluno.cod_aluno=${cod_aluno}">Detalhar</a>
+										<a href="iniciarAssociacao?aluno.cod_aluno=${cod_aluno}">Associar</a>
+										<a onclick="toggleModal('deletar?aluno.cod_aluno=${cod_aluno}')" href="#">Deletar</a>
+									</td>
 								</tr>
 							</s:iterator>
 						</table>
