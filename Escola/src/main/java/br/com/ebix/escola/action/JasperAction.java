@@ -46,7 +46,7 @@ public class JasperAction extends ActionSupport{
         
         String jrxmlPath = "alunoescola.jrxml";
         String jasperPath = context.getRealPath("") + File.separator + location;
-        System.out.println(context.getContextPath());
+        System.out.println(context.getRealPath(""));
         System.out.println(getClass().getResource( "/jasper/alunoescola.jrxml" ));
         // Normally we would provide a pre-compiled .jrxml file
         // or check to make sure we don't compile on every request.

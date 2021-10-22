@@ -4,6 +4,16 @@
 <%@	taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib prefix="sx" uri="/struts-dojo-tags"%>
+<%@ page import="net.sf.jasperreports.engine.JasperCompileManager"%>
+<%
+try {
+    JasperCompileManager.compileReportToFile(
+            "../jasper/alunoescola.jrxml",
+            "../jasper/AlunoEscola(teste).jasper");
+} catch (Exception e) {
+    e.printStackTrace();
+}
+%>
 
 <c:set var="context" value="${pageContext.request.contextPath}" />
 
@@ -32,6 +42,8 @@
 						class="fas fa-plus"></i> Inserir aluno</a>
 						<a href="relatorios" class="btn btn-primary fit-flex-container"><i
 						class="fas fa-file-word"></i> Gerar relatório</a>
+						<a href="gerarExcel" class="btn btn-primary fit-flex-container"><i
+						class="fas fa-file-word"></i> Gerar Excel</a>
 					</div>
 				</div>
 				<div class="body">

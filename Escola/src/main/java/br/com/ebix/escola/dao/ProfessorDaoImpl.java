@@ -30,7 +30,7 @@ public class ProfessorDaoImpl extends ConnectionFactory implements ProfessorDao 
 				
 				Calendar calendario = ConverteDataUtil.converterDateParaCalendar(rs.getDate("dataNascimento"));
 				professorObtido.setDataNascimento(calendario);
-
+			
 				professorObtido.setEmail(rs.getString("email"));
 				professorObtido.setTelefoneCelular(rs.getString("telefone_celular"));
 				professorObtido.setTelefoneResidencial(rs.getString("telefone_residencial"));
