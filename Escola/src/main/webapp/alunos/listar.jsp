@@ -41,9 +41,9 @@ try {
 						<a href="iniciarCadastro" class="btn btn-primary fit-flex-container gap-8"><i
 						class="fas fa-plus"></i> Inserir aluno</a>
 						<a href="relatorios" class="btn btn-primary fit-flex-container"><i
-						class="fas fa-file-word"></i> Gerar relatório</a>
+						class="fas fa-file-pdf"></i> Gerar relatório</a>
 						<a href="gerarExcel" class="btn btn-primary fit-flex-container"><i
-						class="fas fa-file-word"></i> Gerar Excel</a>
+						class="fas fa-file-excel"></i> Gerar Excel</a>
 					</div>
 				</div>
 				<div class="body">
