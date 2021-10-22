@@ -17,6 +17,8 @@ import br.com.ebix.escola.utils.ValidaTelefoneUtil;
 
 
 public class ProfessorFacadeImpl implements ProfessorFacade {
+	
+	private ProfessorMateriaFacade professorMateriaFacade = new ProfessorMateriaFacadeImpl();
 	private ProfessorDao professorDao = new ProfessorDaoImpl();
 
 	@Override
@@ -74,6 +76,7 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 		if(codigoEstaInvalido(professor)) {
 			acao = AcoesValidacao.CODIGOINVALIDO;
 		} else {
+			professorMateriaFacade.disassociate(professor);
 			professorDao.delete(professor);
 		}
 		return acao;

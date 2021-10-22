@@ -3,6 +3,7 @@ package br.com.ebix.escola.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -115,7 +116,13 @@ public class MateriaDaoImpl extends ConnectionFactory implements MateriaDao {
 			PreparedStatement ps = getConnection().prepareStatement(sql);
 			ps.setString(1, materia.getNome());
 			ps.setString(2, materia.getSigla());
-			ps.setLong(3, materia.getCod_professor());
+			
+			if(materia.getCod_professor() == null) {
+				ps.setNull(3, Types.BIGINT);
+			} else {
+				ps.setLong(3, materia.getCod_professor());
+			}
+			
 			ps.setLong(4, materia.getCod_materia());
 			
 			ps.execute();

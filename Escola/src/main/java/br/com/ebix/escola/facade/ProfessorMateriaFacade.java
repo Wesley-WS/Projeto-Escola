@@ -9,4 +9,5 @@ public interface ProfessorMateriaFacade {
 	public List<Materia> getAllAvaiable();
 	public List<Materia> getAllMateriasFromProfessor(Professor professor);
 	public void associate(Professor professor, Materia materia);
+	public void disassociate(Professor professor);
 }

@@ -1,6 +1,7 @@
 package br.com.ebix.escola.facade;
 
 import java.util.List;
+import java.util.Optional;
 
 import br.com.ebix.escola.dao.ProfessorMateriaDao;
 import br.com.ebix.escola.dao.ProfessorMateriaDaoImpl;
@@ -28,6 +29,20 @@ public class ProfessorMateriaFacadeImpl implements ProfessorMateriaFacade {
 	}
 	
 	@Override
+	public void disassociate(Professor professor) {
+		if(!codigoEInvalido(professor)) {
+			Optional<Materia> materiaObtida = professorMateriaDao.getMateriaByCodProfessor(professor);
+			
+			if(materiaObtida.isPresent()) {
+				Materia materia = materiaObtida.get();
+				materia.setCod_professor(null);
+				
+				materiaFacade.update(materia);
+			}
+		}
+	}
+	
+	@Override
 	public List<Materia> getAllAvaiable() {
 		return materiaFacade.getAllAvaiable();
 	}
@@ -40,6 +55,10 @@ public class ProfessorMateriaFacadeImpl implements ProfessorMateriaFacade {
 	private boolean codigoEInvalido(Professor professor, Materia materia) {
 		return (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCod_professor())
 				|| ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getCod_materia()));
+	}
+	
+	private boolean codigoEInvalido(Professor professor) {
+		return ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCod_professor());
 	}
 
 }
