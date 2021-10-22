@@ -59,7 +59,9 @@ public class ExcelAction extends ActionSupport {
 		try {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			workBook.write(baos);
-			setExcelStream(new ByteArrayInputStream(baos.toByteArray()));;
+			setExcelStream(new ByteArrayInputStream(baos.toByteArray()));
+			
+			workBook.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -91,7 +93,9 @@ public class ExcelAction extends ActionSupport {
 		try {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			workBook.write(baos);
-			setExcelStream(new ByteArrayInputStream(baos.toByteArray()));;
+			setExcelStream(new ByteArrayInputStream(baos.toByteArray()));
+			
+			workBook.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -121,7 +125,9 @@ public class ExcelAction extends ActionSupport {
 		try {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			workBook.write(baos);
-			setExcelStream(new ByteArrayInputStream(baos.toByteArray()));;
+			setExcelStream(new ByteArrayInputStream(baos.toByteArray()));
+			
+			workBook.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
