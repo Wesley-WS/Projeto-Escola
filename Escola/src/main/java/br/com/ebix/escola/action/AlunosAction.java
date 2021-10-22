@@ -111,19 +111,28 @@ public class AlunosAction extends ActionSupport {
 	}
 	
 	public String associar() {
-		try {
-			if(materiasSelecionadas != null) {
-				for(String cod_materia : materiasSelecionadas) {
-					Materia materia = new Materia();
-					materia.setCod_materia(Long.parseLong(cod_materia));
-					
-					alunoMateriaFacade.associar(aluno, materia);
-				}
+		if(materiasSelecionadas != null) {
+			for(String cod_materia : materiasSelecionadas) {
+				Materia materia = new Materia();
+				materia.setCod_materia(Long.parseLong(cod_materia));
+				
+				alunoMateriaFacade.associar(aluno, materia);
 			}
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-			return ERROR;
 		}
+		
+//		try {
+//			if(materiasSelecionadas != null) {
+//				for(String cod_materia : materiasSelecionadas) {
+//					Materia materia = new Materia();
+//					materia.setCod_materia(Long.parseLong(cod_materia));
+//					
+//					alunoMateriaFacade.associar(aluno, materia);
+//				}
+//			}
+//		} catch (NumberFormatException e) {
+//			e.printStackTrace();
+//			return ERROR;
+//		}
 		return SUCCESS;
 	}
 	

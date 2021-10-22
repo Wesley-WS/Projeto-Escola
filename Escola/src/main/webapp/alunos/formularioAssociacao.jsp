@@ -34,6 +34,7 @@
 						<s:hidden name="aluno.cod_aluno" value="%{aluno.cod_aluno}" />
 						
 						<s:iterator value="materias">
+							<s:hidden value="cod_materia"/>
 							<s:checkbox name="materiasSelecionadas" id="%{cod_materia}" fieldValue="%{cod_materia}" label="%{nome}"></s:checkbox>
 						</s:iterator>
 						
