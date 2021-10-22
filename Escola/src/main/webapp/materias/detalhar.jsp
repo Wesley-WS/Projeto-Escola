@@ -21,18 +21,24 @@
 	<div class="app">
 		<s:include value="../components/sidebar.jspf"></s:include>
 		<div class="body-wrapper">
-			<div class="body-header flex-dir-row">
+			<div class="body-header items-center">
 				<div class="logo">
 					<i class="fas fa-chalkboard"></i>
 				</div>
-				<div class="d-flex flex-dir-col">
-					<h2>Nome: ${materia.nome}</h2>
-					<p>Sigla: ${materia.sigla}</p>
-					<p>Professor: </p>
-				</div>
 			</div>
 			<div class="body">
-				<div class="scroller scroller-base"></div>
+				<div class="body-content">
+					<div class="fit-flex-container">
+						<div class="d-flex flex-dir-col p-8">
+							<h2>Nome: ${materia.nome}</h2>
+							<p>Sigla: ${materia.sigla}</p>
+							<p>Professor: </p>
+						
+						</div>
+					</div>
+					
+					<div class="body-wrapper"></div>
+				</div>
 			</div>
 		</div>
 	</div>
