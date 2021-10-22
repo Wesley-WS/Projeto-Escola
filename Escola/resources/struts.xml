@@ -79,7 +79,13 @@
 	</package>
 	
 	<package name="relatorios" namespace="/relatorios" extends="default">
-		
+		<action name="myJasperTest" class="br.com.ebix.escola.action.JasperAction" >
+			<result name="success" type="jasper">
+				<param name="location">/jasper/AlunoEscola(teste).jasper</param>
+				<param name="dataSource">myList</param>
+				<param name="format">PDF</param>
+			</result>
+		</action>
 	</package>
 	
 	<package name="professores" extends="default" namespace="/professores">
