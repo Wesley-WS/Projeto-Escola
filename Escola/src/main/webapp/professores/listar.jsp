@@ -29,10 +29,10 @@
 				<h2>Lista de professores</h2>
 				<div class="d-flex gap-8">
 					<a href="iniciarCadastro" class="btn btn-primary fit-flex-container"><i class="fas fa-plus"></i> Inserir Professor</a>
-					<a href="relatorios" class="btn btn-primary fit-flex-container">
+					<a href="relatorios" class="btn btn-primary">
 						<i class="fas fa-file-pdf"></i> Gerar relatório
 					</a>
-					<a href="gerarExcel" class="btn btn-primary fit-flex-container"><i
+					<a href="gerarExcel" class="btn btn-primary"><i
 						class="fas fa-file-excel"></i> Gerar Excel</a>
 				</div>
 			</div>
