@@ -44,16 +44,23 @@ public class JasperAction extends ActionSupport{
         myList.add(p3);
         myList.add(p4);
         
-        String jrxmlPath = "alunoescola.jrxml";
-        String jasperPath = context.getRealPath("") + File.separator + location;
-        System.out.println(context.getRealPath(""));
-        System.out.println(getClass().getResource( "/jasper/alunoescola.jrxml" ));
+//        String jrxmlPath = context.getRealPath("/src/main/webapp/jasper/alunoescola.jrxml"); // "alunoescola.jrxml";
+//        String jasperPath = context.getRealPath("") + File.separator + location;
+        // System.out.println(context.getRealPath("/src/main/jasper/alunoescola.jrxml"));
+        
+        
+        // System.out.println(getClass().getResource( "/jasper/alunoescola.jrxml" ));
         // Normally we would provide a pre-compiled .jrxml file
         // or check to make sure we don't compile on every request.
         try {
-            JasperCompileManager.compileReportToFile(jrxmlPath, jasperPath);/*
-                    "jasper/alunoescola(teste).jrxml",
-                    "../src/main/webapp/jasper/AlunoEscola(teste).jasper");*/
+			// JasperCompileManager.compileReport();
+        	JasperCompileManager.compileReportToFile(context
+					.getRealPath("/WEB-INF/jasper/alunoescola.jrxml"), context
+					.getRealPath("/WEB-INF/jasper/alunoescola.jasper")); //"alunoescola.jrxml", "alunoescola.jasper");
+        	
+//            JasperCompileManager.compileReportToFile(jrxmlPath, jasperPath);
+            /* "jasper/alunoescola(teste).jrxml",
+			"../src/main/webapp/jasper/AlunoEscola(teste).jasper");*/
         } catch (Exception e) {
             e.printStackTrace();
             return ERROR;

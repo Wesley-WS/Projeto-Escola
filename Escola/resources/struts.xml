@@ -78,7 +78,7 @@
     	</action>
 	</package>
 	
-	<package name="relatorios" namespace="/relatorios" extends="default">
+	<package name="relatorios" namespace="/relatorios" extends="jasperreports-default">
 		<action name="myJasperTest" class="br.com.ebix.escola.action.JasperAction" >
 			<result name="success" type="jasper">
 				<param name="location">/jasper/AlunoEscola(teste).jasper</param>
@@ -172,7 +172,7 @@
 		</action>
 		
 		<action name="gerarExcel" class="br.com.ebix.escola.action.ExcelAction" method="gerarExcelMaterias">
-			<result  name="success"  type="stream">           
+			<result name="success"  type="stream">
 				<param name="contentType">application/vnd.ms-excel</param>
 				<param name="inputName">excelStream</param>
 				<param name="contentDisposition">attachment;filename="listaMaterias.xls"</param>
