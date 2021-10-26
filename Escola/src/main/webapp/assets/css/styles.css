@@ -15,8 +15,13 @@ body {
 	/*font-family: 'Roboto', sans-serif;*/
 	font-family: 'Nunito', sans-serif;
 	font-size: 1em;
-	line-height: 1.375em;;
+	line-height: 1.375em;
+	user-select: none;
 	margin: 0px;
+}
+
+img {
+	-webkit-user-drag: none;
 }
 
 .app {
@@ -353,5 +358,6 @@ form input[type=submit] {
   }
   .icon {
       font-size: larger;
+      padding: 8px;
   }
 }
