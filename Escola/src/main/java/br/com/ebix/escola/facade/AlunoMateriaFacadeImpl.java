@@ -26,6 +26,17 @@ public class AlunoMateriaFacadeImpl implements AlunoMateriaFacade{
 		}
 	}
 	
+	@Override
+	public void desassociar(Aluno aluno, Materia materia) {
+		if(!codigoEInvalido(aluno, materia)) {
+			
+			Materia materiaObtida = materiaFacade.get(materia);
+			
+			if(materiaObtida != null) {
+				alunoMateriaDao.desassociar(aluno, materia);
+			}
+		}
+	}
 
 	public List<Materia> getAllMateriasByCodAluno(Aluno aluno){
 		List<Long> cod_materias = alunoMateriaDao.getAllCodMatByCod(aluno);

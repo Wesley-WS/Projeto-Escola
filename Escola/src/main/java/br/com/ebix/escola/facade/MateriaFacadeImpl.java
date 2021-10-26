@@ -33,6 +33,8 @@ public class MateriaFacadeImpl implements MateriaFacade {
 		return materiaDao.getAll();
 	}
 
+	
+	
 	@Override
 	public List<Materia> getAllAvaiable() {
 		return materiaDao.getAllAvaiable();

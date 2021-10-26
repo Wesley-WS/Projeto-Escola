@@ -10,4 +10,5 @@ public interface AlunoMateriaFacade {
 	void associar(Aluno aluno, Materia materia);
 	List<Materia> getAllMateriasByCodAluno(Aluno aluno);
 	List<Materia> getAllMateriasByCodAlunoHaving(Aluno aluno);
+	void desassociar(Aluno aluno, Materia materia);
 }
