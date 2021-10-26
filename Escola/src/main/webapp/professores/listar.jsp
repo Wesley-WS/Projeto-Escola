@@ -51,12 +51,12 @@
 								<td><s:property value="nome" /></td>
 								<td><s:property value="cpf" /></td>
 								<td><s:property value="email" /></td>
-								<td colspan="2">
-									<a href="iniciarAlteracao?professor.cod_professor=${cod_professor}"> Atualizar</a>
-									<a href="detalhar?professor.cod_professor=${cod_professor}">Detalhar</a>
-									<a href="iniciarAssociacao?professor.cod_professor=${cod_professor}">Associar</a>
-									<a href="iniciarDesassociacao?professor.cod_professor=${cod_professor}">Desassociar</a>
-									<a href="#" onclick="toggleModal('deletar?professor.cod_professor=${cod_professor}')">Deletar</a>
+								<td class="td-actions" colspan="2">
+									<a href="iniciarAlteracao?professor.cod_professor=${cod_professor}" class="btn btn-primary fit-flex-container"> Atualizar</a>
+									<a href="detalhar?professor.cod_professor=${cod_professor}" class="btn btn-primary fit-flex-container">Detalhar</a>
+									<a href="iniciarAssociacao?professor.cod_professor=${cod_professor}" class="btn btn-primary fit-flex-container">Associar</a>
+									<a href="iniciarDesassociacao?professor.cod_professor=${cod_professor}" class="btn btn-primary fit-flex-container">Desassociar</a>
+									<a href="#" onclick="toggleModal('deletar?professor.cod_professor=${cod_professor}')" class="btn btn-primary fit-flex-container">Deletar</a>
 								</td>
 							</tr>
 						</s:iterator>
