@@ -89,7 +89,7 @@ img {
 	background-color: var(--dark);
 	color: whitesmoke;
 	padding: 8px;
-	text-align: left;
+	/*text-align: left;*/
 }
 
 .table td {
