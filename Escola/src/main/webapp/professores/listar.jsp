@@ -55,6 +55,7 @@
 									<a href="iniciarAlteracao?professor.cod_professor=${cod_professor}"> Atualizar</a>
 									<a href="detalhar?professor.cod_professor=${cod_professor}">Detalhar</a>
 									<a href="iniciarAssociacao?professor.cod_professor=${cod_professor}">Associar</a>
+									<a href="iniciarDesassociacao?professor.cod_professor=${cod_professor}">Desassociar</a>
 									<a href="#" onclick="toggleModal('deletar?professor.cod_professor=${cod_professor}')">Deletar</a>
 								</td>
 							</tr>
