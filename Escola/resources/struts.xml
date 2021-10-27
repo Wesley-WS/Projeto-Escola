@@ -121,7 +121,6 @@
 		<action name="deletar" class="br.com.ebix.escola.action.ProfessoresAction" method="deletar">
 			<result name="success" type="redirect">professores</result>
 			<result name="input">listar.jsp</result>
-			<!-- Pagina para erro de deleção? -->
 		</action>
 		<action name="detalhar" class="br.com.ebix.escola.action.ProfessoresAction" method="detalhar">
 			<result name="success">detalhar.jsp</result>
