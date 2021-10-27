@@ -94,6 +94,7 @@
 		<action name="myJasperTest" class="br.com.ebix.escola.action.JasperAction" method="execute">
 			<result name="success" type="jasper">
 				<param name="location">A4.jasper</param>
+				<param name="location">/WEB-INF/jasper/codAluno.jasper</param>
 				<param name="dataSource">myList</param>
 				<param name="format">PDF</param>
 			</result>

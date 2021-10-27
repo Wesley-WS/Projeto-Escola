@@ -87,17 +87,6 @@
 		<band height="20"/>
 	</detail>
 	<lastPageFooter>
-		<band height="177">
-			<staticText>
-				<reportElement positionType="Float" x="-1" y="30" width="261" height="101" uuid="1a0d7088-5af7-4865-8be1-41ec5f51fb36"/>
-				<box>
-					<topPen lineWidth="1.1" lineStyle="Dashed"/>
-					<leftPen lineWidth="1.1" lineStyle="Dashed"/>
-					<bottomPen lineWidth="1.1" lineStyle="Dashed"/>
-					<rightPen lineWidth="1.1" lineStyle="Dashed"/>
-				</box>
-				<text><![CDATA[testes]]></text>
-			</staticText>
-		</band>
+		<band height="177"/>
 	</lastPageFooter>
 </jasperReport>
