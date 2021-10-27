@@ -88,12 +88,8 @@
 	</package>
 	
 	<package name="relatorios" namespace="/relatorios" extends="jasperreports-default">
-		<result-types>
-	        <result-type name="jasper" class="org.apache.struts2.views.jasperreports.JasperReportsResult"/>
-	    </result-types>
-		<action name="myJasperTest" class="br.com.ebix.escola.action.JasperAction" method="execute">
+		<action name="myJasperTest" class="br.com.ebix.escola.action.JasperAction" >
 			<result name="success" type="jasper">
-				<param name="location">A4.jasper</param>
 				<param name="location">/WEB-INF/jasper/codAluno.jasper</param>
 				<param name="dataSource">myList</param>
 				<param name="format">PDF</param>

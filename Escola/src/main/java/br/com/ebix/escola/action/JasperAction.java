@@ -14,17 +14,13 @@ import br.com.ebix.escola.model.Aluno;
 import net.sf.jasperreports.engine.JasperCompileManager;
 
 public class JasperAction extends ActionSupport{
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 8704084135816754792L;
 	private List<Aluno> myList;
-	private String location = "teste.jasper";
+	private String location = "codAluno.jasper";
 	
     public String execute() throws Exception {
     	
-    	//ServletContext context = ServletActionContext.getServletContext();
+    	ServletContext context = ServletActionContext.getServletContext();
     	
         // Create some imaginary persons.
     	Aluno p1 = new Aluno();
@@ -51,9 +47,9 @@ public class JasperAction extends ActionSupport{
         // Normally we would provide a pre-compiled .jrxml file
         // or check to make sure we don't compile on every request.*/
         try {
-            JasperCompileManager.compileReportToFile(
-                    "webapp/jasper/teste.jrxml",
-                    "webapp/jasper/teste.jasper");
+        	JasperCompileManager.compileReportToFile(
+        			context.getRealPath("/WEB-INF/jasper/codAluno.jrxml"),
+        			context.getRealPath("/WEB-INF/jasper/codAluno.jasper"));
         } catch (Exception e) {
             e.printStackTrace();
             return ERROR;
