@@ -81,7 +81,7 @@
 	<package name="relatorios" namespace="/relatorios" extends="jasperreports-default">
 		<action name="myJasperTest" class="br.com.ebix.escola.action.JasperAction" >
 			<result name="success" type="jasper">
-				<param name="location">/jasper/teste.jasper</param>
+				<param name="location">/WEB-INF/jasper/codAluno.jasper</param>
 				<param name="dataSource">myList</param>
 				<param name="format">PDF</param>
 			</result>
