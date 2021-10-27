@@ -26,6 +26,21 @@ public class AlunoMateriaDaoImpl  extends ConnectionFactory implements AlunoMate
 			e.printStackTrace();
 		}
 	}
+	@Override
+	public void desassociar(Aluno aluno, Materia materia) { //TODO: Revisar isso aqui
+		try {
+			String sql = "DELETE from escola.relalunomat WHERE cod_aluno=? and cod_materia=?;;";
+			
+			PreparedStatement ps = getConnection().prepareStatement(sql);
+			ps.setLong(1, aluno.getCod_aluno());
+			ps.setLong(2, materia.getCod_materia());
+			ps.execute();
+			ps.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	@Override
 	public List<Long> getAllCodMatByCod(Aluno aluno){

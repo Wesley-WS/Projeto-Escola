@@ -86,6 +86,16 @@ public class AlunosAction extends ActionSupport {
 		}
 	}
 	
+	public String listarMateriasAssociadas() {
+		aluno = alunoFacade.get(aluno);
+		materias = alunoMateriaFacade.getAllMateriasByCodAlunoHaving(aluno);
+		if(materias != null) {
+			return SUCCESS;
+		}else {
+			return ERROR;
+		}
+	}
+	
 	public String cadastrar() {
 		List<AcoesValidacao> acoes = alunoFacade.add(aluno);
 		if(acoes.size() > 0) {
@@ -127,6 +137,23 @@ public class AlunosAction extends ActionSupport {
 					materia.setCod_materia(Long.parseLong(cod_materia));
 					
 					alunoMateriaFacade.associar(aluno, materia);
+				}
+			}
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+			return ERROR;
+		}
+		return SUCCESS;
+	}
+	
+	public String desassociar() {
+		try {
+			if(materiasSelecionadas != null) {
+				for(String cod_materia : materiasSelecionadas) {
+					Materia materia = new Materia();
+					materia.setCod_materia(Long.parseLong(cod_materia));
+					
+					alunoMateriaFacade.desassociar(aluno, materia);
 				}
 			}
 		} catch (NumberFormatException e) {

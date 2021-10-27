@@ -61,4 +61,15 @@ public class ProfessorMateriaFacadeImpl implements ProfessorMateriaFacade {
 		return ValidaStringUtil.eNuloVazioOuHaApenasEspaco(professor.getCod_professor());
 	}
 
+	@Override
+	public void desassociateMateria(Materia materia) {
+		if(materia.getCod_materia()!=null) {
+			materia = materiaFacade.get(materia);
+			materia.setCod_professor(null);
+			materiaFacade.update(materia);
+			
+		}
+		
+	}
+
 }

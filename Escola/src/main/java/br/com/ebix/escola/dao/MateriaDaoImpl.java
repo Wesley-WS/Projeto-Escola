@@ -94,6 +94,7 @@ public class MateriaDaoImpl extends ConnectionFactory implements MateriaDao {
 		}
 	}
 	
+	
 	@Override
 	public void add(Materia materia) {
 		try {

@@ -30,7 +30,7 @@
 				<div class="body-content">
 					<div class="fit-flex-container">
 						<div class="d-flex flex-dir-col p-8">
-							<h2>Nome: ${materia.nome}</h2>
+							<p>Nome: ${materia.nome}</p>
 							<p>Sigla: ${materia.sigla}</p>
 							<p>Professor: </p>
 						

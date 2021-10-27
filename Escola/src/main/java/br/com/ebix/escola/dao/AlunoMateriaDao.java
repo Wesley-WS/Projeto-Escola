@@ -11,4 +11,6 @@ public interface AlunoMateriaDao {
 	void associar(Aluno aluno, Materia materia);
 
 	List<Long> getAllCodMatByCod(Aluno aluno);
+
+	void desassociar(Aluno aluno, Materia materia);
 }

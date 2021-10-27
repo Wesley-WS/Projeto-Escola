@@ -31,7 +31,7 @@
 			</div>
 			<div class="body">
 				<div class="scroller scroller-base">
-					<s:form action="associar" method="post">
+					<s:form action="desassociar" method="post">
 						<s:hidden name="professor.cod_professor" value="%{professor.cod_professor}" />
 						
 						<s:iterator value="materias">

@@ -31,8 +31,13 @@ public class ProfessoresAction extends ActionSupport {
 		return SUCCESS;
 	}
 
-	public String listarMateriasDisponiveis() {
+	public String listarMaterias() {
 		materias = professorMateriaFacade.getAllAvaiable();
+		return SUCCESS;
+	}
+	
+	public String listarMateriasAssociadas() {
+		materias = professorMateriaFacade.getAllMateriasFromProfessor(professor);
 		return SUCCESS;
 	}
 
@@ -53,6 +58,23 @@ public class ProfessoresAction extends ActionSupport {
 					Materia materia = new Materia();
 					materia.setCod_materia(Long.parseLong(cod_materia));
 					professorMateriaFacade.associate(professor, materia);
+				}
+			}
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+			
+			return ERROR;
+		}
+		return SUCCESS;
+	}
+	
+	public String desassociar() {
+		try {
+			if(materiasSelecionadas != null) {
+				for (String cod_materia : materiasSelecionadas) {
+					Materia materia = new Materia();
+					materia.setCod_materia(Long.parseLong(cod_materia));
+					professorMateriaFacade.desassociateMateria(materia);
 				}
 			}
 		} catch (NumberFormatException e) {

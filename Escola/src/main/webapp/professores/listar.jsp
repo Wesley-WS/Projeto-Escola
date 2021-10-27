@@ -28,7 +28,9 @@
 			<div class="body-header">
 				<h2>Lista de professores</h2>
 				<div class="d-flex gap-8">
-					<a href="iniciarCadastro" class="btn btn-primary fit-flex-container"><i class="fas fa-plus"></i> Inserir Professor</a>
+					<div class="d-flex fit-flex-container">
+						<a href="iniciarCadastro" class="btn btn-primary"><i class="fas fa-plus"></i> Inserir Professor</a>
+					</div>
 					<a href="relatorios" class="btn btn-primary">
 						<i class="fas fa-file-pdf"></i> Gerar relatório
 					</a>
@@ -36,7 +38,7 @@
 						class="fas fa-file-excel"></i> Gerar Excel</a>
 				</div>
 			</div>
-			<div class="body">
+			<div class="body p-8">
 				<div class="scroller scroller-base">
 					<table class="table">
 						<tr>
@@ -51,12 +53,11 @@
 								<td><s:property value="nome" /></td>
 								<td><s:property value="cpf" /></td>
 								<td><s:property value="email" /></td>
-								<td colspan="2">
-									<a href="iniciarAlteracao?professor.cod_professor=${cod_professor}"> Atualizar</a>
-									<a href="detalhar?professor.cod_professor=${cod_professor}">Detalhar</a>
-									<a href="iniciarAssociacao?professor.cod_professor=${cod_professor}">Associar</a>
-									<a href="iniciarDesassociacao?professor.cod_professor=${cod_professor}">Desassociar</a>
-									<a href="#" onclick="toggleModal('deletar?professor.cod_professor=${cod_professor}')">Deletar</a>
+								<td class="td-actions" colspan="2">
+									<a href="iniciarAlteracao?professor.cod_professor=${cod_professor}" title="Alterar" alt="Alterar"><i class="far fa-edit"></i></a>
+									<a href="detalhar?professor.cod_professor=${cod_professor}" title="Detalhar" alt="Detalhar"><i class="far fa-eye"></i></a>
+									<a href="iniciarAssociacao?professor.cod_professor=${cod_professor}" title="Associar" alt="Associar"><i class="fas fa-plug"></i></a>
+									<a href="#" onclick="toggleModal('deletar?professor.cod_professor=${cod_professor}')" title="Deletar" alt="Deletar"><i class="far fa-trash-alt"></i></a>
 								</td>
 							</tr>
 						</s:iterator>
