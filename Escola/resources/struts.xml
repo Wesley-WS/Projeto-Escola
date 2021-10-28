@@ -104,6 +104,7 @@
 		
 		<action name="iniciarAssociacao" class="br.com.ebix.escola.action.ProfessoresAction" method="listarMaterias">
 			<result name="success">formularioAssociacao.jsp</result>
+			<result name="error" type="redirect">professores</result>
 		</action>
 		<action name="iniciarDesassociacao" class="br.com.ebix.escola.action.ProfessoresAction" method="listarMateriasAssociadas">
 			<result name="success">formularioDesassociacao.jsp</result>

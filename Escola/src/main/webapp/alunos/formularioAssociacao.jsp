@@ -26,7 +26,7 @@
 		<div class="body-wrapper">
 			<div class="body-header mb-8">
 				<h2>Associar aluno a matéria</h2>
-				<p>Associe um aluno a uma matéria</p>
+				<p>Aluno: ${ aluno.nome }</p>
 			</div>
 			<div class="body">
 				<div class="scroller scroller-base">

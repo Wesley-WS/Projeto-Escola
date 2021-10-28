@@ -77,9 +77,10 @@ public class AlunosAction extends ActionSupport {
 	}
 	
 	public String listarMaterias() {
+		aluno = alunoFacade.get(aluno);
 		materias = alunoMateriaFacade.getAllMateriasByCodAluno(aluno);
 		
-		if(materias != null) {
+		if(aluno != null && materias != null) {
 			return SUCCESS;
 		}else {
 			return ERROR;

@@ -25,7 +25,7 @@
 				<!-- <div class="logo">
 					<i class="fas fa-user-graduate"></i>
 				</div> -->
-				<h2>Detalhando aluno</h2>
+				<h2>Detalhes do aluno</h2>
 			</div>
 			<div class="body p-8">
 				<div class="scroller scroller-base">
@@ -38,7 +38,7 @@
 						<p><strong>Telefone celular:</strong> ${aluno.telefoneCelular}</p>
 						<p><strong>Telefone residencial:</strong> ${aluno.telefoneResidencial}</p>
 					</div>
-					<div>
+					<div class="sidebar-extras-header">
 						<h3>Matérias</h3>
 					</div>
 
