@@ -58,7 +58,7 @@ public class AlunosAction extends ActionSupport {
 		aluno = alunoFacade.get(aluno);
 		materias = alunoMateriaFacade.getAllMateriasByCodAluno(aluno);
 		
-		if(aluno != null && materias != null) {
+		if(materias != null) {
 			return SUCCESS;
 		}else {
 			return ERROR;
