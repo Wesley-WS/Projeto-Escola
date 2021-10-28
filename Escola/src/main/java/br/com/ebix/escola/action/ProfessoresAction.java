@@ -1,6 +1,14 @@
 package br.com.ebix.escola.action;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.List;
+
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Row;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -26,6 +34,8 @@ public class ProfessoresAction extends ActionSupport {
 	
 	private String[] materiasSelecionadas;
 
+	private InputStream excelStream;
+	
 	public String listar() {
 		professores = professorFacade.getAll();
 		return SUCCESS;
@@ -122,6 +132,14 @@ public class ProfessoresAction extends ActionSupport {
 			return INPUT;
 		}
 	}
+	
+	public String gerarExcel() {
+		excelStream = professorFacade.gerarRelatorioProfessores();
+		if(excelStream == null) {
+			return ERROR;
+		}
+		return SUCCESS;
+	}
 
 	public Professor getProfessor() {
 		return professor;
@@ -161,5 +179,13 @@ public class ProfessoresAction extends ActionSupport {
 
 	public void setMateriasSelecionadas(String[] materiasSelecionadas) {
 		this.materiasSelecionadas = materiasSelecionadas;
+	}
+	
+	public InputStream getExcelStream() {
+		return excelStream;
+	}
+
+	public void setExcelStream(InputStream excelStream) {
+		this.excelStream = excelStream;
 	}
 }

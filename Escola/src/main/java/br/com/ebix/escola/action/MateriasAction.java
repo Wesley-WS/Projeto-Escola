@@ -1,6 +1,15 @@
 package br.com.ebix.escola.action;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.util.Iterator;
 import java.util.List;
+
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Row;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -17,22 +26,8 @@ public class MateriasAction extends ActionSupport {
 
 	private List<Materia> materias;
 
-	public Materia getMateria() {
-		return materia;
-	}
-
-	public void setMateria(Materia materia) {
-		this.materia = materia;
-	}
-
-	public List<Materia> getMaterias() {
-		return materias;
-	}
-
-	public void setMaterias(List<Materia> materias) {
-		this.materias = materias;
-	}
-
+	private InputStream excelStream;
+	
 	public String listar() {
 		materias = materiaFacade.getAll();
 		return SUCCESS;
@@ -80,5 +75,37 @@ public class MateriasAction extends ActionSupport {
 			return INPUT;
 		}
 	}
+	
+	public String gerarExcel() {
+		excelStream = materiaFacade.gerarRelatorioMaterias();
+		if(excelStream == null) {
+			return ERROR;
+		}
+		return SUCCESS;
+	}
+	
+	public Materia getMateria() {
+		return materia;
+	}
 
+	public void setMateria(Materia materia) {
+		this.materia = materia;
+	}
+
+	public List<Materia> getMaterias() {
+		return materias;
+	}
+
+	public void setMaterias(List<Materia> materias) {
+		this.materias = materias;
+	}
+
+	public InputStream getExcelStream() {
+		return excelStream;
+	}
+
+	public void setExcelStream(InputStream excelStream) {
+		this.excelStream = excelStream;
+	}
+	
 }

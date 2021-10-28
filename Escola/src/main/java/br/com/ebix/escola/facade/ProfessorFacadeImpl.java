@@ -1,9 +1,17 @@
 package br.com.ebix.escola.facade;
 
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Row;
 
 import br.com.ebix.escola.dao.ProfessorDao;
 import br.com.ebix.escola.dao.ProfessorDaoImpl;
@@ -81,6 +89,43 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 		}
 		return acao;
 	}
+
+	@Override
+	public InputStream gerarRelatorioProfessores() {
+		List<Professor> professores = professorDao.getAll();
+		
+		HSSFWorkbook workBook = new HSSFWorkbook();
+		HSSFSheet sheet = workBook.createSheet();
+		HSSFRow row = null;
+		
+		Row header = sheet.createRow(0);
+		header.createCell(0).setCellValue("Nome");
+		header.createCell(1).setCellValue("CPF");
+		header.createCell(2).setCellValue("Email");
+		
+		for (int i = 0; i < professores.size(); i++) {
+			Professor professor = professores.get(i);
+			
+			row = sheet.createRow(i+1);
+			Row data = sheet.createRow(i+1);
+			data.createCell(0).setCellValue(professor.getNome());
+			data.createCell(1).setCellValue(professor.getCpf());
+			data.createCell(2).setCellValue(professor.getEmail());
+		}
+		
+		InputStream stream = null;
+		try {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			workBook.write(baos);
+			
+			stream = new ByteArrayInputStream(baos.toByteArray());
+			
+			workBook.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return stream;
+	}
 	
 	public boolean naoEstaEmIdadeParaLecionar(Professor professor) {
 		return (professor.obterIdade() < 22);
@@ -156,4 +201,5 @@ public class ProfessorFacadeImpl implements ProfessorFacade {
 		}
 		
 	}
+
 }

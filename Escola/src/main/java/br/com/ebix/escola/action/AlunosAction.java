@@ -1,7 +1,15 @@
 package br.com.ebix.escola.action;
 
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.List;
+
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Row;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -12,11 +20,11 @@ import br.com.ebix.escola.facade.AlunoMateriaFacade;
 import br.com.ebix.escola.facade.AlunoMateriaFacadeImpl;
 import br.com.ebix.escola.model.Aluno;
 import br.com.ebix.escola.model.Materia;
-import br.com.ebix.escola.model.Professor;
 
 
 public class AlunosAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
+	
 	// @Autowired
 	// private AlunoFacade alunoFacade;
 	private AlunoFacade alunoFacade = new AlunoFacadeImpl();
@@ -29,37 +37,7 @@ public class AlunosAction extends ActionSupport {
 
 	private String[] materiasSelecionadas;
 	
-	public Aluno getAluno() {
-		return aluno;
-	}
-
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
-	}
-	
-	public List<Aluno> getAlunos() {
-		return alunos;
-	}
-	
-	public List<Materia> getMaterias() {
-		return materias;
-	}
-
-	public void setMaterias(List<Materia> materias) {
-		this.materias = materias;
-	}
-
-	public void setAlunos(List<Aluno> alunos) {
-		this.alunos = alunos;
-	}
-
-	public String[] getMateriasSelecionadas() {
-		return materiasSelecionadas;
-	}
-
-	public void setMateriasSelecionadas(String[] materiasSelecionadas) {
-		this.materiasSelecionadas = materiasSelecionadas;
-	}
+	private InputStream excelStream;
 	
 	public String listar() {
 		alunos = alunoFacade.getAll();
@@ -174,4 +152,52 @@ public class AlunosAction extends ActionSupport {
 		}
 	}
 	
+	public String gerarExcel() {
+		excelStream = alunoFacade.gerarRelatorioAlunos();
+		
+		if(excelStream == null) {
+			return ERROR;
+		}
+		return SUCCESS;
+	}
+	
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+	
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+	
+	public List<Materia> getMaterias() {
+		return materias;
+	}
+
+	public void setMaterias(List<Materia> materias) {
+		this.materias = materias;
+	}
+
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
+	}
+
+	public String[] getMateriasSelecionadas() {
+		return materiasSelecionadas;
+	}
+
+	public void setMateriasSelecionadas(String[] materiasSelecionadas) {
+		this.materiasSelecionadas = materiasSelecionadas;
+	}
+	
+	public InputStream getExcelStream() {
+		return excelStream;
+	}
+
+	public void setExcelStream(InputStream excelStream) {
+		this.excelStream = excelStream;
+	}
 }

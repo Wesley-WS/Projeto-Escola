@@ -68,22 +68,21 @@
 		<action name="deletar" class="br.com.ebix.escola.action.AlunosAction" method="deletar">
 			<result name="success" type="redirect">alunos</result>
 			<result name="input">listar.jsp</result>
-			<!-- Pagina para erro de deleção? -->
 		</action>
 		
 		<action name="detalhar" class="br.com.ebix.escola.action.AlunosAction" method="detalhar">
 			<result name="success">detalhar.jsp</result>
 			<result name="error" type="redirect">alunos</result>
-			<!-- Pagina de erro ou redirecionamento? -->
 		</action>
 		
-		<action name="gerarExcel" class="br.com.ebix.escola.action.ExcelAction" method="gerarExcelAlunos">
-			<result  name="success"  type="stream">           
+		<action name="gerarExcel" class="br.com.ebix.escola.action.AlunosAction" method="gerarExcel">
+			<result name="success" type="stream">
 				<param name="contentType">application/vnd.ms-excel</param>
 				<param name="inputName">excelStream</param>
 				<param name="contentDisposition">attachment;filename="listaAlunos.xls"</param>
 				<param name="bufferSize">4096</param>
 			</result>
+			<result name="error" type="redirect">alunos</result>
     	</action>
 	</package>
 	
@@ -146,13 +145,14 @@
 			<!-- Pagina de erro ou redirecionamento? -->
 		</action>
 		
-		<action name="gerarExcel" class="br.com.ebix.escola.action.ExcelAction" method="gerarExcelProfessores">
+		<action name="gerarExcel" class="br.com.ebix.escola.action.ProfessoresAction" method="gerarExcel">
 			<result  name="success"  type="stream">           
 				<param name="contentType">application/vnd.ms-excel</param>
 				<param name="inputName">excelStream</param>
 				<param name="contentDisposition">attachment;filename="listaProfessores.xls"</param>
 				<param name="bufferSize">4096</param>
 			</result>
+			<result name="error" type="redirect">professores</result>
     	</action>
 	</package>
 	<package name="materias" extends="default" namespace="/materias">
@@ -188,13 +188,14 @@
 			<!-- Pagina de erro ou redirecionamento? -->
 		</action>
 		
-		<action name="gerarExcel" class="br.com.ebix.escola.action.ExcelAction" method="gerarExcelMaterias">
+		<action name="gerarExcel" class="br.com.ebix.escola.action.MateriasAction" method="gerarExcel">
 			<result name="success"  type="stream">
 				<param name="contentType">application/vnd.ms-excel</param>
 				<param name="inputName">excelStream</param>
 				<param name="contentDisposition">attachment;filename="listaMaterias.xls"</param>
 				<param name="bufferSize">4096</param>
 			</result>
+			<result name="error" type="redirect">materias</result>
     	</action>
 	</package>
 </struts>

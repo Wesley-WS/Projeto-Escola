@@ -1,5 +1,6 @@
 package br.com.ebix.escola.facade;
 
+import java.io.InputStream;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,4 +16,5 @@ public interface AlunoFacade {
 	List<AcoesValidacao> update(Aluno aluno);
 	AcoesValidacao delete(Aluno aluno);
 	List<Materia> getAllMateriasByCodAlunoHaving(Aluno aluno);
+	InputStream gerarRelatorioAlunos();
 }

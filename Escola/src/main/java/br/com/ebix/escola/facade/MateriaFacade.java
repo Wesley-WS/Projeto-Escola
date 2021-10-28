@@ -1,5 +1,6 @@
 package br.com.ebix.escola.facade;
 
+import java.io.InputStream;
 import java.util.List;
 
 import br.com.ebix.escola.enums.AcoesValidacao;
@@ -12,4 +13,5 @@ public interface MateriaFacade {
 	List<AcoesValidacao> add(Materia materia);
 	List<AcoesValidacao> update(Materia materia);
 	AcoesValidacao delete(Materia materia);
+	InputStream gerarRelatorioMaterias();
 }

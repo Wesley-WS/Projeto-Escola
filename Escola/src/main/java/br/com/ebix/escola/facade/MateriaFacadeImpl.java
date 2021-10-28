@@ -1,8 +1,16 @@
 package br.com.ebix.escola.facade;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Row;
 
 import br.com.ebix.escola.dao.MateriaDao;
 import br.com.ebix.escola.dao.MateriaDaoImpl;
@@ -76,6 +84,41 @@ public class MateriaFacadeImpl implements MateriaFacade {
 
 	}
 
+	@Override
+	public InputStream gerarRelatorioMaterias() {
+		List<Materia> materias = materiaDao.getAll();
+		
+		HSSFWorkbook workBook = new HSSFWorkbook();
+		HSSFSheet sheet = workBook.createSheet();
+		HSSFRow row = null;
+		
+		Row header = sheet.createRow(0);
+		header.createCell(0).setCellValue("Sigla");
+		header.createCell(1).setCellValue("Nome");
+		
+		for (int i = 0; i < materias.size(); i++) {
+			Materia materia = materias.get(i);
+			
+			row = sheet.createRow(i+1);
+			Row data = sheet.createRow(i+1);
+			data.createCell(0).setCellValue(materia.getSigla());
+			data.createCell(1).setCellValue(materia.getNome());
+		}
+		
+		InputStream stream = null;
+		try {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			workBook.write(baos);
+			
+			stream = new ByteArrayInputStream(baos.toByteArray());
+			
+			workBook.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return stream;
+	}
+
 	public boolean codigoEstaInvalido(Materia materia) {
 		return (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getCod_materia()));
 	}
@@ -95,5 +138,5 @@ public class MateriaFacadeImpl implements MateriaFacade {
 		}
 		return acoes;
 	}
-
+	
 }
