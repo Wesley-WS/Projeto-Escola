@@ -32,8 +32,13 @@ public class ProfessoresAction extends ActionSupport {
 	}
 
 	public String listarMaterias() {
+		professor = professorFacade.get(professor);
 		materias = professorMateriaFacade.getAllAvaiable();
-		return SUCCESS;
+		if(professor != null && materias != null) {
+			return SUCCESS;
+		}else {
+			return ERROR;
+		}
 	}
 	
 	public String listarMateriasAssociadas() {

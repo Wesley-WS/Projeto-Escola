@@ -27,7 +27,8 @@
 	
 		<div class="body-wrapper">
 			<div class="body-header mb-8">
-				<h1>Associar um professor</h1>
+				<h2>Associar um professor</h2>
+				<p>Professor: ${ professor.nome }</p>
 			</div>
 			<div class="body">
 				<div class="scroller scroller-base">
