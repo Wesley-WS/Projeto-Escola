@@ -16,7 +16,7 @@ public class AlunoMateriaFacadeImpl implements AlunoMateriaFacade{
 	
 	@Override
 	public void associar(Aluno aluno, Materia materia) {
-		if(!codigoEInvalido(aluno, materia)) {
+		if(!codigoEInvalidoAlunoMateria(aluno, materia)) {
 			
 			Materia materiaObtida = materiaFacade.get(materia);
 			
@@ -28,7 +28,7 @@ public class AlunoMateriaFacadeImpl implements AlunoMateriaFacade{
 	
 	@Override
 	public void desassociar(Aluno aluno, Materia materia) {
-		if(!codigoEInvalido(aluno, materia)) {
+		if(!codigoEInvalidoAlunoMateria(aluno, materia)) {
 			
 			Materia materiaObtida = materiaFacade.get(materia);
 			
@@ -39,24 +39,24 @@ public class AlunoMateriaFacadeImpl implements AlunoMateriaFacade{
 	}
 
 	public List<Materia> getAllMateriasByCodAluno(Aluno aluno){
-		List<Long> cod_materias = alunoMateriaDao.getAllCodMatByCod(aluno);
 		List<Materia> materiasAll = new ArrayList<Materia>();
 		materiasAll = materiaFacade.getAll();
 		
-		if(cod_materias.size() > 0) {
-			for(Long cod_materia : cod_materias) {
-				for(Materia materia : materiasAll) {
-					if(materia.getCod_materia()==cod_materia) {
-						materiasAll.remove(materia);
-						break;
+		if(!codigoEInvalidoAluno(aluno)) {
+			List<Long> cod_materias = alunoMateriaDao.getAllCodMatByCod(aluno);
+			
+			if(cod_materias.size() > 0) {
+				for(Long cod_materia : cod_materias) {
+					for(Materia materia : materiasAll) {
+						if(materia.getCod_materia()==cod_materia) {
+							materiasAll.remove(materia);
+							break;
+						}
 					}
 				}
 			}
-			return materiasAll;
-		} else {
-			return materiasAll;
 		}
-		
+		return materiasAll;
 	}
 	
 	public List<Materia> getAllMateriasByCodAlunoHaving(Aluno aluno){
@@ -79,7 +79,11 @@ public class AlunoMateriaFacadeImpl implements AlunoMateriaFacade{
 		}
 	}
 	
-	public boolean codigoEInvalido(Aluno aluno, Materia materia) {
+	public boolean codigoEInvalidoAlunoMateria(Aluno aluno, Materia materia) {
 		return (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno()) || ValidaStringUtil.eNuloVazioOuHaApenasEspaco(materia.getCod_materia()));
+	}
+	
+	public boolean codigoEInvalidoAluno(Aluno aluno) {
+		return (ValidaStringUtil.eNuloVazioOuHaApenasEspaco(aluno.getCod_aluno()));
 	}
 }
